@@ -1,0 +1,2 @@
+# projekt-inzynierski
+ praca dyplomowa
