@@ -1,0 +1,2842 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (MiKTeX 20.6.29) (preloaded format=pdflatex 2020.7.28)  28 JUL 2020 20:14
+entering extended mode
+**"c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex"
+("c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex"
+LaTeX2e <2020-02-02> patch level 5
+L3 programming layer <2020-06-18> (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/base\size12.clo
+File: size12.clo 2019/12/20 v1.4l Standard LaTeX file (size option)
+)
+\c@part=\count167
+\c@section=\count168
+\c@subsection=\count169
+\c@subsubsection=\count170
+\c@paragraph=\count171
+\c@subparagraph=\count172
+\c@figure=\count173
+\c@table=\count174
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen134
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
+Package: inputenc 2018/08/11 v1.3c Input encoding file
+\inpenc@prehook=\toks15
+\inpenc@posthook=\toks16
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/units\nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip49
+\L@UnitsRaiseTextstyle=\skip50
+\L@UnitsRaiseScriptstyle=\skip51
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/base\ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.sty
+Package: microtype 2019/11/18 v2.7d Micro-typographical refinements (RS)
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks17
+)
+\MT@toks=\toks18
+\MT@count=\count175
+LaTeX Info: Redefining \textls on input line 790.
+\MT@outer@kern=\dimen135
+LaTeX Info: Redefining \textmicrotypecontext on input line 1354.
+\MT@listname@count=\count176
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdftex.def
+File: microtype-pdftex.def 2019/11/18 v2.7d Definitions specific to pdftex (RS)
+LaTeX Info: Redefining \lsstyle on input line 914.
+LaTeX Info: Redefining \lslig on input line 914.
+\MT@outer@space=\skip52
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
+File: microtype.cfg 2019/11/18 v2.7d microtype main configuration file (RS)
+)) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/ragged2e\ragged2e.sty
+Package: ragged2e 2019/07/28 v2.2 ragged2e Package (MS)
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/ms\everysel.sty
+Package: everysel 2011/10/28 v1.2 EverySelectfont Package (MS)
+)
+\CenteringLeftskip=\skip53
+\RaggedLeftLeftskip=\skip54
+\RaggedRightLeftskip=\skip55
+\CenteringRightskip=\skip56
+\RaggedLeftRightskip=\skip57
+\RaggedRightRightskip=\skip58
+\CenteringParfillskip=\skip59
+\RaggedLeftParfillskip=\skip60
+\RaggedRightParfillskip=\skip61
+\JustifyingParfillskip=\skip62
+\CenteringParindent=\skip63
+\RaggedLeftParindent=\skip64
+\RaggedRightParindent=\skip65
+\JustifyingParindent=\skip66
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/float\float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count177
+\float@exts=\toks19
+\float@box=\box45
+\@float@everytoks=\toks20
+\@floatcapt=\box46
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/natbib\natbib.sty
+Package: natbib 2010/09/13 8.31b (PWD, AO)
+\bibhang=\skip67
+\bibsep=\skip68
+LaTeX Info: Redefining \cite on input line 694.
+\c@NAT@ctr=\count178
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
+Package: graphicx 2019/11/30 v1.2a Enhanced LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
+Package: graphics 2019/11/30 v1.4a Standard LaTeX Graphics (DPC,SPQR)
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+File: pdftex.def 2018/01/08 v1.0l Graphics/color driver for pdftex
+))
+\Gin@req@height=\dimen136
+\Gin@req@width=\dimen137
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
+Package: amsmath 2020/01/20 v2.17e AMS math features
+\@mathmargin=\skip69
+
+For additional information on amsmath, use the `?' option.
+(C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen138
+)) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen139
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count179
+LaTeX Info: Redefining \frac on input line 227.
+\uproot@=\count180
+\leftroot@=\count181
+LaTeX Info: Redefining \overline on input line 389.
+\classnum@=\count182
+\DOTSCASE@=\count183
+LaTeX Info: Redefining \ldots on input line 486.
+LaTeX Info: Redefining \dots on input line 489.
+LaTeX Info: Redefining \cdots on input line 610.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen140
+LaTeX Font Info:    Redeclaring font encoding OML on input line 733.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 734.
+\macc@depth=\count184
+\c@MaxMatrixCols=\count185
+\dotsspace@=\muskip16
+\c@parentequation=\count186
+\dspbrk@lvl=\count187
+\tag@help=\toks22
+\row@=\count188
+\column@=\count189
+\maxfields@=\count190
+\andhelp@=\toks23
+\eqnshift@=\dimen141
+\alignsep@=\dimen142
+\tagshift@=\dimen143
+\tagwidth@=\dimen144
+\totwidth@=\dimen145
+\lineht@=\dimen146
+\@envbody=\toks24
+\multlinegap=\skip70
+\multlinetaggap=\skip71
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2859.
+LaTeX Info: Redefining \] on input line 2860.
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjustbox.sty
+Package: adjustbox 2019/01/04 v1.2 Adjusting TeX boxes (trim, clip, ...)
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/xkeyval\xkeyval.sty
+Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkeyval.tex (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/generic/xkeyval\xkvutils.tex
+\XKV@toks=\toks26
+\XKV@tempa@toks=\toks27
+)
+\XKV@depth=\count191
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\trimclip.sty
+Package: trimclip 2018/04/08 v1.1 Trim and clip general TeX material
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/collectbox\collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box49
+)
+\tc@llx=\dimen147
+\tc@lly=\dimen148
+\tc@urx=\dimen149
+\tc@ury=\dimen150
+Package trimclip Info: Using driver 'tc-pdftex.def'.
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/adjustbox\tc-pdftex.def
+File: tc-pdftex.def 2019/01/04 v2.2 Clipping driver for pdftex
+))
+\adjbox@Width=\dimen151
+\adjbox@Height=\dimen152
+\adjbox@Depth=\dimen153
+\adjbox@Totalheight=\dimen154
+\adjbox@pwidth=\dimen155
+\adjbox@pheight=\dimen156
+\adjbox@pdepth=\dimen157
+\adjbox@ptotalheight=\dimen158
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/ifoddpage\ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count192
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/varwidth\varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box50
+\sift@deathcycles=\count193
+\@vwid@loff=\dimen159
+\@vwid@roff=\dimen160
+)) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdfmode.def
+File: l3backend-pdfmode.def 2020-06-29 L3 backend support: PDF mode
+\l__kernel_color_stack_int=\count194
+\l__pdf_internal_box=\box51
+) ("c:/Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.aux")
+\openout1 = `lat.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 30.
+LaTeX Font Info:    ... okay on input line 30.
+LaTeX Info: Redefining \microtypecontext on input line 30.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `basictext'.
+LaTeX Info: Redefining \showhyphens on input line 30.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman (RS)
+) ABD: EverySelectfont initializing macros
+LaTeX Info: Redefining \selectfont on input line 30.
+ (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count195
+\scratchdimen=\dimen161
+\scratchbox=\box52
+\nofMPsegments=\count196
+\nofMParguments=\count197
+\everyMPshowfont=\toks28
+\MPscratchCnt=\count198
+\MPscratchDim=\dimen162
+\MPnumerator=\count199
+\makeMPintoPDFobject=\count266
+\everyMPtoPDFconversion=\toks29
+) (C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+)
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:35: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...i rzeczywistych obiektów. Do budowy urzą
+                                                  dzenia wykorzystano kamer�...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:35: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...Do budowy urządzenia wykorzystano kamerę
+                                                   głębi firmy Intel o naz...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:35: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...owy urządzenia wykorzystano kamerę głę
+                                                  bi firmy Intel o nazwie Re...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:35: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...3D,jego kalibracji oraz algorytmy służą
+                                                  ce do przetwarzania otrzym...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:35: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...� utworzony interfejs graficzny zawierają
+                                                  cy najważniejsze parametr...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:35: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.35 ...zacji i obróbki danych.Na koniec dane są
+                                                   eksportowane do modeli w ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (17.98207pt too wide) in paragraph at lines 39--40
+[]\OT1/cmr/bx/it/10.95 Dziedzina nauki i tech-niki, zgod-nie z wymogami OECD: \OT1/cmr/m/n/10.95 (-20) Nauki in_zynieryjne
+ []
+
+[1
+
+{C:/Users/Nikita/AppData/Local/MiKTeX/pdftex/config/pdftex.map}]
+No file lat.toc.
+\tf@toc=\write3
+\openout3 = `lat.toc'.
+
+[2]
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:55: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 Kamera RGBD-Kamera głę
+                             bi,oprócz wykonywania zdjęć RGB potrafi ona ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:55: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ...D-Kamera głębi,oprócz wykonywania zdję
+                                                  ć RGB potrafi ona równie...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:55: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ...ci od obiektów i nanieść te informację
+                                                   na powierzchnię poszczeg...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:55: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.55 ... nanieść te informację na powierzchnię
+                                                   poszczególnych pikseli o...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:57: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.57 \section{WSTĘP I CEL PRACY}
+                                 
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 Ukazane zostaną
+                      również metody analizy oraz obróbki danych,które m...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ... analizy oraz obróbki danych,które mają
+                                                   posłużyć do cyfrowej i...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...istych obiektów zmierzonych przez kamerę
+                                                   RGBD.Część teoretyczna...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...ektów zmierzonych przez kamerę RGBD.Czę
+                                                  ść teoretyczna polega na...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...oretyczna polega na zobrazowaniu istnieją
+                                                  cych rozwiązań zagadnien...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...lega na zobrazowaniu istniejących rozwią
+                                                  zań zagadnienia.Wyjaśnio...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...zagadnienia.Wyjaśniono algorytmy służą
+                                                  ce do przetworzenia danych...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...tworzenia danych uzyskanych z kamery głę
+                                                  bi w chmurę punktów. Wym...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...nych uzyskanych z kamery głębi w chmurę
+                                                   punktów. Wymieniony zost...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...nktów. Wymieniony został określony cią
+                                                  g czynności pozwalającyc...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...ał określony ciąg czynności pozwalają
+                                                  cych na dodanie na chmurę...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...ości pozwalających na dodanie na chmurę
+                                                   punktów siatki oraz teks...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...hmurę punktów siatki oraz tekstur.W czę
+                                                  ści praktycznej zostaną ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...az tekstur.W części praktycznej zostaną
+                                                   ukazane metody kalibracji...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:60: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.60 ...j zostaną ukazane metody kalibracji urzą
+                                                  dzenia Intel RealSense ora...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:62: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 ...e oraz założenia pracy.Wykonano przeglą
+                                                  d istniejących metod maj�...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:62: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 ...ożenia pracy.Wykonano przegląd istnieją
+                                                  cych metod mających na ce...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:62: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 ...konano przegląd istniejących metod mają
+                                                  cych na celu generację tr...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:62: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 ...jących metod mających na celu generację
+                                                   trójwymiarowych obiektó...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:62: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.62 ...iektów na podstawie danych z kamery głę
+                                                  bi wraz z zastosowaniami w...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:64: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 ...kcja skanera 3D. Przeprowadzono gruntowną
+                                                   analizę wpływu kalibrac...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:64: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 ...era 3D. Przeprowadzono gruntowną analizę
+                                                   wpływu kalibracji oraz n...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:64: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 ...u kalibracji oraz nastaw parametrów urzą
+                                                  dzenia na otrzymany efekt ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:64: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 ...�dzenia na otrzymany efekt końcowy.Nastę
+                                                  pnie przedstawiono opisy z...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:64: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 ...awie napisanego przeze mnie programu w ję
+                                                  zyku Python.W końcowym et...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:64: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.64 ...ńcowym etapie poddano analizie pod wzglę
+                                                  dem dokładności rezultat...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (7.59917pt too wide) in paragraph at lines 64--65
+\OT1/cmr/m/n/10.95 (-20) urzadzenia na otrzy-many efekt koncowy.Nastepnie przed-staw-iono opisy za-s-tosowanych
+ []
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:66: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 Trzeci rozdział zajmuje się
+                                   podsumowaniem zarówno wykonanej pracy , ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:66: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 ...ymanych efektów. Ponadto porusza kwestię
+                                                   potencjalnych możliwośc...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:66: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.66 ...ncjalnych możliwości udoskonalenia urzą
+                                                  dzenia.
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (4.73714pt too wide) in paragraph at lines 66--67
+\OT1/cmr/m/n/10.95 (-20) otrzy-manych efektow. Pon-adto porusza kwestie po-tenc-jal-nych mo_zliwosci udoskonale-
+ []
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 Począ
+           tki skanerów 3D datuje się na lata 60 XX wieku.Do uzyskania mod...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 Początki skanerów 3D datuje się
+                                        na lata 60 XX wieku.Do uzyskania mod...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ... projektorów.Niestety, wymagania dotyczą
+                                                  ce nakładu pracy nie był...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...ików, których dokładność była wzglę
+                                                  dnie niska.W połowie lat ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...putery zyskały na popularności ,a narzę
+                                                  dzia pomiarowe stały się...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...ności ,a narzędzia pomiarowe stały się
+                                                   dokładniejsze w efekcie ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ....Mierzono odkształcenie sondy po zetknię
+                                                  ciu się z obiektem wskute...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...o odkształcenie sondy po zetknięciu się
+                                                   z obiektem wskutek czego ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...�nie obiektu w innym układzie współrzę
+                                                  dnych. \cite{abdel20113d} ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `abdel20113d' on page 3 undefined on input line 70.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...d} Jej użycie pozwoliło na znaczne zwię
+                                                  kszenie dokładności pomi...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...szenie dokładności pomiarów,jednak prę
+                                                  dkość ich wykonywania by...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ... umożliwiłaby mierzenie obiektów z wię
+                                                  kszą prędkością.Miało...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...�liwiłaby mierzenie obiektów z większą
+                                                   prędkością.Miałoby to...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...łaby mierzenie obiektów z większą prę
+                                                  dkością.Miałoby to na c...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...rzenie obiektów z większą prędkością
+                                                  .Miałoby to na celu równ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:70: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.70 ...e dotychczas nie były mierzalne ze wzglę
+                                                  du na użyte technologie.I...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[3]
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 Wystę
+           pują dwa typy skanerów korzystających z danej metody pomiarowe...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 Występują
+                 dwa typy skanerów korzystających z danej metody pomiarowe...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 Występują dwa typy skanerów korzystają
+                                               cych z danej metody pomiarowe...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...iego skanera układ pomiarowy składa się
+                                                   z nadajnika laserowego ,o...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...owego oraz kamery.Poprzez przesuwanie wią
+                                                  zki po nieruchomym obiekci...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...ie wiązki po nieruchomym obiekcie ,znają
+                                                  c położenie kamery oraz ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...nając położenie kamery oraz korzystają
+                                                  c ze wzorów \cite{mikulsk...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `mikulski2013metody' on page 4 undefined on input line 73.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...punktów w docelowym układzie współrzę
+                                                  dnych.Zaletami tej konstru...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...ółrzędnych.Zaletami tej konstrukcji są
+                                                   dokładność i wysoka ro...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `nowacki2018pomiar' on page 4 undefined on input line 73.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...8pomiar}.Skanery te jednak nie sprawdzają
+                                                   się przy rekonstrukcji b...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...ar}.Skanery te jednak nie sprawdzają się
+                                                   przy rekonstrukcji błysz...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:73: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.73 ...wdzają się przy rekonstrukcji błyszczą
+                                                  cych oraz przezroczystych ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (5.65608pt too wide) in paragraph at lines 73--74
+\OT1/cmr/m/n/10.95 (-20) sie przy rekon-strukcji b lyszczacych oraz przezroczystych powierzchni.Zasada dzia lania
+ []
+
+
+LaTeX Warning: File `skaner_triangulacja.png' not found on input line 77.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:77: Package pdftex.def Error: File `skaner_triangulacja.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.77 ...phics[scale=0.75]{skaner_triangulacja.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: OT1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:78: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 ...acją laserową \cite{mikulski2013metody}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:78: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.78 ...acją laserową \cite{mikulski2013metody}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `mikulski2013metody' on page 4 undefined on input line 78.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:82: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82 Posługują
+                c się poniższymi wzorami można uzyskać współrzędne pr...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:82: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82 Posługując się
+                       poniższymi wzorami można uzyskać współrzędne pr...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:82: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.82 ...�szymi wzorami można uzyskać współrzę
+                                                  dne przestrzenne mierzoneg...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[4]
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:100: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100     X,Y,Z:& są
+                      współrzędnymi przestrzennymi zmierzonego obiektu. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:100: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.100     X,Y,Z:& są współrzę
+                                 dnymi przestrzennymi zmierzonego obiektu. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:101: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.101     X':& położenie kamery wzglę
+                                        dem początku ramienia uchwytu. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:101: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.101     X':& położenie kamery względem począ
+                                                  tku ramienia uchwytu. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: Missing $ inserted.
+<inserted text> 
+                $
+l.103     \alpha
+                :& kąt pomiędzy płaszczyzną linii lasera,a płaszczyzną...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: Extra }, or forgotten $.
+<template> \unskip }
+                    \hskip \tabcolsep \endtemplate 
+l.103     \alpha:&
+                   kąt pomiędzy płaszczyzną linii lasera,a płaszczyzną...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: Missing $ inserted.
+<inserted text> 
+                $
+l.103     \alpha:&
+                   kąt pomiędzy płaszczyzną linii lasera,a płaszczyzną...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: Missing } inserted.
+<inserted text> 
+                }
+l.103     \alpha:&
+                   kąt pomiędzy płaszczyzną linii lasera,a płaszczyzną...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103     \alpha:& ką
+                      t pomiędzy płaszczyzną linii lasera,a płaszczyzną...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103     \alpha:& kąt pomię
+                              dzy płaszczyzną linii lasera,a płaszczyzną...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103     \alpha:& kąt pomiędzy płaszczyzną
+                                                linii lasera,a płaszczyzną...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:103: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.103 ...łaszczyzną linii lasera,a płaszczyzną
+                                                   obrazu. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:104: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.104     $x_{pic},y_{pic}$:& współrzę
+                                         dne linii lasera w pikselach. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:109: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 Drugi typ skanerów opartych o metodę
+                                             trianglulacji laserowej steruje...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:109: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 ...rowej steruje położeniem obiektu wzglę
+                                                  dem lasera.Korzystając z ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:109: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 ...niem obiektu względem lasera.Korzystają
+                                                  c z tego rozwiązania,moż...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:109: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 ...lędem lasera.Korzystając z tego rozwią
+                                                  zania,możliwe jest uzyska...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:109: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.109 ... konstrukcyjnych takiego układu wchodzą
+                                                   laser,kamera oraz tacka o...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...era,w tym układzie kamera oraz laser są
+                                                   nieruchome.Porusza się j...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...ra oraz laser są nieruchome.Porusza się
+                                                   jedynie tacka obrotowa z ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...towa z obiektem.Laser wyświetla pionową
+                                                   linię na obiekt,a kamera...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...obiektem.Laser wyświetla pionową linię
+                                                   na obiekt,a kamera rejest...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...en obraz.Tacka obracana jest o stały ką
+                                                  t dθ.Po zmierzeniu kąta ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: Package inputenc Error: Unicode character θ (U+03B8)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...raz.Tacka obracana jest o stały kąt dθ
+                                                  .Po zmierzeniu kąta nachy...
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ... jest o stały kąt dθ.Po zmierzeniu ką
+                                                  ta nachylenia α pomiędzy...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: Package inputenc Error: Unicode character α (U+03B1)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...ąt dθ.Po zmierzeniu kąta nachylenia α
+                                                   pomiędzy kamerą,a laser...
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ....Po zmierzeniu kąta nachylenia α pomię
+                                                  dzy kamerą,a laserem jak ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...niu kąta nachylenia α pomiędzy kamerą
+                                                  ,a laserem jak również k...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...ędzy kamerą,a laserem jak również ką
+                                                  ta nachylenia β kamery wz...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: Package inputenc Error: Unicode character β (U+03B2)
+(inputenc)                not set up for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...laserem jak również kąta nachylenia β
+                                                   kamery względem tacki mo...
+You may provide a definition with
+\DeclareUnicodeCharacter 
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...�wnież kąta nachylenia β kamery wzglę
+                                                  dem tacki można dokonać ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...�na dokonać transformacji ze współrzę
+                                                  dnych obiektu do współrz...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...e współrzędnych obiektu do współrzę
+                                                  dnych obrazu przechodzący...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:110: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.110 ...tu do współrzędnych obrazu przechodzą
+                                                  cych przez oś obrotu tack...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (0.97238pt too wide) in paragraph at lines 97--111
+|  [] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 97--111
+
+ []
+
+
+LaTeX Warning: File `skanerPionowaLinia.png' not found on input line 114.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:114: Package pdftex.def Error: File `skanerPionowaLinia.png' not found: using draft setting.
+
+See the pdftex.def package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.114 ...phics[scale=0.75]{skanerPionowaLinia.png}
+                                                  
+Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:115: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.115 ...homego skanera \cite{mikulski2013metody}}
+                                                  
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `mikulski2013metody' on page 5 undefined on input line 115.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:118: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.118 \newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:119: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.119 Współrzę
+                 dne zmierzonego obiektu w układzie kamery można opisać p...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:132: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132     X,Y:& są
+                    współrzędnymi obrazu kamery w pikselach. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:132: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.132     X,Y:& są współrzę
+                               dnymi obrazu kamery w pikselach. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:133: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.133     X',Z':& układ współrzę
+                                    dnych linii emitowanej przez laser. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:134: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.134     $\alpha$:& ką
+                        t nachylenia linii lasera do płaszczyzny obrazu. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:135: Extra }, or forgotten $.
+<template> \unskip }
+                    \hskip \tabcolsep \endtemplate 
+l.135     $\beta:&
+                   kąt nachylenia docelowego układu współrzędnych do p�...
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:135: Missing $ inserted.
+<inserted text> 
+                $
+l.135     $\beta:&
+                   kąt nachylenia docelowego układu współrzędnych do p�...
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:135: Missing } inserted.
+<inserted text> 
+                }
+l.135     $\beta:&
+                   kąt nachylenia docelowego układu współrzędnych do p�...
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:135: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135     $\beta:& ką
+                      t nachylenia docelowego układu współrzędnych do p�...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:135: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 ...nachylenia docelowego układu współrzę
+                                                  dnych do płaszczyzny obra...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:136: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.136 ...X'',Y'',Z'':& docelowy układ współrzę
+                                                  dnych. \\
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (66.70796pt too wide) in paragraph at lines 129--138
+|  [] 
+ []
+
+[5]
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 Skanery oparte na tej metodzie wyświetlają
+                                                   siatkę świetlną na mie...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...rte na tej metodzie wyświetlają siatkę
+                                                   świetlną na mierzony ob...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...metodzie wyświetlają siatkę świetlną
+                                                   na mierzony obiekt. Nast�...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...kę świetlną na mierzony obiekt. Nastę
+                                                  pnie wzór na obiekcie jes...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...�r na obiekcie jest mierzony przez jedną
+                                                   lub dwie kamery .Za spraw...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ... przez jedną lub dwie kamery .Za sprawą
+                                                   mierzenia mocy światła ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...tałtu siatki na przedmiocie ,korzystają
+                                                  c z metod triangulacji, mo...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...nie obiektu w innym układzie współrzę
+                                                  dnych.Jednocześnie wskute...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...er jest możliwe wykonanie pełnego zdję
+                                                  cia 3D. Głównym walorem ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...�wnym walorem tej metody jest szybka prę
+                                                  dkość działania, poniew...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...a prędkość działania, ponieważ zdję
+                                                  cia mogą być wykonywane ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...ść działania, ponieważ zdjęcia mogą
+                                                   być wykonywane z dużą ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...� zdjęcia mogą być wykonywane z dużą
+                                                   częstotliwością.Ponadt...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...ęcia mogą być wykonywane z dużą czę
+                                                  stotliwością.Ponadto św...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...ć wykonywane z dużą częstotliwością
+                                                  .Ponadto światło emitowa...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...dlatego też wszelkie aspekty zagrażają
+                                                  ce wzrokowi są wyeliminow...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...zelkie aspekty zagrażające wzrokowi są
+                                                   wyeliminowane. Słabym pu...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...m punktem tej metody jest ograniczona gę
+                                                  stość rzutowanej siatki....
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...kowanym kształcie sprawia,iż pomiar bę
+                                                  dzie musiał być wykonany...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:141: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.141 ...ć wykonany parokrotnie pod różnymi ką
+                                                  tami w celu uzyskania dok�...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `nowacki2018pomiar' on page 6 undefined on input line 141.
+
+
+Overfull \hbox (29.18335pt too wide) in paragraph at lines 141--142
+\OT1/cmr/m/n/10.95 (-20) predkosc dzia lania, poniewa_z zd-je-cia moga byc wykony-wane z du_za czestotliwoscia.Ponadto
+ []
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...biektów z płaskich dwuwymiarowych zdję
+                                                  ć.Polega ona na mierzeniu...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...ć.Polega ona na mierzeniu korelacji mię
+                                                  dzy sobą poszczególnych ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ... ona na mierzeniu korelacji między sobą
+                                                   poszczególnych obrazów ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...ególnych obrazów ,które wykonywane są
+                                                   w odstępie od 5 do 15 st...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ... obrazów ,które wykonywane są w odstę
+                                                  pie od 5 do 15 stopni od s...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...od 5 do 15 stopni od siebie. W celu zwię
+                                                  kszenia dokładności uży...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...lu zwiększenia dokładności używa się
+                                                   również technologii SFM...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ... ang. Structure From Motion) .Opiera się
+                                                   ona na identyfikacji homo...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...brazach w celu uzyskania perspektywy mię
+                                                  dzy nimi. Poprzez wykorzys...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...j odległości od kamery znajdywały się
+                                                   poszczególne punkty na o...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...wia to utworzenie funkcji przejścia mię
+                                                  dzy nimi oraz otrzymanie n...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `glowienka2015fotogrametria' on page 6 undefined on input line 145.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...metria} .Pozytywnym aspektem tego rozwią
+                                                  zania jest niski koszt, gd...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...est niski koszt, gdyż do wykonania zdję
+                                                  ć wystarczy jedynie apara...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ... zdjęć wystarczy jedynie aparat w urzą
+                                                  dzeniu mobilnym. Najwięks...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...ie aparat w urządzeniu mobilnym. Najwię
+                                                  kszą wadą jest wysoka z�...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...arat w urządzeniu mobilnym. Największą
+                                                   wadą jest wysoka złożo...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ... urządzeniu mobilnym. Największą wadą
+                                                   jest wysoka złożoność...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...t wysoka złożoność obliczeniowa. Czę
+                                                  sto takie obliczenia wykon...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 .... Często takie obliczenia wykonywane są
+                                                   w chmurze co zwiększa ko...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ...iczenia wykonywane są w chmurze co zwię
+                                                  ksza koszty eksploatacji t...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:145: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.145 ... oraz dokładność pomiarów jest wzglę
+                                                  dnie niska w porównaniu z...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Overfull \hbox (6.6446pt too wide) in paragraph at lines 145--146
+\OT1/cmr/m/n/10.95 (-20) dwuwymi-arowych zdjec.Polega ona na mierze-niu ko-relacji miedzy soba poszczegolnych
+ []
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:149: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 ...iałania sonaru.Skanery impulsowe mierzą
+                                                   czas potrzebny wiązce la...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:149: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 ...ery impulsowe mierzą czas potrzebny wią
+                                                  zce lasera do przebycia dr...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:149: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 ...przedmiotu i na tej podstawie określają
+                                                   odległość zmierzonego ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:149: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 ...�a światła.Skanery te wykorzystuje się
+                                                   do mierzenia dużych odle...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:149: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.149 ...ia.Dużym ograniczeniem tego typu rozwią
+                                                  zania jest pomiar tylko je...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+[6]
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:168: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.168 }
+       
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:169: LaTeX Error: \caption outside float.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.169 \caption
+              {\label{tab:tab1}Charakterystyki metrologiczne laserowych meto...
+You're in trouble here.  Try typing  <return>  to proceed.
+If that doesn't work, type  X <return>  to quit.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:169: Undefined control sequence.
+\caption ... \endcsname \fi \fi \@dblarg {\@tempf 
+                                                  \@captype }
+l.169 \caption
+              {\label{tab:tab1}Charakterystyki metrologiczne laserowych meto...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:169: Undefined control sequence.
+\caption ...e \fi \fi \@dblarg {\@tempf \@captype 
+                                                  }
+l.169 \caption
+              {\label{tab:tab1}Charakterystyki metrologiczne laserowych meto...
+The control sequence at the end of the top line
+of your error message was never \def'ed. If you have
+misspelled it (e.g., `\hobx'), type `I' and the correct
+spelling (e.g., `I\hbox'). Otherwise just continue,
+and I'll forget about whatever was undefined.
+
+
+Package natbib Warning: Citation `nowacki2018pomiar' on page 7 undefined on input line 169.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:172: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.172 \newline
+              
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 Współcześnie skanery 3D mają
+                                       zastosowanie w większości gałęzi ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...�nie skanery 3D mają zastosowanie w wię
+                                                  kszości gałęzi życia o...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ... mają zastosowanie w większości gałę
+                                                  zi życia oraz przemysłu....
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...lu mierzenia odkształceń belek z dużą
+                                                   dokładnością \cite{gos...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...ształceń belek z dużą dokładnością
+                                                   \cite{goszczynska2014dosw...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `goszczynska2014doswiadczalna' on page 7 undefined on input line 173.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...ynska2014doswiadczalna}.W medycynie mogą
+                                                   być użyte do skanowania...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...ynie mogą być użyte do skanowania czę
+                                                  ści ciała oraz modelowan...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `tomaka20053d' on page 7 undefined on input line 173.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...yn \cite{tomaka20053d}.Wykorzystywane są
+                                                   również przy oględzina...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...}.Wykorzystywane są również przy oglę
+                                                  dzinach pacjentów.Wysoka ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...� na powierzchni ciała sprawia,że dzię
+                                                  ki skanerom 3D można dost...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `thali2003optical' on page 7 undefined on input line 173.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...e ubytki \cite{thali2003optical}.Kolejną
+                                                   ważną rolą,jaką speł...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ... \cite{thali2003optical}.Kolejną ważną
+                                                   rolą,jaką spełniają s...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...{thali2003optical}.Kolejną ważną rolą
+                                                  ,jaką spełniają skanery...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...2003optical}.Kolejną ważną rolą,jaką
+                                                   spełniają skanery 3D w ...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ....Kolejną ważną rolą,jaką spełniają
+                                                   skanery 3D w medycynie je...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...w medycynie jest druk 3D.Poprzez analizę
+                                                   danych otrzymanych z tró...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...orzyć modele kończyn.Takie elementy są
+                                                   pomocne przy nauce studen...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...ocne przy nauce studentów oraz znajdują
+                                                   swoje zastosowanie w prot...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `mcmenamin2014production' on page 7 undefined on input line 173.
+
+
+c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex:173: LaTeX Error: Command \k unavailable in encoding OT1.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.173 ...yśle spożywczym skanery 3D używane są
+                                                   do kontroli jakości posz...
+Your command was ignored.
+Type  I <command> <return>  to replace it with another command,
+or  <return>  to continue without it.
+
+
+Package natbib Warning: Citation `anders2012zastosowanie' on page 7 undefined on input line 173.
+
+No file lat.bbl.
+
+Package natbib Warning: There were undefined citations.
+
+[7] ("c:/Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.aux")
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 5048 strings out of 480790
+ 79489 string characters out of 2896832
+ 357074 words of memory out of 3000000
+ 20913 multiletter control sequences out of 15000+200000
+ 540227 words of font info for 81 fonts, out of 3000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 33i,8n,42p,1298b,350s stack positions out of 5000i,500n,10000p,200000b,50000s
+<
+!pdfTeX error: pdflatex (file C:/Users/Nikita/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb): fflush() failed (Invalid argument)
+ ==> Fatal error occurred, no output PDF file produced!
