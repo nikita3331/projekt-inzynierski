@@ -1,12 +1,12 @@
 # Fdb version 3
-["bibtex lat"] 0 "lat.aux" "lat.bbl" "lat" 0
+["bibtex lat"] 1596037750 "lat.aux" "lat.bbl" "lat" 1596037750
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/bibtex/bib/tikz-feynman/references.bib" 1454666614 3843 4744c087bc34b85451b33d95346f9586 ""
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/bibtex/bst/bibtex/ieeetr.bst" 1291867944 18361 1a00e58565e7f19bf2b3e1bfb82254ae ""
-  "lat.aux" 0 -1 0 "pdflatex"
+  "lat.aux" 1595960099 2019 1c5703ab2a498df8d93232d02652282e "pdflatex"
   (generated)
   "lat.bbl"
   "lat.blg"
-["pdflatex"] 1595960098 "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex" "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.pdf" "lat" 1595960098
+["pdflatex"] 1596037751 "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex" "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.pdf" "lat" 1596037751
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/tex/context/base/mkii/supp-pdf.mkii" 1580393758 71627 94eb9990bed73c364d7f53f960cc8c5b ""
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/tex/generic/xkeyval/xkeyval.tex" 1419274338 19853 26434a5656c684f5ffb1f26f98006baa ""
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/tex/generic/xkeyval/xkvutils.tex" 1419274338 7948 6f5ce7c1124cad7ec57d05b2562bd8fe ""
@@ -44,19 +44,19 @@
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/tex/latex/units/nicefrac.sty" 1469029150 4163 0462ee5ab265cf59dc15a41a3b883101 ""
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/tex/latex/varwidth/varwidth.sty" 1238469540 10894 d359a13923460b2a73d4312d613554c8 ""
   "C:/Users/Nikita/AppData/Local/Programs/MiKTeX/tex/latex/xkeyval/xkeyval.sty" 1419274338 5114 9c1069474ff71dbc47d5006555e352d3 ""
-  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.aux" 1595960098 9 a94a2480d3289e625eea47cd1b285758 ""
-  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex" 1595960097 13877 f429c58da1e58dd357baa8d20646b3c2 ""
-  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.toc" 0 -1 0 ""
+  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.aux" 1595960099 2019 1c5703ab2a498df8d93232d02652282e ""
+  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.tex" 1596037749 21742 f487e0dcdf8014f9070b32dcab0accb5 ""
+  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.toc" 1595960099 687 7aff21331febb197040ff0e7ea999e87 ""
   "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/skanerPionowaLinia.png" 0 -1 0 ""
   "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/skaner_triangulacja.png" 0 -1 0 ""
-  "lat.aux" 0 -1 0 "pdflatex"
-  "lat.bbl" 0 -1 0 "bibtex lat"
-  "lat.tex" 1595960097 13877 f429c58da1e58dd357baa8d20646b3c2 ""
-  "lat.toc" 0 -1 0 "pdflatex"
+  "lat.aux" 1595960099 2019 1c5703ab2a498df8d93232d02652282e "pdflatex"
+  "lat.bbl" 1596037751 52 0eba253fc001332e731e8aba3f23127b "bibtex lat"
+  "lat.tex" 1596037749 21742 f487e0dcdf8014f9070b32dcab0accb5 ""
+  "lat.toc" 1595960099 687 7aff21331febb197040ff0e7ea999e87 "pdflatex"
   "skanerPionowaLinia.png" 0 -1 0 ""
   "skaner_triangulacja.png" 0 -1 0 ""
   (generated)
-  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.pdf"
-  "lat.aux"
-  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.log"
   "lat.toc"
+  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.log"
+  "lat.aux"
+  "c:/Users/Nikita/Desktop/praca inzynierska/projekt-inzynierski/lat.pdf"

@@ -10,10 +10,12 @@
 \usepackage{graphicx}
 \usepackage{amsmath}
 \usepackage{adjustbox}
+\usepackage{polski}
+\usepackage{gensymb}
 \providecommand{\keywordspl}[1]
 {
   \small	
-  \textbf{\textit{Słowa kluczowe:}} #1 
+  \textbf{\textit{Słowa kluczowe:}} #1
 }
 \providecommand{\keywordseng}[1]
 {
@@ -29,8 +31,15 @@
 
 \begin{document}
 
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.75]{logo.png}
+  \label{fig:picture}
+\end{figure}
 
+\newpage
 
+ 
 \section*{STRESZCZENIE}
 Celem niniejszej pracy dyplomowej było stworzenie skanera 3D oraz systemu wizualizacji utworzonych modeli rzeczywistych obiektów. Do budowy urządzenia wykorzystano kamerę głębi firmy Intel o nazwie RealSense D435i.W pracy został przedstawiony sposób budowy skanera 3D,jego kalibracji oraz algorytmy służące do przetwarzania otrzymanych danych pomiarowych w celu uzyskania wirtualnych modeli.W celu łatwiejszej obsługi programu został utworzony interfejs graficzny zawierający najważniejsze parametry wizualizacji i obróbki danych.Na koniec dane są eksportowane do modeli w formacie obsługiwanym przez program Blender.
 
@@ -106,7 +115,7 @@ Gdzie:\\
 \end{tabular}
 \newline
 \newline
-Drugi typ skanerów opartych o metodę trianglulacji laserowej steruje położeniem obiektu względem lasera.Korzystając z tego rozwiązania,możliwe jest uzyskanie dokładniejszych wyników.W skład elementów konstrukcyjnych takiego układu wchodzą laser,kamera oraz tacka obrotowa z umieszczonym na niej obiektem pomiarowym.
+Drugi typ skanerów opartych o metodę triangulacji laserowej steruje położeniem obiektu względem lasera.Korzystając z tego rozwiązania,możliwe jest uzyskanie dokładniejszych wyników.W skład elementów konstrukcyjnych takiego układu wchodzą laser,kamera oraz tacka obrotowa z umieszczonym na niej obiektem pomiarowym.
 W przeciwieństwie do pierwszego skanera,w tym układzie kamera oraz laser są nieruchome.Porusza się jedynie tacka obrotowa z obiektem.Laser wyświetla pionową linię na obiekt,a kamera rejestruje ten obraz.Tacka obracana jest o stały kąt dθ.Po zmierzeniu kąta nachylenia α pomiędzy kamerą,a laserem jak również kąta nachylenia β kamery względem tacki można dokonać transformacji ze współrzędnych obiektu do współrzędnych obrazu przechodzących przez oś obrotu tacki.Schemat działania takiego skanera został przedstawiony na rysunku poniżej.
 
 \begin{figure}[H]
@@ -125,29 +134,245 @@ Współrzędne zmierzonego obiektu w układzie kamery można opisać poniższymi
           & Y''=0\\
     \end{aligned}
 \end{equation}
-
 Gdzie:\\
 \hspace*{3em}
 \begin{tabular}{rl}
     X,Y:& są współrzędnymi obrazu kamery w pikselach. \\
     X',Z':& układ współrzędnych linii emitowanej przez laser. \\
     $\alpha$:& kąt nachylenia linii lasera do płaszczyzny obrazu. \\
-    $\beta:& kąt nachylenia docelowego układu współrzędnych do płaszczyzny obrazu. \\
+    $\beta$:& kąt nachylenia docelowego układu współrzędnych do płaszczyzny obrazu. \\
+    $x_{0},y_{0}$:& współrzędne środka tacki w pikselach. \\
     X'',Y'',Z'':& docelowy układ współrzędnych. \\
 \end{tabular}
+\newline
+Ostatecznie korzystając z macierzy obrotu względem osi Z'' można uzyskać współrzędne chmury punktów.
+
+
+\centerline{
+\begin{bmatrix}
+    X''' \\
+    Y''' \\
+    Z''' \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    cos\theta & -sin\theta & 0\\
+     sin\theta & cos\theta & 0\\
+    0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+    X''\\
+     Y''\\
+    Z''
+\end{bmatrix}
+
+}
+    
+
+
+Gdzie:\\
+\hspace*{3em}
+\begin{tabular}{rl}
+    $\theta$:& kąt obrotu tacki. \\
+    X'',Y'',Z'':& układ współrzędnych kamery. \\
+    X''',Y''',Z''':& układ współrzędnych chmury punktów. \\
+\end{tabular}
+
+Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę triangulacji laserowej.Poniżej zostaną omówione charakterystyki jednego z nich.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.70]{farofocus.PNG}
+  \caption{Skaner Faro Focus S350}   
+  \label{fig:picture}
+\end{figure}
+
+\begin{center}
+
+\centerline{
+\begin{tabular}{ |c| c| }
+ \hline
+ {\bf Zasięg} & 0.6m-350m\\ 
+  \hline
+ {\bf Błąd pomiaru odległości} & $\pm$1mm\\  
+ \hline
+ {\bf Prędkość pomiaru} & do 976000 $\frac{pkt}{s}$ \\  
+  \hline
+ {\bf Dokładność kątowa} & Do 19 sekund kątowych  \\  
+  \hline
+   {\bf Dokładność pozycji 3D} & 3.5 mm  \\  
+  \hline
+     {\bf Długość fali lasera } & 1550nm  \\  
+  \hline
+
+\end{tabular}
+}
+\caption{\label{tab:tab2}Charakterystyki skanera Faro Focus S350 \cite{farofocusDatasheet}.}
+\end{center}
 
 \paragraph{Metoda emitowania światła strukturalnego\newline}
 
-Skanery oparte na tej metodzie wyświetlają siatkę świetlną na mierzony obiekt. Następnie wzór na obiekcie jest mierzony przez jedną lub dwie kamery .Za sprawą mierzenia mocy światła odbitego oraz kształtu siatki na przedmiocie ,korzystając z metod triangulacji, można wyznaczyć położenie obiektu w innym układzie współrzędnych.Jednocześnie wskutek wykorzystania obrazu z dwóch kamer jest możliwe wykonanie pełnego zdjęcia 3D. Głównym walorem tej metody jest szybka prędkość działania, ponieważ zdjęcia mogą być wykonywane z dużą częstotliwością.Ponadto światło emitowane przez ten skaner ,nie jest światłem laserowym,dlatego też wszelkie aspekty zagrażające wzrokowi są wyeliminowane. Słabym punktem tej metody jest ograniczona gęstość rzutowanej siatki.Co w przypadku obiektu o skomplikowanym kształcie sprawia,iż pomiar będzie musiał być wykonany parokrotnie pod różnymi kątami w celu uzyskania dokładnych wyników \cite{nowacki2018pomiar}.
+Skanery oparte na tej metodzie wyświetlają siatkę świetlną na mierzony obiekt. Następnie wzór na obiekcie jest mierzony przez jedną lub dwie kamery .Za sprawą mierzenia mocy światła odbitego oraz kształtu siatki na przedmiocie ,korzystając z metod triangulacji, można wyznaczyć położenie obiektu w innym układzie współrzędnych.Jednocześnie wskutek wykorzystania obrazu z dwóch kamer jest możliwe wykonanie pełnego zdjęcia 3D. Głównym walorem tej metody jest szybka prędkość działania, ponieważ zdjęcia mogą być wykonywane z dużą częstotliwością.Ponadto światło emitowane przez ten skaner ,nie jest światłem laserowym,dlatego też wszelkie aspekty zagrażające wzrokowi są wyeliminowane. Słabym punktem tej metody jest ograniczona gęstość rzutowanej siatki.Co w przypadku obiektu o skomplikowanym kształcie sprawia,iż pomiar będzie musiał być wykonany parokrotnie pod różnymi kątami w celu uzyskania dokładnych wyników \cite{nowacki2018pomiar}.Zasada działania skanera bazującego na metodzie emitowania światła strukturalnego została przedstawiona na rysunku poniżej.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.75]{swiatlostrukturalne.PNG}
+  \caption{Metoda wyznaczania współrzędnych w technice światła strukturalnego \cite{Wrona_Piotrowska_2015}}   
+  \label{fig:picture}
+\end{figure}
+\newline
+Korzystając z podstawowych zależności trygonometrycznych możliwe jest wyprowadzenie równań pozwalających na wyznaczenie odległości poszczególnych punktów mierzonego obiektu od kamery.
+\begin{equation}
+    \begin{aligned}
+        & \frac{R}{sin\alpha}=\frac{B}{sin(180-\alpha-\theta)} \\
+          & R=B\frac{sin\theta}{sin(\alpha+\theta)} \\
+    \end{aligned}
+\end{equation}
+
+Gdzie:\\
+\newline
+    $\alpha$:& kąt pomiędzy wiązką światła emitowanego prze projektor,a odcinkiem łączącym projektor oraz kamerę. \\
+    $\theta$:& kąt pomiędzy wiązką światła docierającą do kamery,a odcinkiem łączącym projektor oraz kamerę. \\
+    B:& odległość pomiędzy kamerą,a projektorem. \\
+    R:& odległość kamery od mierzonego przedmiotu. \\
+
+Poniżej został przedstawiony skaner wykorzystujący technologię emitowania światła strukturalnego.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.50]{siobimg.PNG}
+  \caption{Skaner Faro Scan in a box}   
+  \label{fig:picture}
+\end{figure}
+\newpage
+W skład skanera wchodzą dwie kamery odbierające informację o tym ,jaki jest rozkład siatki świetlnej na obiekcie oraz emiter siatki rzutujący odpowiedni wzór na przedmiot.
+
+\begin{center}
+
+\centerline{
+\begin{tabular}{ |c| c| }
+ \hline
+ {\bf Zasięg} & 0.2m-1.12m\\ 
+  \hline
+ {\bf Gęstość siatki} & 0.078mm-0.39mm\\  
+ \hline
+ {\bf Prędkość pomiaru} & $<4$s \\  
+  \hline
+ {\bf Gęstość meshu} & Do 10 mln wierzchołków  \\  
+  \hline
+   {\bf Dokładność } & Do  0.1 \% wielkości obiektu \\  
+  \hline
+
+\end{tabular}
+}
+\caption{\label{tab:tab2}Charakterystyki skanera Faro Scan in a box \cite{siabDatasheet}.}
+\end{center}
+
 
 \paragraph{Fotogrametria\newline}
 
-Jest to metoda odtwarzania trójwymiarowego kształtu obiektów z płaskich dwuwymiarowych zdjęć.Polega ona na mierzeniu korelacji między sobą poszczególnych obrazów ,które wykonywane są w odstępie od 5 do 15 stopni od siebie. W celu zwiększenia dokładności używa się również technologii SFM ( ang. Structure From Motion) .Opiera się ona na identyfikacji homologicznych punktów na różnych obrazach w celu uzyskania perspektywy między nimi. Poprzez wykorzystanie efektu paralaksy istnieje możliwość późniejszego określenia w jakiej odległości od kamery znajdywały się poszczególne punkty na obrazie.Umożiwia to utworzenie funkcji przejścia między nimi oraz otrzymanie na końcowym etapie pełnego modelu 3D \cite{glowienka2015fotogrametria} .Pozytywnym aspektem tego rozwiązania jest niski koszt, gdyż do wykonania zdjęć wystarczy jedynie aparat w urządzeniu mobilnym. Największą wadą jest wysoka złożoność obliczeniowa. Często takie obliczenia wykonywane są w chmurze co zwiększa koszty eksploatacji takiej metody oraz dokładność pomiarów jest względnie niska w porównaniu ze skanerami RGBD.
+Jest to metoda odtwarzania trójwymiarowego kształtu obiektów z płaskich dwuwymiarowych zdjęć.Polega ona na mierzeniu korelacji między sobą poszczególnych obrazów ,które wykonywane są w odstępie od 5 do 15 stopni od siebie. W celu zwiększenia dokładności używa się również technologii SFM ( ang. Structure From Motion) .Opiera się ona na identyfikacji homologicznych punktów na różnych obrazach w celu uzyskania perspektywy między nimi. Poprzez wykorzystanie efektu paralaksy istnieje możliwość późniejszego określenia w jakiej odległości od kamery znajdywały się poszczególne punkty na obrazie.Umożliwia to utworzenie funkcji przejścia między nimi oraz otrzymanie na końcowym etapie pełnego modelu 3D \cite{glowienka2015fotogrametria} .Pozytywnym aspektem tego rozwiązania jest niski koszt, gdyż do wykonania zdjęć wystarczy jedynie aparat w urządzeniu mobilnym. Największą wadą jest wysoka złożoność obliczeniowa. Często takie obliczenia wykonywane są w chmurze co zwiększa koszty eksploatacji takiej metody oraz dokładność pomiarów jest względnie niska w porównaniu ze skanerami RGBD.
 
 \paragraph{Skanery impulsowe LIDAR\newline}
 
 Zasada działania takiego lasera jest zbliżona do działania sonaru.Skanery impulsowe mierzą czas potrzebny wiązce lasera do przebycia drogi do przedmiotu i na tej podstawie określają odległość zmierzonego punktu od  źródła światła.Skanery te wykorzystuje się do mierzenia dużych odległości ,ponieważ zmierzenie czasu lotu światła na małych odległościach jest wysoce trudne do zrealizowania.Dużym ograniczeniem tego typu rozwiązania jest pomiar tylko jednego punktu na obiekcie przy jednym cyklu ,dlatego też wykonanie pełnego skanu obiektu trwa znacznie dłużej niż w innych skanerach.Jednakże jedynie ta metoda zapewnia wymierne rezultaty na duże odległości.
+\newline
+Istnieją dwa typy skanerów LIDAR \cite{wehr1999airborne}:\\
+1.Mierzący czas od momentu wysłania wiązki światła,aż do jej odbicia od obiektu ang.(TOF-time of flight) .Zasada działania takiego skanera polega na wysłaniu wiązku światła w kierunku obiektu,a następnie zmierzenie w jakim czasie wiązka wróci do odbiornika.Takie urządzenia ,ze względu na swoją konstrukcję i bardzo dobrą dokładność na dużych odległościach są stosowane najczęściej \cite{introToLidar}.
 
+Przykładem skanera tego typu jest Benewake TF03 przestawiony poniżej.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.60]{benewaketf03img.PNG}
+  \caption{Skaner Benewake TF03-180}   
+  \label{fig:picture}
+\end{figure}
+
+\begin{center}
+
+\centerline{
+\begin{tabular}{ |c| c| }
+ \hline
+ {\bf Zasięg} & 0.1m-180m\\ 
+  \hline
+   {\bf Dokładność } &Do 1cm   \\  
+  \hline
+     {\bf Prędkość pomiaru } &Do 1000Hz   \\  
+  \hline
+   {\bf  Długość fali lasera } & 905nm   \\  
+  \hline
+     {\bf  Kąt wykrycia wiązki światła  } & 0.5\degree   \\  
+  \hline
+    
+   {\bf Błąd pomiaru } & $\pm$10cm przy ogległości do 10m,1\% powyżej 10m  \\  
+  \hline
+
+\end{tabular}
+}
+\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF03-180 \cite{benewaketf03}.}
+\end{center}
+
+
+\newline
+2.Mierzący przesunięcie fazowe wiązki odbitej od obiektu ang.(Phase-based LIDAR).Główną zasadą która jest wykorzystywana w skanerze tego typu jest fakt,że przy odbiciu od powierzchni faza światła zostaje przesunięta.Mając również na uwadze ,iż różnica przesunięcia fazowego pomiędzy wiązką odbitą ,a wiązką wysłaną jest proporcjonalna do odległości przebytej przez światło można otrzymać następujące wzory \cite{articleLidar}.
+
+\begin{equation}
+    \begin{aligned}
+       d=\frac{c}{2f}* \frac{\phi}{2\pi}\\
+    \end{aligned}
+\end{equation}
+
+Gdzie:\\
+
+\hspace*{3em}
+\begin{tabular}{rl}
+    d:& odległość zmierzonego punktu od odbiornika \\
+    c:& prędkość światła. \\
+    $f$:& częstotliwośc sygnału referencyjnego. \\
+    $\phi$:& przesunięcie fazowe pomiędzy sygnałem referencyjnym ,a odebranym przez odbiornik. \\
+\end{tabular}
+\newline
+
+
+Z powyższego wzoru wynika również fakt,że w celu uzyskania dokładniejszych pomiarów odległości należy zwiększyć częstotliwość światła służącego do próbkowania .
+\newline
+Obie te metody,zarówno pomiaru przesunięcia fazowego jak i mierząca czas przelotu światła charakteryzują się bardzo dobrą dokładnością.Jednak znajdują zastosowanie w różnych dziedzinach.Skanery LIDAR pierwszego typu stosuje się przy pomiarach daleko zasięgowych,głównie w terenie.Natomiast te drugiego typu wykorzystywane są przy pomiarach krótko-zasięgowych wymagających wysokiej dokładności oraz szybkości działania.Dlatego stosowane są głownie w pomiarach różnego typu odkształceń \cite{usageOfLidar}.
+Skaner Benewake TF02 jest urządzeniem wykorzystującym pomiar przesunięcia fazowego do obliczania odległości ang. (indirect time-of-flight).Jego charakterystyki oraz wygląd zostały przedstawione poniżej.
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[scale=0.75]{benewaketf02img.PNG}
+  \caption{Skaner Benewake TF02}   
+  \label{fig:picture}
+\end{figure}
+
+\begin{center}
+
+\centerline{
+\begin{tabular}{ |c| c| }
+ \hline
+ {\bf Zasięg} & 0.4m-22m\\ 
+  \hline
+   {\bf Dokładność } &Do 1cm   \\  
+  \hline 
+     {\bf Prędkość pomiaru } &Do 100Hz   \\  
+  \hline
+   {\bf  Długość fali lasera } & 850nm   \\  
+  \hline
+     {\bf  Kąt wykrycia wiązki światła  } & 3\degree   \\  
+  \hline
+    
+   {\bf Błąd pomiaru } & $\pm$5cm przy ogległości do 5m,2\% powyżej 5m  \\  
+  \hline
+
+\end{tabular}
+}
+\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF02 \cite{benewaketf02}.}
+\end{center}
+
+
+\paragraph{Ogólne charakterystyki laserowych metod pomiarowych\newline}
 
 \begin{center}
 
