@@ -3,7 +3,6 @@ import matplotlib.pyplot as plt
 from random import randrange
 from mpl_toolkits.mplot3d import axes3d, Axes3D
 import pyrealsense2 as rs
-import cv2
 import os
 import pprint
 import math
@@ -194,11 +193,11 @@ def exportModels(xs,ys,zs,kolory_rgb):
 def readModels():
     pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_delaunay.ply")
     o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
-    pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh.ply")
-    o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
-    pcd_load = o3d.io.read_point_cloud("punkty_pudelko_240620202_pointcloud.ply")
-    xyz_load = np.asarray(pcd_load.points)
-    o3d.visualization.draw_geometries([pcd_load],window_name='pointcloud')
+    # pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh.ply")
+    # o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
+    # pcd_load = o3d.io.read_point_cloud("punkty_pudelko_240620202_pointcloud.ply")
+    # xyz_load = np.asarray(pcd_load.points)
+    # o3d.visualization.draw_geometries([pcd_load],window_name='pointcloud')
 ###################konfiguracja 
 lewy_gorny=(403,270) #x,y
 prawy_dolny=(443,355) #x,y 284
@@ -211,6 +210,6 @@ odleglosc_od_obiek=0.23
 
 plik_zapisany=True
 zapisz_point_cloud=True
-wyswiet_wykres=True
+wyswiet_wykres=False
 start(plik_zapisany,zapisz_point_cloud,wyswiet_wykres,odleglosc_od_obiek)
 readModels()
