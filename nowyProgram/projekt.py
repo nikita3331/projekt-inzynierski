@@ -9,10 +9,10 @@ import pprint
 import math
 import open3d as o3d
 import trimesh
-import pandas as pd
 from depend.read3d import laduj_klatki_glebia,laduj_klatki_kolor
 from scipy.spatial import Delaunay
-os.chdir('C:/Users/Nikita/Desktop/inzynierka')
+#os.chdir('C:/Users/Nikita/Desktop/inzynierka')
+os.chdir('C:/Users/Nikita/Documents/GitHub/projekt-inzynierski/nowyProgram')
 
 def licz_srednia_odleglosc(glebia,zakres,odleglosc,skalowanie):
     srednia=0
