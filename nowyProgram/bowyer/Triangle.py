@@ -6,6 +6,7 @@ class Triangle():
         self.A=A
         self.B=B
         self.C=C
+        self.edges=[(self.A,self.B),(self.B,self.A),(self.A,self.C),(self.C,self.A),(self.B,self.C),(self.C,self.B)]
         self.a=self.dist(self.B,self.C)
         self.b=self.dist(self.A,self.C)
         self.c=self.dist(self.B,self.A)
@@ -14,7 +15,7 @@ class Triangle():
         self.initValues()
         
     def printSelf(self):
-        print('A = (',self.A.x,',',self.A.y,',',self.A.z,') B = (',self.B.x,',',self.B.y,',',self.A.y,') C = (',self.C.x,',',self.C.y,',',self.A.z,')')  
+        print('A = (',self.A.x,',',self.A.y,') B = (',self.B.x,',',self.B.y,') C = (',self.C.x,',',self.C.y,')')  
     def isTriangle(self):  
         if (self.B ==self.A) or (self.A == self.C) or (self.B == self.C) : 
             return False
@@ -35,11 +36,9 @@ class Triangle():
         #https://pl.wikipedia.org/wiki/Symetralna_odcinka
         ax=self.A.x
         ay=self.A.y
-        az=self.A.z
         
         bx=self.B.x
         by=self.B.y
-        bz=self.B.z
         axminbx=ax-bx
         ayminby=ay-by
         rightAb=ax*axminbx+bx*axminbx+ay*ayminby+by*ayminby
@@ -47,7 +46,6 @@ class Triangle():
 
         cx=self.C.x
         cy=self.C.y
-        cz=self.C.z
         axmincx=ax-cx
         aymincy=ay-cy
         rightAc=ax*axmincx+cx*axmincx+ay*aymincy+cy*aymincy
