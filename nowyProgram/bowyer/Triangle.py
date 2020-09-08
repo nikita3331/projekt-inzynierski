@@ -77,8 +77,8 @@ class Triangle():
         return distance
     @classmethod
     def createSuperTriangle(cls,length):
-        A=Point(-length,0)
-        B=Point(0,2*length)
-        C=Point(length,0)
+        A=Point(-10*length,-length)
+        B=Point(0,10*length)
+        C=Point(10*length,-length)
         superTri=cls(A,B,C) 
         return superTri

@@ -72,25 +72,6 @@ class Delaunay():
             ys=[self.pointSet[index][1] for index in vert]
             plt.fill(xs,ys)
 
-xsys=[(3,3),(4,3),(5,2),(4,1),(3,1),(2,2)] #hex
-xsys=[(1,1),(0,2),(2,2),(1,3)] #square
-xsys=[(1,1),(0,2),(2,3),(1,3),(2,1)] #five
 
-
-
-comp=Delaunay(xsys)
-transformed,withoutDuplicates=comp.computeVertices()
-print(len(transformed))
-print(len(withoutDuplicates))
-comp.plotSelf()
-xs=[point[0] for point in xsys]
-ys=[point[1] for point in xsys]
-
-plt.scatter(xs,ys)
-
-
-
-
-plt.show()
 
 
