@@ -193,8 +193,8 @@ def exportModels(xs,ys,zs,kolory_rgb):
 def readModels():
     pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_delaunay.ply")
     o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
-    # pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh.ply")
-    # o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
+    pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh.ply")
+    o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
     # pcd_load = o3d.io.read_point_cloud("punkty_pudelko_240620202_pointcloud.ply")
     # xyz_load = np.asarray(pcd_load.points)
     # o3d.visualization.draw_geometries([pcd_load],window_name='pointcloud')
