@@ -4,9 +4,8 @@ INPUT c:\Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.tex
 OUTPUT c:\Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.log
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\size12.clo
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\size12.clo
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
+INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
+INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\size10.clo
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\inputenc.sty
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\units\nicefrac.sty
@@ -76,42 +75,9 @@ INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\polski\ot4cmr.fd
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\ot4enc.def
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\polski\ot4cmr.fd
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\polski\ot4cmr.fd
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\fonts\tfm\public\pl\plr12.tfm
+INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\fonts\tfm\public\pl\plr10.tfm
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\was\gensymb.sty
 INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\was\gensymb.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\pdfpages\pdfpages.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\pdfpages\pdfpages.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\tools\calc.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\tools\calc.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\eso-pic\eso-pic.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\eso-pic\eso-pic.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\atbegshi\atbegshi.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\atbegshi\atbegshi.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\infwarerr\infwarerr.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\infwarerr\infwarerr.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\ltxcmds\ltxcmds.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\iftex\iftex.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\generic\iftex\iftex.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\xcolor\xcolor.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.cfg
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\pdfpages\pppdftex.def
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\pdfpages\pppdftex.def
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\l3backend\l3backend-pdfmode.def
-INPUT c:\Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.aux
-INPUT c:\Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.aux
-OUTPUT c:\Users\Nikita\Desktop\praca inzynierska\projekt-inzynierski\lat.aux
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\microtype\mt-cmr.cfg
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\context\base\mkii\supp-pdf.mkii
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\epstopdf-pkg\epstopdf-base.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\pdflscape\pdflscape.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\pdflscape\pdflscape.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\graphics\lscape.sty
-INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\graphics\lscape.sty
+INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\fontenc.sty
+INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\tex\latex\base\fontenc.sty
+INPUT C:\Users\Nikita\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\ecrm1000.tfm

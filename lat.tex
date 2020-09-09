@@ -1,4 +1,4 @@
-\documentclass[12pt]{article}
+\documentclass[10pt]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
@@ -12,7 +12,10 @@
 \usepackage{adjustbox}
 \usepackage{polski}
 \usepackage{gensymb}
+\usepackage[T1]{fontenc}
+\usepackage{uarialmoj}
 \setcitestyle{square}
+
 \usepackage{pdfpages}
 \providecommand{\keywordspl}[1]
 {
@@ -194,6 +197,7 @@ Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę tri
 \begin{table}[H]
 \begin{center}
 
+\caption{\label{tab:tab2}Charakterystyki skanera Faro Focus S350 \cite{farofocusDatasheet}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -212,7 +216,7 @@ Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę tri
 
 \end{tabular}
 }
-\caption{\label{tab:tab2}Charakterystyki skanera Faro Focus S350 \cite{farofocusDatasheet}.}
+
 \end{center}
 \end{table}
 
@@ -256,6 +260,7 @@ W skład skanera wchodzą dwie kamery odbierające informację o tym, jaki jest 
 \begin{table}[H]
 \begin{center}
 
+\caption{\label{tab:tab2}Charakterystyki skanera Faro Scan in a box \cite{siabDatasheet}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -272,7 +277,7 @@ W skład skanera wchodzą dwie kamery odbierające informację o tym, jaki jest 
 
 \end{tabular}
 }
-\caption{\label{tab:tab2}Charakterystyki skanera Faro Scan in a box \cite{siabDatasheet}.}
+
 \end{center}
 \end{table}
 
@@ -300,6 +305,7 @@ Przykładem takiego instrumentu pomiarowego jest Benewake TF03 przestawiony poni
 \begin{table}[H]
 \begin{center}
 
+\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF03-180 \cite{benewaketf03}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -319,7 +325,7 @@ Przykładem takiego instrumentu pomiarowego jest Benewake TF03 przestawiony poni
 
 \end{tabular}
 }
-\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF03-180 \cite{benewaketf03}.}
+
 \end{center}
 \end{table}
 
@@ -354,6 +360,7 @@ Skaner Benewake TF02 jest urządzeniem wykorzystującym pomiar przesunięcia faz
 \begin{table}[H]
 \begin{center}
 
+\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF02 \cite{benewaketf02}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -373,7 +380,7 @@ Skaner Benewake TF02 jest urządzeniem wykorzystującym pomiar przesunięcia faz
 
 \end{tabular}
 }
-\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF02 \cite{benewaketf02}.}
+
 \end{center}
 \end{table}
 \newline
@@ -383,8 +390,9 @@ Obie te metody, zarówno pomiaru przesunięcia fazowego jak i mierząca czas prz
 Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje się w tabeli poniżej.
 \begin{table}[H]
 \begin{center}
+\caption{\label{tab:tab2}Charakterystyki metrologiczne laserowych metod pomiarowych \cite{nowacki2018pomiar}.}
 \centerline{
-\begin{tabular}{ |c| c|c|c| }
+\begin{tabular}{ |c| c|c|c| } 
  \hline
  \bf {Metoda pomiarowa} & \bf {Zakres pomiarowy [m]} & \bf{Dokładność [mm]}& \bf {Szybkość  $\frac{punkty}{sekunda}$ } \\ 
   \hline
@@ -398,7 +406,7 @@ Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje
 \end{tabular}
 
 }
-\caption{\label{tab:tab2}Charakterystyki metrologiczne laserowych metod pomiarowych \cite{nowacki2018pomiar}.}
+
 \end{center}
 \end{table}
 
