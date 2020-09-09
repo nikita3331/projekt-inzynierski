@@ -10,8 +10,8 @@ import open3d as o3d
 import trimesh
 from depend.read3d import laduj_klatki_glebia,laduj_klatki_kolor
 from scipy.spatial import Delaunay
-#os.chdir('C:/Users/Nikita/Desktop/inzynierka')
-os.chdir('C:/Users/Nikita/Documents/GitHub/projekt-inzynierski/nowyProgram')
+# os.chdir('C:/Users/Nikita/Desktop/inzynierka')
+# os.chdir('C:/Users/Nikita/Documents/GitHub/projekt-inzynierski/nowyProgram')
 
 def licz_srednia_odleglosc(glebia,zakres,odleglosc,skalowanie):
     srednia=0
@@ -73,8 +73,8 @@ def wyczysc_punkty(xs,ys,zs,kolory,kolory_rgb): #robimy je plaskimi oraz usuwamy
                 nowe_zs.append(zs[i][j])
                 nowe_kolory.append(kolory[i*liczba_kolumn+j])
                 nowe_kolory_rgb.append(kolory_rgb[i*liczba_kolumn+j])
-            else:
-                print(j)
+            # else:
+            #     print(j)    #here we print the removed ones
     return nowe_xs,nowe_ys,nowe_zs,nowe_kolory,nowe_kolory_rgb
 def stworz_zbior(kolory_wczytane,glebia,liczba_max_klatek,odleglosc,odleglosc_od_obiektywu,wyswiet_wykres):
     wysokosc=0.05
@@ -94,7 +94,6 @@ def stworz_zbior(kolory_wczytane,glebia,liczba_max_klatek,odleglosc,odleglosc_od
     #policzmy srednia odleglosc punktow
     srednia_odleglosc=licz_srednia_odleglosc(glebia,zak,odleglosc,skalowanie)
 
-
     for idx,angle in enumerate(zak):
         
         d_0=glebia[idx]
@@ -104,9 +103,6 @@ def stworz_zbior(kolory_wczytane,glebia,liczba_max_klatek,odleglosc,odleglosc_od
         xs = np.array([skalowanie*np.cos(angle)*(odleglosc-d_0[punkty_w_linii-1-i]) for i in range(0,punkty_w_linii)])#wspolrzedne do rysowania
         ys = np.array([skalowanie*np.sin(angle)*(odleglosc-d_0[punkty_w_linii-1-i]) for i in range(0,punkty_w_linii)])#wspolrzedne do rysowania
         xs,ys=normalizuj(xs,ys,procent_bledu,srednia_odleglosc)
-        
-
-
         zs_ful.append(zs)
         ys_ful.append(ys)
         xs_ful.append(xs)
@@ -149,11 +145,24 @@ def start(zapisany,zapisz_point_cloud,wyswiet_wykres,odleglosc_od_obiek):
     else:
         glebia = np.load('24062020save_depth.npy')
         kolor = np.load('24062020save_color.npy')
+        glebia=cleanGlebia(glebia)
         print('wczytalismy klatki z NPY')
         xs,yz,zs,kolory,kolory_rgb=stworz_zbior(kolor,glebia,ilosc_moich_klatek,odleglosc_kamery,odleglosc_od_obiek,wyswiet_wykres)
         if zapisz_point_cloud:
             exportModels(xs,yz,zs,kolory_rgb)
+def cleanGlebia(glebia):
 
+    flat=[]    
+    for p in glebia:
+        for war in p:
+            flat.append(war)
+    maks=max(flat)
+    mins=min(flat)
+    print('maks = ',maks,' min = ',mins,'dlugosc = ',len(flat))
+    flat.sort()
+    czesciowe=flat[200:300]
+    print(czesciowe)
+    return glebia
 def flatCoords(xs,ys,zs):
     xyz=[]
     for idx,item in enumerate(xs):
@@ -168,11 +177,13 @@ def createPointCloudMeshLibrary(colors,xyz):
     pcd.points = o3d.utility.Vector3dVector(xyz)
     pcd.colors =  o3d.utility.Vector3dVector(colors)
     resp2=o3d.io.write_point_cloud("punkty_pudelko_240620202_pointcloud.ply", pcd)
+
     pcd.estimate_normals()
     distances = pcd.compute_nearest_neighbor_distance()
     avg_dist = np.mean(distances)
     radius = 3 * avg_dist
-    bpa_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(pcd,o3d.utility.DoubleVector([radius, radius * 2] ))
+    radi=[radius, radius * 2]
+    bpa_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(pcd,o3d.utility.DoubleVector(radi))
     tri_mesh = trimesh.Trimesh(np.asarray(bpa_mesh.vertices), np.asarray(bpa_mesh.triangles),vertex_normals=np.asarray(bpa_mesh.vertex_normals),vertex_colors=pcd.colors) 
     tri_mesh.export('punkty_pudelko_240620202_mesh.ply')
 
@@ -191,8 +202,8 @@ def exportModels(xs,ys,zs,kolory_rgb):
 
     
 def readModels():
-    pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_delaunay.ply")
-    o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
+    # pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_delaunay.ply")
+    # o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
     pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh.ply")
     o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
     # pcd_load = o3d.io.read_point_cloud("punkty_pudelko_240620202_pointcloud.ply")
@@ -210,6 +221,6 @@ odleglosc_od_obiek=0.23
 
 plik_zapisany=True
 zapisz_point_cloud=True
-wyswiet_wykres=False
+wyswiet_wykres=True
 start(plik_zapisany,zapisz_point_cloud,wyswiet_wykres,odleglosc_od_obiek)
 readModels()

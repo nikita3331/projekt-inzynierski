@@ -32,8 +32,8 @@ def laduj_klatki_glebia(kolumna,wiersz_gora,wiersz_dol,nazwa,liczba_klatek):
         for i in range(wiersz_gora,wiersz_dol+1):
             zDepth = depth_frame.get_distance(int(kolumna),int(i))
             kolumna_cala.append(zDepth)
-
-        kolumny.append(kolumna_cala)
+        # if not 0 in kolumna_cala:
+        #     kolumny.append(kolumna_cala)
         os.system('cls')
         print('ladujemy glebie',(l_klatek/liczba_klatek)*100,' %')
     pipeline.stop()

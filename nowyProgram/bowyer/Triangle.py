@@ -6,7 +6,7 @@ class Triangle():
         self.A=A
         self.B=B
         self.C=C
-        self.edges=[(self.A,self.B),(self.B,self.A),(self.A,self.C),(self.C,self.A),(self.B,self.C),(self.C,self.B)]
+        self.edges=[(self.A,self.B),(self.B,self.C),(self.C,self.A)]
         self.a=self.dist(self.B,self.C)
         self.b=self.dist(self.A,self.C)
         self.c=self.dist(self.B,self.A)
@@ -17,7 +17,7 @@ class Triangle():
     def printSelf(self):
         print('A = (',self.A.x,',',self.A.y,') B = (',self.B.x,',',self.B.y,') C = (',self.C.x,',',self.C.y,')')  
     def isTriangle(self):  
-        if (self.B ==self.A) or (self.A == self.C) or (self.B == self.C) : 
+        if (self.B ==self.A) or (self.A == self.C) or (self.B == self.C) or (self.a+self.b<=self.c) or (self.c+self.b<=self.a) or (self.a+self.c<=self.b): 
             return False
         else: 
             return True
@@ -30,7 +30,10 @@ class Triangle():
         r=math.sqrt(  (self.p-self.a)*(self.p-self.b)*(self.p-self.c)/self.p )
         return r
     def circumCircleRadius(self):   #opisany na trojkacie
-        R=(self.a*self.b*self.c)/(4*self.r*self.p)
+        if  self.r!=0:
+            R=(self.a*self.b*self.c)/(4*self.r*self.p)
+        else:
+            R=float('inf')
         return R
     def findCenterOfBigCircle(self):
         #https://pl.wikipedia.org/wiki/Symetralna_odcinka
@@ -80,3 +83,7 @@ class Triangle():
         C=Point(10*length,-length)
         superTri=cls(A,B,C) 
         return superTri
+    def edgeIsEqual(edge,otherEdge):
+        return (edge[0] == otherEdge[0] and edge[1] == otherEdge[1]) or (edge[0] == otherEdge[1] and edge[1] == otherEdge[0])
+    def HasVertex(self,point):
+        return (self.A == point) or (self.B == point) or (self.C == point)
