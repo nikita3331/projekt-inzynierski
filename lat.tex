@@ -1,4 +1,4 @@
-\documentclass[10pt]{article}
+\documentclass[10pt,twoside]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
@@ -42,7 +42,7 @@
 \includepdf[pages=-]{oswiadczenie.pdf}
 
 
-\newpage
+\setcounter{page}{1}
 
  
 \section*{STRESZCZENIE}
@@ -146,7 +146,7 @@ Współrzędne zmierzonego obiektu w układzie kamery można opisać poniższymi
 Gdzie:\\
 \hspace*{3em}
 \begin{tabular}{rl}
-    X,Y:& są współrzędnymi obrazu kamery w pikselach. \\
+    X,Y:& są współrzędnymi obrazu kamery w pikselach. \\ 
     X',Z':& układ współrzędnych linii emitowanej przez laser. \\
     $\alpha$:& kąt nachylenia linii lasera do płaszczyzny obrazu. \\
     $\beta$:& kąt nachylenia docelowego układu współrzędnych do płaszczyzny obrazu. \\

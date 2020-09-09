@@ -5,6 +5,7 @@ from Point import Point
 from Triangle import Triangle
 
 class Delaunay():
+    #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
     #https://stackoverflow.com/questions/58116412/a-bowyer-watson-delaunay-triangulation-i-implemented-doesnt-remove-the-triangle
     def __init__(self,pointSet): #big A is point,small a is vertice
         self.pointSet=pointSet
