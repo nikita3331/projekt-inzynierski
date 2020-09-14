@@ -75,20 +75,22 @@ LIDAR-ang.(Light Detection And Ranging) urządzenie służące do dokładnego po
 \section{Wprowadzenie}
 Rozwój druku 3D zwiększył zapotrzebowanie na szczegółowe metody modelowania obiektów 3D. Jedną z takich metod jest trójwymiarowy skan rzeczywistego obiektu, a następnie przeniesienie go do wirtualnego systemu komputerowego. Istnieje wiele rozwiązań na rynku pozwalających na utworzenie precyzyjnych trójwymiarowych modeli. Duża część z nich pozwala na eksport takich modeli do formatów obsługiwanych przez program Blender. Niestety większość z nich jest płatna oraz ma mało możliwości konfiguracji poszczególnych parametrów związanych z rekonstrukcją kształtu obiektów. W niniejszej pracy zostanie zaprezentowany sposób na wierne utworzenie obiektu 3D ze skanów zrobionych za pomocą kamery Intel RealSense D435i. Wybór tematu pracy nie jest losowy, ponieważ ta technologia inspiruje mnie od dłuższego czasu i zależy mi, aby te metody były przede wszystkim ogólnodostępne oraz bezpłatne.
 \section{Cele i założenia}
-Celem niniejszej pracy jest zaprojektowanie skanera 3D oraz wyeksportowanie kolorowych modeli do programu Blender przy zastosowaniu kamery Intel RealSense D435i.
+Celem niniejszej pracy jest zaprojektowanie skanera 3D oraz wyeksportowanie modeli do programu Blender przy zastosowaniu kamery Intel RealSense D435i.
 Ukazane zostaną również metody analizy oraz obróbki danych, które mają posłużyć do cyfrowej implementacji rzeczywistych obiektów zmierzonych przez kamerę RGBD. Część teoretyczna polega na zobrazowaniu istniejących rozwiązań zagadnienia. Wyjaśniono algorytmy służące do przetworzenia danych uzyskanych z kamery głębi w chmurę punktów. Wymieniony został określony ciąg czynności pozwalających na dodanie na chmurę punktów siatki oraz tekstur. W części praktycznej zostaną ukazane metody kalibracji urządzenia Intel RealSense oraz proces tworzenia wirtualnych obiektów ze skanu.
 \section{Zawartość pracy}
-Pierwszy rozdział opisuje cele oraz założenia pracy. Wykonano przegląd istniejących metod mających na celu generację trójwymiarowych obiektów na podstawie danych z kamery głębi wraz z zastosowaniami współczesnych skanerów 3D.
+Pierwszy rozdział opisuje cele oraz założenia pracy.Dokonano gruntownej analizy problemu, który zostanie rozwiązany w dalszym ciągu pracy.
+
+W drugim rozdziale wykonano przegląd istniejących metod mających na celu generację trójwymiarowych obiektów na podstawie danych z kamery głębi. Dokonano porównania pomiędzy dostępnymi na rynku skanerami 3D bazującymi na różnych technologiach pomiarowych. Wymieniono ich parametry techniczne. Zobrazowano w jakich warunkach dana metoda pomiarowa powinna zostać wykorzystana. Ukazane zostały również technologie jakimi posługiwano się w przeszłości do generacji trójwymiarowych modeli. Na koniec przedstawione zostały zastosowania współczesnych skanerów 3D.
 
 W kolejnym rozdziale przedstawiony jest model oraz konstrukcja skanera 3D. Przeprowadzono gruntowną analizę wpływu kalibracji oraz nastaw parametrów urządzenia na otrzymany efekt końcowy. Następnie przedstawiono opisy zastosowanych algorytmów oraz kolejność ich wykonywania na podstawie autorskiego programu w języku Python. W końcowym etapie poddano analizie pod względem dokładności rezultaty pomiarów w porównaniu do rzeczywistych wartości mierzonych.
 
-Trzeci rozdział zajmuje się podsumowaniem zarówno wykonanej pracy, jak i otrzymanych efektów. Ponadto porusza kwestię potencjalnych możliwości udoskonalenia urządzenia.
+Czwarty rozdział zajmuje się podsumowaniem zarówno wykonanej pracy, jak i otrzymanych efektów. Ponadto porusza kwestię potencjalnych możliwości udoskonalenia urządzenia.
 
-\section{Wprowadzenie do technologii skanerów 3D}
+\chapter{Wprowadzenie do technologii skanerów 3D}
 
 Początki skanerów 3D datuje się na lata 60 XX wieku. Do uzyskania modeli używano wówczas światła, kamer oraz projektorów. Niestety, wymagania dotyczące nakładu pracy nie były proporcjonalne do otrzymanych wyników, których dokładność była względnie niska. W połowie lat 80-tych komputery zyskały na popularności, a narzędzia pomiarowe stały się dokładniejsze w efekcie czego postanowiono użyć sondy stykowej. Mierzono odkształcenie sondy po zetknięciu się z obiektem wskutek czego można było wyznaczyć położenie punktów na płaszczyźnie obiektu w innym układzie współrzędnych \cite{abdel20113d}. Jej użycie pozwoliło na znaczne zwiększenie dokładności pomiarów, jednak prędkość ich wykonywania była powolna. Wobec tego zaistniała zauważalna potrzeba opracowania metody optycznej, która umożliwiłaby mierzenie obiektów z większą prędkością. Miałoby to na celu również pomiar elastycznych przedmiotów, które dotychczas nie były mierzalne ze względu na użyte technologie. Istnieje wiele różnych podejść do trójwymiarowych skanerów, każde z nich ma zastosowanie w określonej dziedzinie. Poniżej przedstawiono najważniejsze z nich.
 
-\paragraph{Metoda triangulacji laserowej\newline}
+\section{Metoda triangulacji laserowej}
 Występują dwa typy skanerów korzystających z danej metody pomiarowej. W pierwszym typie takiego skanera układ pomiarowy składa się z nadajnika laserowego, obiektu pomiarowego oraz kamery. Poprzez przesuwanie wiązki po nieruchomym obiekcie, znając położenie kamery oraz korzystając ze wzorów \cite{mikulski2013metody} można wyznaczyć położenie zmierzonych punktów w docelowym układzie współrzędnych. Zaletami tej konstrukcji są dokładność i wysoka rozdzielczość \cite{nowacki2018pomiar}. Skanery te jednak nie sprawdzają się przy rekonstrukcji błyszczących oraz przezroczystych powierzchni. Zasada działania skanera została przedstawiona na rysunku ~\ref{fig:triangPic}.
 
 \begin{figure}[H]
@@ -224,8 +226,7 @@ Charakterystyki jakości pomiaru skanera Faro Focus zostały przedstawione w tab
 \end{center}
 \end{table}
 
-\paragraph{Metoda emitowania światła strukturalnego\newline}
-
+\section{Metoda emitowania światła strukturalnego}
 Skanery oparte na tej metodzie wyświetlają siatkę świetlną na mierzony obiekt. Następnie wzór na obiekcie jest mierzony przez jedną lub dwie kamery. Za sprawą badania mocy światła odbitego oraz kształtu siatki na przedmiocie, korzystając z metod triangulacji, można wyznaczyć położenie obiektu w innym układzie współrzędnych. Jednocześnie wskutek wykorzystania obrazu z dwóch kamer jest możliwe wykonanie pełnego zdjęcia 3D. Głównym walorem tej metody jest szybka prędkość działania, ponieważ zdjęcia mogą być wykonywane z dużą częstotliwością. Ponadto światło emitowane przez ten skaner nie jest światłem laserowym, dlatego też wszelkie aspekty zagrażające wzrokowi są wyeliminowane. Słabym punktem tej metody jest ograniczona gęstość rzutowanej siatki. Co w przypadku obiektu o skomplikowanym kształcie sprawia,iż pomiar będzie musiał być wykonany parokrotnie pod różnymi kątami w celu uzyskania dokładnych wyników \cite{nowacki2018pomiar}. Zasada działania skanera bazującego na metodzie emitowania światła strukturalnego została przedstawiona na rysunku ~\ref{fig:structureLightPic1}.
 
 \begin{figure}[H]
@@ -285,19 +286,19 @@ W tabeli ~\ref{tab:faroscanboxTab} zostały przedstawione charakterystyki urząd
 
 \end{center}
 \end{table}
+Ze względu na krótki zasięg pomiaru skanery korzystające z metody emitowania światła strukturalnego nadają się jedynie do pomiarów krótkodystansowych. Ten sposób pomiarowy jest wykorzystywany w urządzeniach takich jak Xbox Kinnect oraz kamerach RGBD firmy Intel. Gęstość siatki generowanej na obiekcie mierzonym jest bardzo duża, przez co dokładność odwzorowania takich modeli znacznie przewyższa inne metody pomiarów 3D. Ponadto przy wykonywaniu pomiaru, dokonywany jest skan całej powierzchni obiektu na którą trafiło emitowane światło. Wpływa to znacznie na prędkość pomiaru, ponieważ przy jednej obserwacji jest możliwe uchwycenie nawet połowy obiektu, o ile cały został umieszczony w kadrze kamery.
 
-
-\paragraph{Fotogrametria\newline}
+\section{Fotogrametria}
 
 Jest to metoda odtwarzania trójwymiarowego kształtu obiektów z płaskich dwuwymiarowych zdjęć. Polega ona na mierzeniu korelacji między sobą poszczególnych obrazów, które wykonywane są w odstępie od 5 do 15 stopni od siebie. W celu zwiększenia dokładności używa się również technologii SFM ( ang. Structure From Motion). Opiera się ona na identyfikacji homologicznych punktów na różnych obrazach w celu uzyskania perspektywy między nimi. Poprzez wykorzystanie efektu paralaksy istnieje możliwość późniejszego określenia w jakiej odległości od kamery znajdywały się poszczególne punkty na obrazie. Umożliwia to utworzenie funkcji przejścia między nimi oraz otrzymanie na końcowym etapie pełnego modelu 3D \cite{glowienka2015fotogrametria}. Pozytywnym aspektem tego rozwiązania jest niski koszt, gdyż do wykonania zdjęć wystarczy jedynie aparat w urządzeniu mobilnym. Największą wadą jest wysoka złożoność obliczeniowa. Często takie obliczenia wykonywane są w chmurze co zwiększa koszty eksploatacji takiej metody oraz dokładność pomiarów jest względnie niska w porównaniu ze skanerami RGBD.
 
-\paragraph{Skanery impulsowe LIDAR\newline}
+\section{Skanery impulsowe LIDAR}
 
 Zasada działania takiego lasera jest zbliżona do funkcjonowania radaru. Skanery impulsowe mierzą czas potrzebny wiązce lasera do przebycia drogi do przedmiotu i na tej podstawie określają odległość zmierzonego punktu od  źródła światła. Skanery te wykorzystuje się do mierzenia dużych odległości, ponieważ zmierzenie czasu lotu światła na małych odległościach jest wysoce trudne do zrealizowania. Dużym ograniczeniem tego typu rozwiązania jest pomiar tylko jednego punktu na obiekcie przy jednym cyklu, dlatego też wykonanie pełnego skanu obiektu trwa znacznie dłużej niż w innych skanerach. Jednakże jedynie ta metoda zapewnia wymierne rezultaty na duże odległości.
 \newline
-Istnieją dwa typy skanerów LIDAR \cite{wehr1999airborne}:\\
-\textbf{1.}Mierzący czas od momentu wysłania wiązki światła, aż do jej odbicia od obiektu ang.(TOF-time of flight). Zasada działania takiego skanera polega na wysłaniu wiązki światła w kierunku obiektu, a następnie zmierzenie w jakim czasie wiązka wróci do odbiornika. Takie urządzenia, ze względu na swoją konstrukcję i bardzo dobrą dokładność na dużych odległościach są stosowane najczęściej \cite{introToLidar}.
-
+Istnieją dwa typy skanerów LIDAR \cite{wehr1999airborne}
+\paragraph{Time of flight LIDAR\newline}
+Mierzący czas od momentu wysłania wiązki światła, aż do jej odbicia od obiektu ang.(TOF-time of flight). Zasada działania takiego skanera polega na wysłaniu wiązki światła w kierunku obiektu, a następnie zmierzenie w jakim czasie wiązka wróci do odbiornika. Takie urządzenia, ze względu na swoją konstrukcję i bardzo dobrą dokładność na dużych odległościach są stosowane najczęściej \cite{introToLidar}.
 Przykładem takiego instrumentu pomiarowego jest Benewake TF03 przestawiony na rysunku  ~\ref{fig:benewakePic}.
 
 \begin{figure}[H]
@@ -335,7 +336,8 @@ Charakterystyki urządzenia Benewake TF03-180 zostały przedstawione w tabeli ~\
 \end{center}
 \end{table}
 
-\textbf{2.}Mierzący przesunięcie fazowe wiązki odbitej od obiektu ang.(Phase-based LIDAR). Główną zasadą wykorzystywaną w tym skanerze jest fakt, że przy odbiciu od powierzchni faza światła zostaje przesunięta. Mając również na uwadze, iż różnica przesunięcia fazowego pomiędzy wiązką odbitą, a wiązką wysłaną jest proporcjonalna do odległości przebytej przez światło można otrzymać następujące wzory \cite{articleLidar}.
+\paragraph{Phase-based LIDAR\newline}
+Mierzący przesunięcie fazowe wiązki odbitej od obiektu ang.(Phase-based LIDAR). Główną zasadą wykorzystywaną w tym skanerze jest fakt, że przy odbiciu od powierzchni faza światła zostaje przesunięta. Mając również na uwadze, iż różnica przesunięcia fazowego pomiędzy wiązką odbitą, a wiązką wysłaną jest proporcjonalna do odległości przebytej przez światło można otrzymać następujące wzory \cite{articleLidar}.
 
 \begin{equation}
     \begin{aligned}
@@ -391,8 +393,7 @@ Charakterystyki pomiarowe urządzenia Benewake TF02 zostały przedstawione w tab
 \end{table}
 \newline
 Obie te metody, zarówno pomiaru przesunięcia fazowego jak i mierząca czas przelotu światła charakteryzują się bardzo dobrą dokładnością. Jednak znajdują zastosowanie w różnych dziedzinach. Skanery LIDAR pierwszego typu stosuje się przy pomiarach daleko zasięgowych, głównie w terenie. Natomiast te drugiego typu wykorzystywane są przy pomiarach krótko-zasięgowych wymagających wysokiej dokładności oraz szybkości działania. Dlatego stosowane są głownie w pomiarach różnego typu odkształceń \cite{usageOfLidar}.
-\paragraph{Ogólne charakterystyki laserowych metod pomiarowych\newline}
-
+\section{Ogólne charakterystyki laserowych metod pomiarowych}
 Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje się w tabeli ~\ref{tab:sredniaTab}.
 \begin{table}[H]
 \begin{center}
@@ -418,9 +419,21 @@ Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje
 
 
 
-\paragraph{Zastosowania skanerów 3D\newline}
+\section{Zastosowania skanerów 3D}
+Rozwój technologii trójwymiarowych skanerów spowodował ich wdrożenie do znacznej liczby dziedzin. Wraz z rozwojem tej dyscypliny nauki, skanery 3D stały się dostępniejsze dla użytkowników. By wykonać wirtualny skan obiektu nie potrzeba już wielkiej mocy obliczeniowej komputera oraz dużych nakładów finansowych. Aktualnie w miarę dokładny skaner 3D jest dostępny nawet dla nieprofesjonalnego użytkownika.
+Współcześnie skanery 3D znajdują zastosowanie w większości gałęzi życia oraz przemysłu. 
 
-Współcześnie skanery 3D mają zastosowanie w większości gałęzi życia oraz przemysłu. Przemysł budowlany wykorzystuje je w celu mierzenia odkształceń belek z dużą dokładnością \cite{goszczynska2014doswiadczalna}. W medycynie mogą być użyte do skanowania części ciała oraz modelowania komputerowego kończyn \cite{tomaka20053d}. Wykorzystywane są również przy oględzinach pacjentów. Wysoka dokładność przy mierzeniu odkształceń na powierzchni ciała sprawia, że dzięki skanerom 3D można dostrzec złamania kości oraz inne ubytki \cite{thali2003optical}.Kolejną ważną rolą, jaką spełniają skanery 3D w służbie zdrowia jest druk 3D. Poprzez analizę danych otrzymanych z trójwymiarowych pomiarów oraz drukarki 3D można tworzyć modele kończyn. Takie elementy są pomocne przy nauce studentów oraz znajdują swoje zastosowanie w protetyce \cite{mcmenamin2014production}. Również w przemyśle spożywczym skanery 3D używane są do kontroli jakości poszczególnych wyrobów \cite{anders2012zastosowanie}.
+Przemysł budowlany wykorzystuje je w celu mierzenia odkształceń belek z dużą dokładnością \cite{goszczynska2014doswiadczalna}. W tej branży pomiary trójwymiarowe wykorzystywane są również do bardzo dokładnych pomiarów odległości oraz umiejscowienia różnych elementów w przestrzeni. Poprzez połączenie fotogrametrii oraz skanerów typu LIDAR uzyskuje się lepszą dokładność oraz szybszy czas pomiaru. Z pomiarów dokonanych w \cite{el2008integrating} wynika, że połączenie obu tych metod zmniejszyło czas badania o 75\% w stosunku do samego wykorzystania skanera typu LIDAR.
+
+Fotogrametria jest używana przy wielkoformatowych skanach 3D. Jednym z takich skanów jest Google Earth. Jest to wirtualny model kuli ziemskiej na którym została bardzo dokładnie odzwierciedlona znaczna część globu. Korzystając ze zdjęć satelitarnych tworzone są zdjęcia bardzo wysokiej rozdzielczości. Są one podstawą do ukazania kuli ziemskiej z dalszej perspektywy. Następnie wykorzystując zdjęcia zrobione z pokładów samolotów tworzone są modele w dokładniejszej rozdzielczości. Istotne jest zastosowanie fotogrametrii by z płaskich zdjęć samolotowych uzyskać pełne modele 3D skanowanych obiektów. Ta technologia została przez Google dopracowana do perfekcji co widać po niesamowitych obiektach, które można zaobserwować na portalu Google Earth. Dane z tej platformy mogą również posłużyć innym badaczom do przeprowadzania własnych eksperymentów. W pracy amerykańskich naukowców \cite{inproceedings} zostały przedstawione wyniki skanów fotogrametrycznych wykonanych na podstawie zdjęć z google earth. Płaskie obrazy 2D zostały przez nich poddane obróbce oraz analizie, dzięki czemu w rezultacie orzymali oni bardzo dobre wyniki. Błąd pomiarowy ich metody w porównaniu do rzeczywistych odległości zmierzonych na Google Earth wynosił zwykle mniej niż 1\% na płaszczyźnie XY oraz do 5\% na płaszczyźnie Z. Zarówno pomiary Google jak i naukowców miały trudności z poprawnym zobrazowaniem górzystych terenów. Wynikało to z faktu niskiej rozdzielczości zdjęć, przez co odkształcenia terenu było ciężko zmierzyć.
+
+Skany trójwymiarowe wykorzystywane są w medycynie do badania części ciała oraz modelowania komputerowego kończyn \cite{tomaka20053d}. Wykorzystywane są również przy oględzinach pacjentów. Wysoka dokładność przy mierzeniu odkształceń na powierzchni ciała sprawia, że dzięki skanerom 3D można dostrzec złamania kości oraz inne ubytki \cite{thali2003optical}.Kolejną ważną rolą, jaką spełniają skanery 3D w służbie zdrowia jest druk 3D. Poprzez analizę danych otrzymanych z trójwymiarowych pomiarów oraz wykorzystując druk 3D można tworzyć modele kończyn. Takie elementy są pomocne przy nauce studentów oraz znajdują swoje zastosowanie w protetyce \cite{mcmenamin2014production}. 
+
+W przemyśle spożywczym skanery 3D używane są do kontroli jakości poszczególnych wyrobów \cite{anders2012zastosowanie}.Dzięki nim można uzyskać bardzo dokładne pomiary dotyczące objętości danego produktu, a co za tym idzie skontrolować czy nadaje się on do sprzedaży.
+
+Wykorzystuje się je także w branży ubraniowej do dokładnych pomiarów człowieka. Dzięki zastosowaniu technologii modelowania 3D możliwe jest zeskanowanie w całości człowieka, a następnie stworzenie idealnie pasujących ubrań \cite{d20073d}. Poprzez zastosowanie wyżej wymienionych środków można projektować ubrania, a następnie sprawdzać je na modelach bez konieczności szycia ich z prawdziwego materiału. Znacząco wpływa to na produktywność projektantów mody, którzy dotychczas musieli poświęcać długie godziny na wcielenie swoich pomysłów w życie. Taką technologię zaimplementowała w życie Izraelska firma Optitex. Oferuje ona wirtualny wybieg, na którym chodzą modele ubrane w stroje dodane przez użytkownika \cite{israelVirtualTryOn}.  
+Ta technologia może być również korzystna z perspektywy kupującego. Jeśli posiadałby on swoją wirtualną kopię to mógłby przymierzać ubrania bez konieczności wychodzenia z domu. Firma Visionix oferuje usługę skanu twarzy, dzięki której można przymierzać okulary na wirtualnym modelu \cite{visionX}. Dzięki dokładnej znajomości wymiarów twarzy, możliwe jest dobranie pasujących oprawek w małym czasie. Została ona pierwszy raz opublikowana w roku 2001, na tamten moment była ona na tyle rewolucyjna, że została wspomniana w wielu innych pracach naukowych \cite{d20073d} \cite{d2006state}.
+
 
 
 
