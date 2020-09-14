@@ -1,4 +1,6 @@
-\documentclass[10pt,twoside]{article}
+% \documentclass[10pt,twoside]{article}
+\documentclass{pginz}
+
 \usepackage[utf8]{inputenc}
 \usepackage{nicefrac}       % compact symbols for 1/2, etc.
 \usepackage{microtype}      % microtypography
@@ -12,12 +14,13 @@
 \usepackage{adjustbox}
 \usepackage{polski}
 \usepackage{gensymb}
-\usepackage[T1]{fontenc}
-\usepackage{uarialmoj}
 \setcitestyle{square}
 \usepackage{setspace}
-
 \usepackage{pdfpages}
+\usepackage{titlesec}
+
+
+
 \providecommand{\keywordspl}[1]
 {
   \small	
@@ -36,13 +39,13 @@
 
 
 \begin{document}
-\onehalfspacing
+
 
 \includepdf[pages=-]{tytolowanowa.pdf}
 \includepdf[pages=-]{oswiadczenie.pdf}
 
 
-\setcounter{page}{1}
+\setcounter{page}{3}
 
  
 \section*{STRESZCZENIE}
@@ -60,40 +63,39 @@ The aim of this thesis was to create a 3D scanner and a system for visualization
 \tableofcontents
 
 
-
-
-
 \newpage
-\section{WYKAZ WAŻNIEJSZYCH OZNACZEŃ I SKRÓTÓW}
 
-Kamera RGBD-Kamera głębi, oprócz wykonywania zdjęć RGB potrafi ona również dokonać pomiaru odległości od obiektów i nanieść te informację na powierzchnię poszczególnych pikseli obrazu.\\
+\chapter{WYKAZ WAŻNIEJSZYCH OZNACZEŃ I SKRÓTÓW}
+
+Kamera RGBD-Kamera głębi, oprócz wykonywania zdjęć RGB potrafi ona również dokonać pomiaru odległości od obiektów i nanieść te informację na powierzchnię poszczególnych pikseli obrazu.
+
 LIDAR-ang.(Light Detection And Ranging) urządzenie służące do dokładnego pomiaru odległości. Działaniem przypomina funkcjonowanie radaru, lecz korzysta z odliczania czasu przelotu światła lasera, a nie mikrofal.
 
-\section{WSTĘP I CEL PRACY}
-\subsection{Wprowadzenie}
+\chapter{WSTĘP I CEL PRACY}
+\section{Wprowadzenie}
 Rozwój druku 3D zwiększył zapotrzebowanie na szczegółowe metody modelowania obiektów 3D. Jedną z takich metod jest trójwymiarowy skan rzeczywistego obiektu, a następnie przeniesienie go do wirtualnego systemu komputerowego. Istnieje wiele rozwiązań na rynku pozwalających na utworzenie precyzyjnych trójwymiarowych modeli. Duża część z nich pozwala na eksport takich modeli do formatów obsługiwanych przez program Blender. Niestety większość z nich jest płatna oraz ma mało możliwości konfiguracji poszczególnych parametrów związanych z rekonstrukcją kształtu obiektów. W niniejszej pracy zostanie zaprezentowany sposób na wierne utworzenie obiektu 3D ze skanów zrobionych za pomocą kamery Intel RealSense D435i. Wybór tematu pracy nie jest losowy, ponieważ ta technologia inspiruje mnie od dłuższego czasu i zależy mi, aby te metody były przede wszystkim ogólnodostępne oraz bezpłatne.
-\subsection{Cele i założenia}
+\section{Cele i założenia}
 Celem niniejszej pracy jest zaprojektowanie skanera 3D oraz wyeksportowanie kolorowych modeli do programu Blender przy zastosowaniu kamery Intel RealSense D435i.
 Ukazane zostaną również metody analizy oraz obróbki danych, które mają posłużyć do cyfrowej implementacji rzeczywistych obiektów zmierzonych przez kamerę RGBD. Część teoretyczna polega na zobrazowaniu istniejących rozwiązań zagadnienia. Wyjaśniono algorytmy służące do przetworzenia danych uzyskanych z kamery głębi w chmurę punktów. Wymieniony został określony ciąg czynności pozwalających na dodanie na chmurę punktów siatki oraz tekstur. W części praktycznej zostaną ukazane metody kalibracji urządzenia Intel RealSense oraz proces tworzenia wirtualnych obiektów ze skanu.
-\subsection{Zawartość pracy}
+\section{Zawartość pracy}
 Pierwszy rozdział opisuje cele oraz założenia pracy. Wykonano przegląd istniejących metod mających na celu generację trójwymiarowych obiektów na podstawie danych z kamery głębi wraz z zastosowaniami współczesnych skanerów 3D.
 
 W kolejnym rozdziale przedstawiony jest model oraz konstrukcja skanera 3D. Przeprowadzono gruntowną analizę wpływu kalibracji oraz nastaw parametrów urządzenia na otrzymany efekt końcowy. Następnie przedstawiono opisy zastosowanych algorytmów oraz kolejność ich wykonywania na podstawie autorskiego programu w języku Python. W końcowym etapie poddano analizie pod względem dokładności rezultaty pomiarów w porównaniu do rzeczywistych wartości mierzonych.
 
 Trzeci rozdział zajmuje się podsumowaniem zarówno wykonanej pracy, jak i otrzymanych efektów. Ponadto porusza kwestię potencjalnych możliwości udoskonalenia urządzenia.
 
-\subsection{Wprowadzenie do technologii skanerów 3D}
+\section{Wprowadzenie do technologii skanerów 3D}
 
 Początki skanerów 3D datuje się na lata 60 XX wieku. Do uzyskania modeli używano wówczas światła, kamer oraz projektorów. Niestety, wymagania dotyczące nakładu pracy nie były proporcjonalne do otrzymanych wyników, których dokładność była względnie niska. W połowie lat 80-tych komputery zyskały na popularności, a narzędzia pomiarowe stały się dokładniejsze w efekcie czego postanowiono użyć sondy stykowej. Mierzono odkształcenie sondy po zetknięciu się z obiektem wskutek czego można było wyznaczyć położenie punktów na płaszczyźnie obiektu w innym układzie współrzędnych \cite{abdel20113d}. Jej użycie pozwoliło na znaczne zwiększenie dokładności pomiarów, jednak prędkość ich wykonywania była powolna. Wobec tego zaistniała zauważalna potrzeba opracowania metody optycznej, która umożliwiłaby mierzenie obiektów z większą prędkością. Miałoby to na celu również pomiar elastycznych przedmiotów, które dotychczas nie były mierzalne ze względu na użyte technologie. Istnieje wiele różnych podejść do trójwymiarowych skanerów, każde z nich ma zastosowanie w określonej dziedzinie. Poniżej przedstawiono najważniejsze z nich.
 
 \paragraph{Metoda triangulacji laserowej\newline}
-Występują dwa typy skanerów korzystających z danej metody pomiarowej. W pierwszym typie takiego skanera układ pomiarowy składa się z nadajnika laserowego, obiektu pomiarowego oraz kamery. Poprzez przesuwanie wiązki po nieruchomym obiekcie, znając położenie kamery oraz korzystając ze wzorów \cite{mikulski2013metody} można wyznaczyć położenie zmierzonych punktów w docelowym układzie współrzędnych. Zaletami tej konstrukcji są dokładność i wysoka rozdzielczość \cite{nowacki2018pomiar}. Skanery te jednak nie sprawdzają się przy rekonstrukcji błyszczących oraz przezroczystych powierzchni. Zasada działania skanera została przedstawiona na rysunku poniżej.
+Występują dwa typy skanerów korzystających z danej metody pomiarowej. W pierwszym typie takiego skanera układ pomiarowy składa się z nadajnika laserowego, obiektu pomiarowego oraz kamery. Poprzez przesuwanie wiązki po nieruchomym obiekcie, znając położenie kamery oraz korzystając ze wzorów \cite{mikulski2013metody} można wyznaczyć położenie zmierzonych punktów w docelowym układzie współrzędnych. Zaletami tej konstrukcji są dokładność i wysoka rozdzielczość \cite{nowacki2018pomiar}. Skanery te jednak nie sprawdzają się przy rekonstrukcji błyszczących oraz przezroczystych powierzchni. Zasada działania skanera została przedstawiona na rysunku ~\ref{fig:triangPic}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.75]{skaner_triangulacja.png}
   \caption{Schemat skanera wykorzystującego triangulację laserową \cite{mikulski2013metody}}   
-  \label{fig:picture}
+  \label{fig:triangPic}
 \end{figure}
 
 Posługując się poniższymi wzorami można uzyskać współrzędne przestrzenne mierzonego obiektu, co w rezultacie pozwala na jego odwzorowanie w komputerowej symulacji.
@@ -125,13 +127,13 @@ Gdzie:\\
 \newline
 \newline
 Drugi typ skanerów opartych o metodę triangulacji laserowej steruje położeniem obiektu względem lasera.Korzystając z tego rozwiązania, możliwe jest uzyskanie dokładniejszych wyników oraz odwzorowanie bardziej skomplikowanych kształtów. W skład elementów konstrukcyjnych takiego układu wchodzą laser, kamera oraz tacka obrotowa z umieszczonym na niej obiektem pomiarowym.
-W przeciwieństwie do skanera pierwszego typu, w tym układzie kamera oraz laser są nieruchome. Porusza się jedynie tacka obrotowa z obiektem. Laser wyświetla pionową linię na obiekt, a kamera rejestruje ten obraz. Tacka obracana jest o stały kąt d$\theta$. Po zmierzeniu kąta nachylenia α pomiędzy kamerą, a laserem jak również kąta nachylenia β kamery względem tacki można dokonać transformacji ze współrzędnych obiektu do współrzędnych obrazu przechodzących przez oś obrotu podstawy. Schemat działania takiego urządzenia został przedstawiony poniżej.
+W przeciwieństwie do skanera pierwszego typu, w tym układzie kamera oraz laser są nieruchome. Porusza się jedynie tacka obrotowa z obiektem. Laser wyświetla pionową linię na obiekt, a kamera rejestruje ten obraz. Tacka obracana jest o stały kąt d$\theta$. Po zmierzeniu kąta nachylenia α pomiędzy kamerą, a laserem jak również kąta nachylenia β kamery względem tacki można dokonać transformacji ze współrzędnych obiektu do współrzędnych obrazu przechodzących przez oś obrotu podstawy. Schemat działania takiego urządzenia został przedstawiony na rysunku ~\ref{fig:triangPic2}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.75]{skanerPionowaLinia.png}
   \caption{Układ współrzędnych nieruchomego skanera \cite{mikulski2013metody}}   
-  \label{fig:picture}
+  \label{fig:triangPic2}
 \end{figure}
 \newline
 Współrzędne zmierzonego obiektu w układzie kamery można opisać poniższymi równaniami.
@@ -187,19 +189,19 @@ Gdzie:\\
     X''',Y''',Z''':& układ współrzędnych chmury punktów. \\
 \end{tabular}
 
-Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę triangulacji laserowej. Poniżej zostaną omówione charakterystyki jednego z nich.
+Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę triangulacji laserowej. Poniżej zostaną omówione charakterystyki jednego z nich.Jego wygląd ukazany został na rysunku ~\ref{fig:farofocusPic}
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.70]{farofocus.PNG}
   \caption{Skaner Faro Focus S350}   
-  \label{fig:picture}
+  \label{fig:farofocusPic}
 \end{figure}
-
+Charakterystyki jakości pomiaru skanera Faro Focus zostały przedstawione w tabeli ~\ref{tab:faroCharTab}
 \begin{table}[H]
 \begin{center}
 
-\caption{\label{tab:tab2}Charakterystyki skanera Faro Focus S350 \cite{farofocusDatasheet}.}
+\caption{\label{tab:faroCharTab}Charakterystyki skanera Faro Focus S350 \cite{farofocusDatasheet}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -224,13 +226,13 @@ Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę tri
 
 \paragraph{Metoda emitowania światła strukturalnego\newline}
 
-Skanery oparte na tej metodzie wyświetlają siatkę świetlną na mierzony obiekt. Następnie wzór na obiekcie jest mierzony przez jedną lub dwie kamery. Za sprawą badania mocy światła odbitego oraz kształtu siatki na przedmiocie, korzystając z metod triangulacji, można wyznaczyć położenie obiektu w innym układzie współrzędnych. Jednocześnie wskutek wykorzystania obrazu z dwóch kamer jest możliwe wykonanie pełnego zdjęcia 3D. Głównym walorem tej metody jest szybka prędkość działania, ponieważ zdjęcia mogą być wykonywane z dużą częstotliwością. Ponadto światło emitowane przez ten skaner nie jest światłem laserowym, dlatego też wszelkie aspekty zagrażające wzrokowi są wyeliminowane. Słabym punktem tej metody jest ograniczona gęstość rzutowanej siatki. Co w przypadku obiektu o skomplikowanym kształcie sprawia,iż pomiar będzie musiał być wykonany parokrotnie pod różnymi kątami w celu uzyskania dokładnych wyników \cite{nowacki2018pomiar}. Zasada działania skanera bazującego na metodzie emitowania światła strukturalnego została przedstawiona na rysunku poniżej.
+Skanery oparte na tej metodzie wyświetlają siatkę świetlną na mierzony obiekt. Następnie wzór na obiekcie jest mierzony przez jedną lub dwie kamery. Za sprawą badania mocy światła odbitego oraz kształtu siatki na przedmiocie, korzystając z metod triangulacji, można wyznaczyć położenie obiektu w innym układzie współrzędnych. Jednocześnie wskutek wykorzystania obrazu z dwóch kamer jest możliwe wykonanie pełnego zdjęcia 3D. Głównym walorem tej metody jest szybka prędkość działania, ponieważ zdjęcia mogą być wykonywane z dużą częstotliwością. Ponadto światło emitowane przez ten skaner nie jest światłem laserowym, dlatego też wszelkie aspekty zagrażające wzrokowi są wyeliminowane. Słabym punktem tej metody jest ograniczona gęstość rzutowanej siatki. Co w przypadku obiektu o skomplikowanym kształcie sprawia,iż pomiar będzie musiał być wykonany parokrotnie pod różnymi kątami w celu uzyskania dokładnych wyników \cite{nowacki2018pomiar}. Zasada działania skanera bazującego na metodzie emitowania światła strukturalnego została przedstawiona na rysunku ~\ref{fig:structureLightPic1}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.75]{swiatlostrukturalne.PNG}
   \caption{Metoda wyznaczania współrzędnych w technice światła strukturalnego \cite{Wrona_Piotrowska_2015}}   
-  \label{fig:picture}
+  \label{fig:structureLightPic1}
 \end{figure}
 \newline
 Korzystając z podstawowych zależności trygonometrycznych możliwe jest wyprowadzenie równań pozwalających na wyznaczenie odległości poszczególnych punktów mierzonego obiektu od kamery.
@@ -248,21 +250,22 @@ Gdzie:\\
     B:& odległość pomiędzy kamerą, a projektorem. \\
     R:& odległość kamery od mierzonego przedmiotu. \\
 
-Poniżej został przedstawiony skaner wykorzystujący technologię emitowania światła strukturalnego.
+Na rysunku ~\ref{fig:faroScanInBoxPic} został przedstawiony skaner wykorzystujący technologię emitowania światła strukturalnego.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.50]{siobimg.PNG}
   \caption{Skaner Faro Scan in a box}   
-  \label{fig:picture}
+  \label{fig:faroScanInBoxPic}
 \end{figure}
 
 W skład skanera wchodzą dwie kamery odbierające informację o tym, jaki jest rozkład siatki świetlnej na obiekcie oraz emiter rzutujący odpowiedni wzór na przedmiot.
 
+W tabeli ~\ref{tab:faroscanboxTab} zostały przedstawione charakterystyki urządzenia Faro Scan in a box.
 \begin{table}[H]
 \begin{center}
 
-\caption{\label{tab:tab2}Charakterystyki skanera Faro Scan in a box \cite{siabDatasheet}.}
+\caption{\label{tab:faroscanboxTab}Charakterystyki skanera Faro Scan in a box \cite{siabDatasheet}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -295,19 +298,20 @@ Zasada działania takiego lasera jest zbliżona do funkcjonowania radaru. Skaner
 Istnieją dwa typy skanerów LIDAR \cite{wehr1999airborne}:\\
 \textbf{1.}Mierzący czas od momentu wysłania wiązki światła, aż do jej odbicia od obiektu ang.(TOF-time of flight). Zasada działania takiego skanera polega na wysłaniu wiązki światła w kierunku obiektu, a następnie zmierzenie w jakim czasie wiązka wróci do odbiornika. Takie urządzenia, ze względu na swoją konstrukcję i bardzo dobrą dokładność na dużych odległościach są stosowane najczęściej \cite{introToLidar}.
 
-Przykładem takiego instrumentu pomiarowego jest Benewake TF03 przestawiony poniżej.
+Przykładem takiego instrumentu pomiarowego jest Benewake TF03 przestawiony na rysunku  ~\ref{fig:benewakePic}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.60]{benewaketf03img.PNG}
   \caption{Skaner Benewake TF03-180}   
-  \label{fig:picture}
+  \label{fig:benewakePic}
 \end{figure}
 
+Charakterystyki urządzenia Benewake TF03-180 zostały przedstawione w tabeli ~\ref{tab:benewakeTab}.
 \begin{table}[H]
 \begin{center}
 
-\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF03-180 \cite{benewaketf03}.}
+\caption{\label{tab:benewakeTab}Charakterystyki skanera Benewake TF03-180 \cite{benewaketf03}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -350,19 +354,19 @@ Gdzie:\\
 \end{tabular}\\
 Z powyższego wzoru wynika również fakt, że w celu uzyskania dokładniejszych pomiarów odległości należy zwiększyć częstotliwość światła służącego do próbkowania.\newline
 \newline
-Skaner Benewake TF02 jest urządzeniem wykorzystującym pomiar przesunięcia fazowego do obliczania odległości ang. (indirect time-of-flight). Jego charakterystyki oraz wygląd zostały przedstawione poniżej.
+Skaner Benewake TF02 jest urządzeniem wykorzystującym pomiar przesunięcia fazowego do obliczania odległości ang. (indirect time-of-flight). Jego charakterystyki oraz wygląd zostały przedstawione na rysunku ~\ref{fig:benewakePic1}.
 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.75]{benewaketf02img.PNG}
   \caption{Skaner Benewake TF02}   
-  \label{fig:picture}
+  \label{fig:benewakePic1}
 \end{figure}
-
+Charakterystyki pomiarowe urządzenia Benewake TF02 zostały przedstawione w tabeli ~\ref{tab:benewakeTab2}
 \begin{table}[H]
 \begin{center}
 
-\caption{\label{tab:tab2}Charakterystyki skanera Benewake TF02 \cite{benewaketf02}.}
+\caption{\label{tab:benewakeTab2}Charakterystyki skanera Benewake TF02 \cite{benewaketf02}.}
 \centerline{
 \begin{tabular}{ |c| c| }
  \hline
@@ -389,10 +393,10 @@ Skaner Benewake TF02 jest urządzeniem wykorzystującym pomiar przesunięcia faz
 Obie te metody, zarówno pomiaru przesunięcia fazowego jak i mierząca czas przelotu światła charakteryzują się bardzo dobrą dokładnością. Jednak znajdują zastosowanie w różnych dziedzinach. Skanery LIDAR pierwszego typu stosuje się przy pomiarach daleko zasięgowych, głównie w terenie. Natomiast te drugiego typu wykorzystywane są przy pomiarach krótko-zasięgowych wymagających wysokiej dokładności oraz szybkości działania. Dlatego stosowane są głownie w pomiarach różnego typu odkształceń \cite{usageOfLidar}.
 \paragraph{Ogólne charakterystyki laserowych metod pomiarowych\newline}
 
-Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje się w tabeli poniżej.
+Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje się w tabeli ~\ref{tab:sredniaTab}.
 \begin{table}[H]
 \begin{center}
-\caption{\label{tab:tab2}Charakterystyki metrologiczne laserowych metod pomiarowych \cite{nowacki2018pomiar}.}
+\caption{\label{tab:sredniaTab}Charakterystyki metrologiczne laserowych metod pomiarowych \cite{nowacki2018pomiar}.}
 \centerline{
 \begin{tabular}{ |c| c|c|c| } 
  \hline
@@ -418,7 +422,17 @@ Zestawienie uśrednionych parametrów poszczególnych metod pomiarowych znajduje
 
 Współcześnie skanery 3D mają zastosowanie w większości gałęzi życia oraz przemysłu. Przemysł budowlany wykorzystuje je w celu mierzenia odkształceń belek z dużą dokładnością \cite{goszczynska2014doswiadczalna}. W medycynie mogą być użyte do skanowania części ciała oraz modelowania komputerowego kończyn \cite{tomaka20053d}. Wykorzystywane są również przy oględzinach pacjentów. Wysoka dokładność przy mierzeniu odkształceń na powierzchni ciała sprawia, że dzięki skanerom 3D można dostrzec złamania kości oraz inne ubytki \cite{thali2003optical}.Kolejną ważną rolą, jaką spełniają skanery 3D w służbie zdrowia jest druk 3D. Poprzez analizę danych otrzymanych z trójwymiarowych pomiarów oraz drukarki 3D można tworzyć modele kończyn. Takie elementy są pomocne przy nauce studentów oraz znajdują swoje zastosowanie w protetyce \cite{mcmenamin2014production}. Również w przemyśle spożywczym skanery 3D używane są do kontroli jakości poszczególnych wyrobów \cite{anders2012zastosowanie}.
 
-\addcontentsline{toc}{section}{Bibliografia}
+
+
+\renewcommand{\listtablename}{Spis tabel}
+\renewcommand{\listfigurename}{Spis rysunków}
+\addcontentsline{toc}{chapter}{Spis tabel}
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\listoftables
+
+
+\addcontentsline{toc}{chapter}{Bibliografia}
 \bibliography{references}
 \bibliographystyle{ieeetr}
 \end{document}
