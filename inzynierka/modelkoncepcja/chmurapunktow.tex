@@ -1,0 +1,17 @@
+\section{Przejście do chmury punktów}
+Przypomnieć zasade działania skanera i jak to wykorzystujemy. Tutaj pokazujemy na jakiej zasadzie następuje przejście z płaszczyzny 2D do 3D.Dać obrazek zastosowanej metody oraz równania.
+
+\begin{equation}
+    \begin{aligned}
+            & D_{\beta}=\begin{bmatrix}d_{0} & \dots & d_{max} \end{bmatrix}  \\
+            & X_{\beta}=cos(\beta)R-D  \\
+            & Y_{\beta}=sin(\beta)R-D  \\
+          & Z=\begin{bmatrix} 0 & \dots & H_{max} \end{bmatrix}  \\
+          & w_{\beta}^n=\begin{bmatrix} X_{\beta}[n] & Y_{\beta}[n] & Z[n] \end{bmatrix}  \\
+    \end{aligned}
+\end{equation}
+
+X,Y są współrzędnymi obrazu kamery w pikselach. $X_{las},Z_{las}$ są współrzędnymi układu linii emitowanej przez laser. $\alpha$ jest kątem nachylenia linii lasera do płaszczyzny obrazu. $\beta$ to kąt nachylenia docelowego układu współrzędnych do płaszczyzny obrazu. $x_{0},y_{0}$ są współrzędnymi środka tacki w pikselach. $X_{doc},Y_{doc},Z_{doc}$ to docelowy układ współrzędnych.\\
+
+W celu zwiększenia wydajności algorytmu należy przekształcić powyższe równianie do postaci macierzowej.
+Poniżej zostało przedstawione równanie pozwalające na wyznaczenie współrzędnych poszczególnego punktu oparte o metody macierzowe. 
