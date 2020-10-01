@@ -9,7 +9,7 @@ xsys=[(3,3),(4,3),(5,2),(4,1),(3,1),(2,2)] #hex
 #xsys=[(1,1),(0,2),(2,3),(1,3),(2,1)] #five
 
 xsys=[]
-for itera in range(0,100):
+for itera in range(0,5):
     point=(random()*100,random()*100)
     xsys.append(point)
 

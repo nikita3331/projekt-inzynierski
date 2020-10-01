@@ -14,7 +14,7 @@ def laduj_klatki_glebia(kolumna,wiersz_gora,wiersz_dol,nazwa,liczba_klatek):
     pipeline = rs.pipeline()
     config = rs.config()
     rs.config.enable_device_from_file(config,nazwa)
-    config.enable_stream(rs.stream.depth , 848, 480, rs.format.z16, 6) #wczesniej nie bylo komentowane
+    config.enable_stream(rs.stream.depth , 848, 480, rs.format.z16, 60) #wczesniej nie bylo komentowane
     sta=pipeline.start(config)
     #sta.get_device().as_playback().set_real_time(False)
 
@@ -32,8 +32,8 @@ def laduj_klatki_glebia(kolumna,wiersz_gora,wiersz_dol,nazwa,liczba_klatek):
         for i in range(wiersz_gora,wiersz_dol+1):
             zDepth = depth_frame.get_distance(int(kolumna),int(i))
             kolumna_cala.append(zDepth)
-        # if not 0 in kolumna_cala:
-        #     kolumny.append(kolumna_cala)
+
+        kolumny.append(kolumna_cala)
         os.system('cls')
         print('ladujemy glebie',(l_klatek/liczba_klatek)*100,' %')
     pipeline.stop()
@@ -42,7 +42,7 @@ def laduj_klatki_kolor(kolumna,wiersz_gora,wiersz_dol,nazwa,liczba_klatek):
     pipeline = rs.pipeline()
     config = rs.config()
     rs.config.enable_device_from_file(config,nazwa)
-    config.enable_stream(rs.stream.color , 848, 480, rs.format.rgb8, 6)
+    config.enable_stream(rs.stream.color , 848, 480, rs.format.rgb8, 60)
     sta=pipeline.start(config)
     #sta.get_device().as_playback().set_real_time(False)
 
