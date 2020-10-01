@@ -1,17 +1,35 @@
 \section{Przejście do chmury punktów}
 Przypomnieć zasade działania skanera i jak to wykorzystujemy. Tutaj pokazujemy na jakiej zasadzie następuje przejście z płaszczyzny 2D do 3D.Dać obrazek zastosowanej metody oraz równania.
 
+Metoda przejścia w chmurę punktów na podstawie danych z kamery RGBD składa się z kilku kroków. Poniżej zostały opisane procedury, które należy wykonać w celu otrzymania wyżej wymienionego rezultatu.
+\subsection{Wstępna obróbka danych.}
+Pierwszym krokiem użytej metody jest wstępna obróbka danych. Odczytywane są dane zapisane w pliku .bag z kamery RGBD. Następnie, wybierana jest kolumna obrazu która posłuży do ekstrakcji danych z kamery głębi. Filtracja w ten sposób danych ma na celu zwiększenie wydajności kodu. Dzieje się tak, ponieważ do późniejszych algorytmów będzie wykorzystywana tylko jedna kolumna z klatki obrazu,a nie cały obraz.
+
+\subsection{Przekształcenie danych z kamery RGBD do współrzędnych 3D.}
+Następnym etapem schematu jest przejście z dwuwymiarowego układu współrzędnych kamery do trójwymiarowego układu obiektu. W tym celu zostanie użyte poniższe przekształcenie, wynikiem którego będzie macierz czterowymiarowych punktów. W skład punktu wchodzą trzy współrzędne odpowiadające pozycji w przestrzeni oraz wartość RGB danego punktu symbolizująca jego kolor.
+
 \begin{equation}
     \begin{aligned}
             & D_{\beta}=\begin{bmatrix}d_{0} & \dots & d_{max} \end{bmatrix}  \\
-            & X_{\beta}=cos(\beta)R-D  \\
-            & Y_{\beta}=sin(\beta)R-D  \\
+            & RGB_{\beta}=\begin{bmatrix}rgb_{0} & \dots & rgb_{max} \end{bmatrix}  \\
+            & X_{\beta}=cos(\beta)R-D_{\beta}  \\
+            & Y_{\beta}=sin(\beta)R-D_{\beta}  \\
           & Z=\begin{bmatrix} 0 & \dots & H_{max} \end{bmatrix}  \\
-          & w_{\beta}^n=\begin{bmatrix} X_{\beta}[n] & Y_{\beta}[n] & Z[n] \end{bmatrix}  \\
+          & w_{\beta}^n=\begin{bmatrix} X_{\beta}[n] & Y_{\beta}[n] & Z[n] & RGB_{\beta}[n]\end{bmatrix}  \\
     \end{aligned}
 \end{equation}
 
-X,Y są współrzędnymi obrazu kamery w pikselach. $X_{las},Z_{las}$ są współrzędnymi układu linii emitowanej przez laser. $\alpha$ jest kątem nachylenia linii lasera do płaszczyzny obrazu. $\beta$ to kąt nachylenia docelowego układu współrzędnych do płaszczyzny obrazu. $x_{0},y_{0}$ są współrzędnymi środka tacki w pikselach. $X_{doc},Y_{doc},Z_{doc}$ to docelowy układ współrzędnych.\\
+$\beta$ jest kątem obrotu tacki. R jest odległością obiektywu kamery od środka osi obrotu tacki. $D_{\beta}$ to macierz zmierzonych odległości punktów na płaszczyźnie obiektu od kamery dla danego kąta obrotu $\beta$. $X_{\beta}$,$Y_{\beta}$ są macierzami współrzędnych punktów na osi X,Y dla nago kąta $\beta$. $H_{max}$ to wysokość obiektu. Z to macierz współrzędnych punktów na osi Z. Wypełniona jest ona punktami z zakresu od 0 do $H_{max}$. $w_{\beta}^n$ to współrzędne n-tego punktu w płaszczyźnie XYZ dla danego kąta obrotu $\beta$.
 
-W celu zwiększenia wydajności algorytmu należy przekształcić powyższe równianie do postaci macierzowej.
-Poniżej zostało przedstawione równanie pozwalające na wyznaczenie współrzędnych poszczególnego punktu oparte o metody macierzowe. 
+\subsection{Normalizacja otrzymanych punktów.}
+Kamera RGBD jest zaawansowanym technicznie urządzeniem. Pomimo kalibracji kamery, w przechwyconych obrazach mogą występować niedoskonałości. Przejawiają się one w złych pozycjach punktów względem pozostałych wartości. Jest to spowodowane błędnymi odczytami głębi poprzez sensor kamery i jest nieuniknione. Można jedynie sprawić, by ten błąd był jak najmniejszy. Normalizacja takich punktów sprowadza się do zbadania, czy owy punkt leży w odległości od środka podobnej do jego sąsiadów. W tym celu została wyznaczona średnia odległość punktów od osi przechodzącej przez środek obrotu tacki, która ma współrzędne (0,0,H). Warto zauważyć, że wartość współrzędnej Z nie pływa na wyznaczanie odległości, ponieważ utworzona ona została na podstawie równomiernego rozkładu wartości wysokości danego obiektu. Następnie, znając wartość średniej odległości punktów od środka układu współrzędnych, można empirycznie dobrać wartość graniczną odległości powyżej której punkty będą poddane interpolacji.
+
+\subsection{Interpolacja punktów}
+Interpolacja jest procesem aproksymacji współrzędnych punktów w miejscach, w których wystąpiły przekłamania. Jest wiele różnych metod interpolacji, które mają za zadanie jak najwierniej oddać wartość punktu w nieznanym miejscu. Głównymi metodami są metoda najbliższych sąsiadów oraz interpolacja wielomianowa.
+
+\paragraph{Metoda najbliższych sąsiadów.\newline}\\
+
+Tutaj opisać metodę najbliższych sąsiadów.
+\paragraph{Interpolacja wielomianowa.\newline}\\
+W tym opowiedzieć o interpolacji liniowej i podać rysunki.
+
