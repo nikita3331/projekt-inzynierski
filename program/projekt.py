@@ -10,68 +10,12 @@ import math
 import open3d as o3d
 import trimesh
 import pandas as pd
-
+from depend.read3d import laduj_klatki_glebia,laduj_klatki_kolor
+from scipy.spatial import Delaunay
+from scipy.interpolate import interp1d
 
 os.chdir('C:/Users/Nikita/Desktop/inzynierka')
-def laduj_klatki_glebia(kolumna,wiersz_gora,wiersz_dol,nazwa,liczba_klatek):
-    pipeline = rs.pipeline()
-    config = rs.config()
-    rs.config.enable_device_from_file(config,nazwa)
 
-    
-    config.enable_stream(rs.stream.depth , 848, 480, rs.format.z16, 6) #wczesniej nie bylo komentowane
-    sta=pipeline.start(config)
-    #sta.get_device().as_playback().set_real_time(False)
-
-    l_klatek=0 
-    kolumny=[]
-    kolory=[]
-    for l_klatek in range(0,liczba_klatek):
-        frames = pipeline.wait_for_frames()
-        depth_frame = frames.get_depth_frame()
-        
-        kolumna_cala=[]
-        kolumna_kolor_cala=[]
-
-        
-        for i in range(wiersz_gora,wiersz_dol+1):
-            zDepth = depth_frame.get_distance(int(kolumna),int(i))
-            kolumna_cala.append(zDepth)
-
-        kolumny.append(kolumna_cala)
-        os.system('cls')
-        print('ladujemy glebie',(l_klatek/liczba_klatek)*100,' %')
-    pipeline.stop()
-    return kolumny
-def laduj_klatki_kolor(kolumna,wiersz_gora,wiersz_dol,nazwa,liczba_klatek):
-    pipeline = rs.pipeline()
-    config = rs.config()
-    rs.config.enable_device_from_file(config,nazwa)
-    config.enable_stream(rs.stream.color , 848, 480, rs.format.rgb8, 6)
-    sta=pipeline.start(config)
-    #sta.get_device().as_playback().set_real_time(False)
-
-
-    l_klatek=0 
-    kolumny=[]
-    kolory=[]
-    for l_klatek in range(0,liczba_klatek):
-        frames = pipeline.wait_for_frames()
-        color_frame = frames.get_color_frame()
-        color_image_n = np.asanyarray(color_frame.get_data())
-        
-        kolumna_cala=[]
-        kolumna_kolor_cala=[]
-
-        
-        for i in range(wiersz_gora,wiersz_dol+1):
-            kolumna_kolor_cala.append(color_image_n[int(kolumna),int(i)])
-
-        kolory.append(kolumna_kolor_cala)
-        os.system('cls')
-        print('ladujemy kolor',(l_klatek/liczba_klatek)*100,' %')
-    pipeline.stop()
-    return kolory
 def licz_srednia_odleglosc(glebia,zakres,odleglosc,skalowanie):
     srednia=0
     iterator=0
@@ -90,14 +34,38 @@ def licz_srednia_odleglosc(glebia,zakres,odleglosc,skalowanie):
     srednia=srednia/iterator
     return srednia
 
-def normalizuj(xs,ys,procent,srednia_odleglosc):
+def cubic(arr):
+    indexesAll=[]
+    indexesWithoutEmpty=[]
+    valuesWithoutEmpty=[]
+    result=[]
+    for idx,item in enumerate(arr):
+        if idx==0 or idx==len(arr)-1: #if its on the end or beggining of array
+            indexesWithoutEmpty.append(idx)
+            valuesWithoutEmpty.append(0.1)
+        else:
+            if item!=0:
+                indexesWithoutEmpty.append(idx)
+                valuesWithoutEmpty.append(item)
+            indexesAll.append(idx)
+    if not all(p == 0 for p in arr):
+        f = interp1d(indexesWithoutEmpty, valuesWithoutEmpty,kind='cubic')
+        result=f(indexesAll)
+    else:
+        result=arr
+    return result
+def normalizuj(xs,ys,procent,srednia_odleglosc): #if point distance is greater than percantage,remove this point
     xs_kopia=xs.copy()
     ys_kopia=ys.copy()
     for idx,j in enumerate(xs):
         if math.sqrt(j**2+ys[idx]**2)>(1+procent/100)*srednia_odleglosc:
             xs_kopia[idx]=0
             ys_kopia[idx]=0
-    return xs_kopia,ys_kopia
+    # linearize here
+    xs_lin=cubic(xs_kopia)
+    ys_lin=cubic(ys_kopia)
+    return xs_lin,ys_lin
+    # return xs_kopia,ys_kopia
 def stworz_plaskie_kolory(przetworzone_moje_kolory):
     flat_list_moja=[]
     for sublist in przetworzone_moje_kolory:
@@ -124,6 +92,7 @@ def wyczysc_punkty(xs,ys,zs,kolory,kolory_rgb): #robimy je plaskimi oraz usuwamy
     nowe_xs=[]
     nowe_ys=[]
     nowe_zs=[]
+    totalDeleted=0
     for i,sublist in enumerate(xs):#jestesmy w wierszu
         for j,item in enumerate(sublist):#jestesmy w kolumnie
             if item!=0:
@@ -133,7 +102,9 @@ def wyczysc_punkty(xs,ys,zs,kolory,kolory_rgb): #robimy je plaskimi oraz usuwamy
                 nowe_kolory.append(kolory[i*liczba_kolumn+j])
                 nowe_kolory_rgb.append(kolory_rgb[i*liczba_kolumn+j])
             else:
-                print(j)
+                totalDeleted+=1
+    print(totalDeleted)
+
     return nowe_xs,nowe_ys,nowe_zs,nowe_kolory,nowe_kolory_rgb
 def stworz_zbior(kolory_wczytane,glebia,liczba_max_klatek,odleglosc,odleglosc_od_obiektywu,wyswiet_wykres):
     wysokosc=0.05
@@ -148,12 +119,10 @@ def stworz_zbior(kolory_wczytane,glebia,liczba_max_klatek,odleglosc,odleglosc_od
     biore=liczba_max_klatek #tutaj mozna ustawic ile ich chcemy wziac
     zak=np.linspace(0, math.pi*2*biore/liczba_max_klatek  ,np.shape(glebia)[0])
 
-    procent_bledu=45 #musi byc wiecej niz pierwiastek z dwoch
+    procent_bledu=100 #musi byc wiecej niz pierwiastek z dwoch
 
     #policzmy srednia odleglosc punktow
     srednia_odleglosc=licz_srednia_odleglosc(glebia,zak,odleglosc,skalowanie)
-
-
     for idx,angle in enumerate(zak):
         
         d_0=glebia[idx]
@@ -199,21 +168,21 @@ def start(zapisany,zapisz_point_cloud,wyswiet_wykres,odleglosc_od_obiek):
     if not plik_zapisany: 
         glebia=laduj_klatki_glebia(kolumna,lewy_gorny[1],prawy_dolny[1],nazwa,ilosc_moich_klatek)
         kolor=laduj_klatki_kolor(kolumna,lewy_gorny[1],prawy_dolny[1],nazwa,ilosc_moich_klatek)
-        np.save('24062020save_depth.npy', glebia)
-        np.save('24062020save_color.npy', kolor)
+        np.save('nowepudelko_0.33msave_depth.npy', glebia)
+        np.save('nowepudelko_0.33msave_color.npy', kolor)
         print('zapisalismy klatki do NPY')
         xs,yz,zs,kolory,kolory_rgb=stworz_zbior(kolor,glebia,ilosc_moich_klatek,odleglosc_kamery,odleglosc_od_obiek,wyswiet_wykres)
         if zapisz_point_cloud:
-            export_pointcloud(xs,yz,zs,kolory,kolory_rgb)
+            exportModels(xs,yz,zs,kolory_rgb)
     else:
         glebia = np.load('24062020save_depth.npy')
         kolor = np.load('24062020save_color.npy')
         print('wczytalismy klatki z NPY')
         xs,yz,zs,kolory,kolory_rgb=stworz_zbior(kolor,glebia,ilosc_moich_klatek,odleglosc_kamery,odleglosc_od_obiek,wyswiet_wykres)
         if zapisz_point_cloud:
-            export_pointcloud(xs,yz,zs,kolory,kolory_rgb)
+            exportModels(xs,yz,zs,kolory_rgb)
 
-def export_pointcloud(xs,ys,zs,kolory_hex,kolory_rgb):
+def flatCoords(xs,ys,zs):
     xyz=[]
     for idx,item in enumerate(xs):
         subarray=[]
@@ -221,64 +190,55 @@ def export_pointcloud(xs,ys,zs,kolory_hex,kolory_rgb):
         subarray.append(ys[idx])
         subarray.append(zs[idx])
         xyz.append(subarray)
+    return xyz
+def createPointCloudMeshLibrary(colors,xyz):
     pcd = o3d.geometry.PointCloud()
-
     pcd.points = o3d.utility.Vector3dVector(xyz)
-    pcd.colors =  o3d.utility.Vector3dVector(kolory_rgb)
-    resp2=o3d.io.write_point_cloud("punkty_pudelko_240620202.ply", pcd)
-    if resp2:
-        print('zapisalismy zwykly point cloud')
+    pcd.colors =  o3d.utility.Vector3dVector(colors)
+    resp2=o3d.io.write_point_cloud("nowepudelko_0.33m_pointcloud.ply", pcd)
     pcd.estimate_normals()
-
-
     distances = pcd.compute_nearest_neighbor_distance()
     avg_dist = np.mean(distances)
-    radius = 3 * avg_dist
+    radius =11*avg_dist
+    print('avg distance',avg_dist)
     bpa_mesh = o3d.geometry.TriangleMesh.create_from_point_cloud_ball_pivoting(pcd,o3d.utility.DoubleVector([radius, radius * 2] ))
-    tri_mesh = trimesh.Trimesh(np.asarray(bpa_mesh.vertices), np.asarray(bpa_mesh.triangles),vertex_normals=np.asarray(bpa_mesh.vertex_normals),vertex_colors=pcd.colors) #dla wlasnego uzytku
-    tri_mesh.export('punkty_pudelko_240620202_mesh.ply')
-    from scipy.spatial import Delaunay
+    tri_mesh = trimesh.Trimesh(np.asarray(bpa_mesh.vertices), np.asarray(bpa_mesh.triangles),vertex_normals=np.asarray(bpa_mesh.vertex_normals),vertex_colors=pcd.colors) 
+    tri_mesh.export('nowepudelko_0.33m_mesh.ply')
+
+def exportModels(xs,ys,zs,kolory_rgb):
+    xyz=flatCoords(xs,ys,zs)
+    
+    createPointCloudMeshLibrary(kolory_rgb,xyz)
+
+
     tri = Delaunay(xyz)
-    modified=[]
-    for i in tri.simplices:
-        modified.append([i[0],i[1],i[2]])
-    vertices=[]
     faces=[]
-    vertices.append([0,0,0])
-    vertices.append([1,0,0])
-    vertices.append([0,1,0])
-    vertices.append([0,0,1])
-    faces.append([0,1,2])
-    faces.append([1,2,3])
-    faces.append([1,3,0])
-    #probnymesh = trimesh.Trimesh(vertices=[[0, 0, 0], [0, 0, 1], [0, 1, 0]],faces=[[0, 1, 2]]) #to jest ok,dziala jak powinno,faces mozemy dac pierwsyz drugi trzeci,pierwsyz drugi trzeci
-    #probnymesh = trimesh.Trimesh(vertices=vertices,faces=faces) #to jest ok,dziala jak powinno,faces mozemy dac pierwsyz drugi trzeci,pierwsyz drugi trzeci
-    probnymesh = trimesh.Trimesh(vertices=xyz,faces=modified,vertex_colors=kolory_rgb) #to jest ok,dziala jak powinno,faces mozemy dac pierwsyz drugi trzeci,pierwsyz drugi trzeci
-
-
-    probnymesh.export('punkty_pudelko_240620202_mesh_probny.ply')
+    for i in tri.simplices:
+        faces.append([i[0],i[1],i[2]])
+    probnymesh = trimesh.Trimesh(vertices=xyz,faces=faces,vertex_colors=kolory_rgb) #to jest ok,dziala jak powinno,faces mozemy dac pierwsyz drugi trzeci,pierwsyz drugi trzeci
+    probnymesh.export('nowepudelko_0.33m_delaunay.ply')
 
     
-def read_pointcloud():
-    pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh_probny.ply")
-    o3d.visualization.draw_geometries([pcd_load],window_name='probny')
-    pcd_load = o3d.io.read_triangle_mesh("punkty_pudelko_240620202_mesh.ply")
-    #o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
-    pcd_load = o3d.io.read_point_cloud("punkty_pudelko_240620202.ply")
+def readModels():
+    pcd_load = o3d.io.read_triangle_mesh("nowepudelko_0.33m_delaunay.ply")
+    o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
+    pcd_load = o3d.io.read_triangle_mesh("nowepudelko_0.33m_mesh.ply")
+    o3d.visualization.draw_geometries([pcd_load],window_name='mesh')
+    pcd_load = o3d.io.read_point_cloud("nowepudelko_0.33m_pointcloud.ply")
     xyz_load = np.asarray(pcd_load.points)
-    #o3d.visualization.draw_geometries([pcd_load],window_name='pointcloud')
+    o3d.visualization.draw_geometries([pcd_load],window_name='pointcloud')
 ###################konfiguracja 
-lewy_gorny=(403,270) #x,y
-prawy_dolny=(443,355) #x,y 284
+lewy_gorny=(0,255) #x,y
+prawy_dolny=(848,314) #x,y 284
 kolumna=int((lewy_gorny[0]+prawy_dolny[0])/2)
-ilosc_moich_klatek=348
-nazwa='pudelko24062020_0.27m.bag'
-odleglosc_kamery=0.27
-odleglosc_od_obiek=0.23
+ilosc_moich_klatek=3470
+nazwa='starepudelko_0.38m.bag'
+odleglosc_kamery=0.26 
+odleglosc_od_obiek=0.25
 ###################koniec konfiguracji 
 
 plik_zapisany=True
 zapisz_point_cloud=True
-wyswiet_wykres=True
+wyswiet_wykres=False
 start(plik_zapisany,zapisz_point_cloud,wyswiet_wykres,odleglosc_od_obiek)
-read_pointcloud()
+readModels()

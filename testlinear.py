@@ -4,38 +4,22 @@ from scipy.interpolate import interp1d
 
 
 
-x=np.linspace(100,200,100,dtype='int')
-x[5]=0
-x[10]=0
-x[15]=0
-x[20]=0
-x[40]=0
-
-indexesAll=[]
-indexesWithoutEmpty=[]
-valuesWithoutEmpty=[]
-for idx,item in enumerate(x):
-    if item!=0:
-        indexesWithoutEmpty.append(idx)
-        valuesWithoutEmpty.append(item)
-    indexesAll.append(idx)
-f = interp1d(indexesWithoutEmpty, valuesWithoutEmpty,kind='cubic')
-
-
-filledValues=f(indexesAll)
+def cubic(arr):
+    indexesAll=[]
+    indexesWithoutEmpty=[]
+    valuesWithoutEmpty=[]
+    for idx,item in enumerate(arr):
+        if item!=0:
+            indexesWithoutEmpty.append(idx)
+            valuesWithoutEmpty.append(item)
+        indexesAll.append(idx)
+    f = interp1d(indexesWithoutEmpty, valuesWithoutEmpty,kind='cubic')
+    return f(indexesAll)
+myarr=[10**4,20**4,0,40**4,50**4,60**4,0,90**4]
+true=[(i*10)**4 for i in range(1,9)]
+filed=cubic(myarr)
+error=(filed-true)*100/filed
+print(error)
 
 
-beginPoints=[]
-endPoints=[]
 
-for it_x,idx,it_fill in zip(x,indexesAll,filledValues):
-    beginPoints.append((idx,it_x))
-    endPoints.append((idx,it_fill))
-
-print(beginPoints)
-print(endPoints)
-
-plt.scatter(indexesAll,x,label='old set')
-plt.plot(indexesAll,filledValues,label='new set')
-plt.legend()
-plt.show()
