@@ -9,6 +9,7 @@ class Tetrahedron():
         self.C=C
         self.D=D
         self.edges=[(self.A,self.B),(self.B,self.C),(self.C,self.A),(self.A,self.D),(self.B,self.D),(self.C,self.D)]
+        self.faces=[(self.A,self.B,self.C),(self.A,self.B,self.D),(self.A,self.C,self.D),(self.C,self.B,self.D)]
         self.a=self.dist(self.B,self.C)
         self.b=self.dist(self.A,self.C)
         self.c=self.dist(self.B,self.A)
@@ -46,8 +47,12 @@ class Tetrahedron():
         sumed=self.D.toArr()+divided
         return Point(sumed[0],sumed[1],sumed[2])
     def pointInSphere(self,point):
-        distance=self.dist(self.O,point)
-        return distance<=self.R
+        if self.isValidTetra:
+            distance=self.dist(self.O,point)
+            return distance<=self.R
+        else:
+            return False
+        
     def splitIntoTetrahedron(self,point):
         vertexComb= list(itertools.combinations([self.A,self.B,self.C,self.D], 3))
         newTetra=[]
@@ -68,8 +73,11 @@ class Tetrahedron():
         D=Point(0,0,100*2*length)
         superTri=cls(A,B,C,D) 
         return superTri
-            
-            # self.Rx0y0=self.findCenterOfBigCircle()
-tetra=Tetrahedron(Point(0,0,0),Point(5,0,0),Point(0,5,0),Point(0,0,5))
-newtri=Tetrahedron.createSuperTetra(1000)
-newtri.printSelf()
+    def faceIsEqual(face,otherFace):
+        first=(face[0] == otherFace[0] and face[1] == otherFace[1] and face[2] == otherFace[2])
+        second=(face[0] == otherFace[1] and face[1] == otherFace[2] and face[2] == otherFace[0])
+        third=(face[0] == otherFace[2] and face[1] == otherFace[0] and face[2] == otherFace[1])
+        return  first or second or third
+    def HasVertex(self,point):
+        return (self.A == point) or (self.B == point) or (self.C == point) or (self.D == point)     
+
