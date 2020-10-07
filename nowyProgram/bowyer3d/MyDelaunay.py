@@ -6,6 +6,9 @@ from Tetra import Tetrahedron
 from mpl_toolkits.mplot3d.art3d import Poly3DCollection
 from mpl_toolkits.mplot3d import axes3d, Axes3D
 import open3d as o3d
+import trimesh
+import itertools
+import random
 
 
 class Delaunay():
@@ -20,11 +23,13 @@ class Delaunay():
         self.superTetra=Tetrahedron.createSuperTetra(10000)
         triangulation=[] #empty triangle mesh data structure
         triangulation.append(self.superTetra)  #add super-triangle to triangulation
+        itera=0
         for point in self.pointSet: #for each point in set,add to triangulation
             badTetra = []
             for tetra in triangulation:
                 if tetra.pointInSphere(point):
                     badTetra.append(tetra)
+                itera+=1
 
             polygon = []
             for tetrahe in badTetra:
@@ -34,18 +39,21 @@ class Delaunay():
                         if tetrahe == other:
                             continue
                         for otherFace in other.faces:
+                            itera+=1
                             if Tetrahedron.faceIsEqual(face,otherFace):
                                 isShared = True
                     if not isShared:
                         polygon.append(face)
             for badTet in badTetra:
+                itera+=1
                 triangulation.remove(badTet)
 
             for face in polygon:
+                itera+=1
                 newTetra = Tetrahedron(face[0],face[1],face[2],point)
                 triangulation.append(newTetra)
         onSuper = lambda tetra : tetra.HasVertex(self.superTetra.A) or tetra.HasVertex(self.superTetra.B) or tetra.HasVertex(self.superTetra.C) or tetra.HasVertex(self.superTetra.D)
-
+        print('liczba iteracji',itera)
         triangulation = [tetra for tetra in triangulation if not onSuper(tetra)]
         return triangulation
     def printAll(self,triangulation):
@@ -71,35 +79,31 @@ class Delaunay():
                         newRow[p]=idx
             verticiesIndex.append(newRow)
         return verticiesIndex
-    def removeDuplicates(self):
-        #remove duplicate items from array of triangles ,[1,2,3]=[3,2,1]=duplicate [1,2,3]=[1,2,3]=duplicate
-        filtered=[]
-        copied=self.transformed.copy()
-        for pickedTriangle in copied:
-            for index,triangle in enumerate(copied):
-                if triangle!=pickedTriangle:
-                    if  pickedTriangle[0] in triangle and pickedTriangle[1] in triangle and pickedTriangle[2] in triangle:  #remove duplicated point but in other order
-                        copied[:] = [tri for tri in copied if tri!=triangle]
-                else:
-                    numberOfAccurances=copied.count(triangle)
-                    if numberOfAccurances>1:
-                        copied[:] = [tri for idx,tri in enumerate(copied) if idx!=index]
-        return copied
+
 
     def computeVertices(self):
         self.tetraPoints=self.computeTrianglePoints()
-        # self.cleaned=self.clearFromSuperTriangle()  #remove super triangle vertices and angles connected to them from full object
         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
-        # self.withoutDuplicates=self.removeDuplicates()
         return self.transformed,self.tetraPoints
     def plotSelf(self):
         fullPoints=[]
         xyz=[]
+        
         for vert in self.transformed:
             for index in vert:
                 xyz.append([self.pointSet[index].toArr()[0],self.pointSet[index].toArr()[1],self.pointSet[index].toArr()[2]])
-
-        tri_mesh = trimesh.Trimesh(np.asarray(bpa_mesh.vertices), np.asarray(bpa_mesh.triangles)) 
+        faces=[]
+        colors=[]
+        for tetra in self.transformed:
+            vertexComb= list(itertools.combinations(tetra, 3))
+            for p in vertexComb:
+                faces.append(p)
+            myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))
+            colors.append(myFaceColor)
+            colors.append(myFaceColor)
+            colors.append(myFaceColor)
+            colors.append(myFaceColor)
+        tri_mesh = trimesh.Trimesh(vertices=xyz,faces=faces,vertex_colors=colors) 
         tri_mesh.export('test.ply')
         pcd_load = o3d.io.read_triangle_mesh("test.ply")
         o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')

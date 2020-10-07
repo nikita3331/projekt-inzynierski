@@ -11,7 +11,7 @@ xsys=[(3,3),(4,3),(5,2),(4,1),(3,1),(2,2)] #hex
 #xsys=[(1,1),(0,2),(2,3),(1,3),(2,1)] #five
 
 xsyszs=[]
-for itera in range(0,5):
+for itera in range(0,40):
     point=Point(random()*100,random()*100,random()*100)
     xsyszs.append(point)
 # xsyszs=[Point(0,0,0),Point(20,0,0),Point(0,0,30),Point(0,20,0)]
