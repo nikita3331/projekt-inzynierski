@@ -6,6 +6,8 @@ class Point():
         self.z=z
     def toArr(self):
         return  np.array([self.x,self.y,self.z])
+    def toTuple(self):
+        return  (self.x,self.y,self.z)
 
         
         

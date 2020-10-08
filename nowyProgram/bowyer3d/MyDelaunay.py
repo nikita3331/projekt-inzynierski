@@ -9,6 +9,7 @@ import open3d as o3d
 import trimesh
 import itertools
 import random
+import collections
 
 
 class Delaunay():
@@ -24,34 +25,50 @@ class Delaunay():
         triangulation=[] #empty triangle mesh data structure
         triangulation.append(self.superTetra)  #add super-triangle to triangulation
         itera=0
-        for point in self.pointSet: #for each point in set,add to triangulation
+        for idx,point in enumerate(self.pointSet): #for each point in set,add to triangulation
+            if idx%100==0:
+                print('Procent ukonczenia ',idx*100/len(self.pointSet),'%',flush=True)
             badTetra = []
             for tetra in triangulation:
                 if tetra.pointInSphere(point):
                     badTetra.append(tetra)
                 itera+=1
-
-            polygon = []
             for tetrahe in badTetra:
-                for face in tetrahe.faces:
+                # for face in tetrahe.faces:
+                #     isShared = False
+                #     for other in badTetra:
+                #         if not isShared:
+                #             if tetrahe == other:#shared jest wtedy kiedy 3 wierzcholki nasze sa rowne jego wierzcholkom
+                #                 continue
+                #             for otherFace in other.faces:
+                #                 itera+=1
+                #                 if Tetrahedron.faceIsEqual(face,otherFace):
+                #                     isShared = True
+                #     if not isShared:
+                #         newTetra = Tetrahedron(face[0],face[1],face[2],point)
+                #         triangulation.append(newTetra)
+                faces= list(itertools.combinations(tetrahe.vertecies, 3))
+                compare = lambda x, y: collections.Counter(x) == collections.Counter(y)
+                for face in faces:
                     isShared = False
                     for other in badTetra:
-                        if tetrahe == other:
-                            continue
-                        for otherFace in other.faces:
-                            itera+=1
-                            if Tetrahedron.faceIsEqual(face,otherFace):
-                                isShared = True
+                        otherFaces= list(itertools.combinations(other.vertecies, 3))
+                        if not isShared:
+                            if tetrahe == other:#shared jest wtedy kiedy 3 wierzcholki nasze sa rowne jego wierzcholkom
+                                continue
+                            for otherFace in otherFaces:
+                                itera+=1
+                                if compare(face,otherFace):
+                                    isShared = True
                     if not isShared:
-                        polygon.append(face)
+                        newTetra = Tetrahedron(face[0],face[1],face[2],point)
+                        triangulation.append(newTetra)
+
+
             for badTet in badTetra:
                 itera+=1
                 triangulation.remove(badTet)
-
-            for face in polygon:
-                itera+=1
-                newTetra = Tetrahedron(face[0],face[1],face[2],point)
-                triangulation.append(newTetra)
+                
         onSuper = lambda tetra : tetra.HasVertex(self.superTetra.A) or tetra.HasVertex(self.superTetra.B) or tetra.HasVertex(self.superTetra.C) or tetra.HasVertex(self.superTetra.D)
         print('liczba iteracji',itera)
         triangulation = [tetra for tetra in triangulation if not onSuper(tetra)]
@@ -80,22 +97,14 @@ class Delaunay():
             verticiesIndex.append(newRow)
         return verticiesIndex
 
-
-    def computeVertices(self):
-        self.tetraPoints=self.computeTrianglePoints()
-        self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
-        return self.transformed,self.tetraPoints
-    def plotSelf(self):
-        fullPoints=[]
+    def computerVertexCoordsFacesColors(self):
         xyz=[]
-        
+        faces=[]
+        colors=[]
         for vert in self.transformed:
             for index in vert:
                 xyz.append([self.pointSet[index].toArr()[0],self.pointSet[index].toArr()[1],self.pointSet[index].toArr()[2]])
-        faces=[]
-        colors=[]
-        for tetra in self.transformed:
-            vertexComb= list(itertools.combinations(tetra, 3))
+            vertexComb= list(itertools.combinations(vert, 3))
             for p in vertexComb:
                 faces.append(p)
             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))
@@ -103,7 +112,26 @@ class Delaunay():
             colors.append(myFaceColor)
             colors.append(myFaceColor)
             colors.append(myFaceColor)
-        tri_mesh = trimesh.Trimesh(vertices=xyz,faces=faces,vertex_colors=colors) 
+
+        return xyz,faces,colors
+    def computeVertices(self):
+        self.tetraPoints=self.computeTrianglePoints()
+        self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
+        return self.transformed,self.tetraPoints
+    def computeNormals(self,faces,points):
+        normals=[]
+        for face in faces:
+            p1=np.array(points[face[0]])
+            p2=np.array(points[face[1]])
+            p3=np.array(points[face[2]])
+            N = np.cross(p2-p1, p3-p1)
+            normals.append(N)
+        return normals
+    def plotSelf(self):
+        fullPoints=[]
+        xyz,faces,colors=self.computerVertexCoordsFacesColors()     
+        normals=self.computeNormals(faces,xyz)  
+        tri_mesh = trimesh.Trimesh(vertices=xyz,faces=faces,vertex_normals=normals,vertex_colors=colors) 
         tri_mesh.export('test.ply')
         pcd_load = o3d.io.read_triangle_mesh("test.ply")
         o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
