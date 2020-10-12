@@ -34,37 +34,21 @@ class Delaunay():
                     badTetra.append(tetra)
                 itera+=1
             for tetrahe in badTetra:
-                # for face in tetrahe.faces:
-                #     isShared = False
-                #     for other in badTetra:
-                #         if not isShared:
-                #             if tetrahe == other:#shared jest wtedy kiedy 3 wierzcholki nasze sa rowne jego wierzcholkom
-                #                 continue
-                #             for otherFace in other.faces:
-                #                 itera+=1
-                #                 if Tetrahedron.faceIsEqual(face,otherFace):
-                #                     isShared = True
-                #     if not isShared:
-                #         newTetra = Tetrahedron(face[0],face[1],face[2],point)
-                #         triangulation.append(newTetra)
-                faces= list(itertools.combinations(tetrahe.vertecies, 3))
-                compare = lambda x, y: collections.Counter(x) == collections.Counter(y)
-                for face in faces:
-                    isShared = False
-                    for other in badTetra:
-                        otherFaces= list(itertools.combinations(other.vertecies, 3))
-                        if not isShared:
-                            if tetrahe == other:#shared jest wtedy kiedy 3 wierzcholki nasze sa rowne jego wierzcholkom
-                                continue
-                            for otherFace in otherFaces:
-                                itera+=1
-                                if compare(face,otherFace):
-                                    isShared = True
-                    if not isShared:
-                        newTetra = Tetrahedron(face[0],face[1],face[2],point)
-                        triangulation.append(newTetra)
-
-
+                myVert=tetrahe.vertecies
+                allfaces=list(itertools.combinations(myVert, 3))
+                buff=[]
+                for face in allfaces:
+                    buff.append(set(face))
+                allfaces=buff
+                sharedWithOtherFaces=[]
+                for other in badTetra:
+                    sharedFace=self.compareTetraFaces(myVert,other.vertecies)
+                    if sharedFace!=[]:
+                        allfaces.remove(set(sharedFace))
+                for notSharedFace in allfaces:
+                    listed=list(notSharedFace)
+                    newTetra = Tetrahedron(listed[0],listed[1],listed[2],point)
+                    triangulation.append(newTetra)
             for badTet in badTetra:
                 itera+=1
                 triangulation.remove(badTet)
@@ -73,6 +57,12 @@ class Delaunay():
         print('liczba iteracji',itera)
         triangulation = [tetra for tetra in triangulation if not onSuper(tetra)]
         return triangulation
+    def compareTetraFaces(self,vertA,vertB):
+        dele=set (vertB ) - set(vertA)
+        face=[]
+        if dele!=set(vertB) and len(dele)==1:
+            face=tuple(set(vertB)-dele)
+        return face
     def printAll(self,triangulation):
         print('=========================================================')            
         for idx,tri in enumerate(triangulation):
@@ -84,16 +74,13 @@ class Delaunay():
         #adding indexes instead of values
         verticiesIndex=[]
         for tetra in self.tetraPoints:
-            xs_new=[tetra.A.x,tetra.B.x,tetra.C.x,tetra.D.x]
-            ys_new=[tetra.A.y,tetra.B.y,tetra.C.y,tetra.D.y]
-            zs_new=[tetra.A.z,tetra.B.z,tetra.C.z,tetra.D.z]
-            tetraTuple=[ (xs_new[0],ys_new[0],zs_new[0]),(xs_new[1],ys_new[1],zs_new[1]),(xs_new[2],ys_new[2],zs_new[2]),(xs_new[3],ys_new[3],zs_new[3])]
+            tetraTuple=[ tetra.A.toTuple(),tetra.B.toTuple(),tetra.C.toTuple(),tetra.D.toTuple()]
             newRow=[0,0,0,0]
             for idx,xyz in enumerate(self.pointSet):
-                point=xyz.toArr()
-                for p in range(0,4):
-                    if  tetraTuple[p][0]==point[0] and tetraTuple[p][1]==point[1] and tetraTuple[p][2]==point[2]:
-                        newRow[p]=idx
+                point=xyz.toTuple()
+                for indx,tup in enumerate(tetraTuple):
+                    if  tup==point:
+                        newRow[indx]=idx
             verticiesIndex.append(newRow)
         return verticiesIndex
 

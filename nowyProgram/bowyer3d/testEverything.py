@@ -10,16 +10,20 @@ import multiprocess
 import timeit
 
 
-def count(items):
-    xsyszs=[Point(0,0,0),Point(5,0,0),Point(5,5,0),Point(0,5,0),Point(0,0,5),Point(5,0,5),Point(5,5,5),Point(0,5,5),Point(5,5,6)]
-    # xsyszs=[]
-    # for itera in range(0,items):
-    #     point=Point(random()*1000,random()*1000,random()*1000)
-    #     xsyszs.append(point)
-    comp=Delaunay(xsyszs)
+def generatePoints(leng):
+    xsyszs=[]
+    for itera in range(0,leng):
+        point=Point(random()*1000,random()*1000,random()*1000)
+        xsyszs.append(point)
+    return xsyszs
+def count(pts):
+    #xsyszs=[Point(0,0,0),Point(5,0,0),Point(5,5,0),Point(0,5,0),Point(0,0,5),Point(5,0,5),Point(5,5,5),Point(0,5,5),Point(5,5,6),Point(10,11,12)]
+
+    comp=Delaunay(pts)
     transformed,normalPoints=comp.computeVertices()
     comp.plotSelf()
 
 if __name__ == '__main__':
-    print('sredni czas ',timeit.timeit("count(1000)", setup="from __main__ import count",number=1)*1000/2,'ms')
+    pts=generatePoints(10000)
+    print('sredni czas nowego',timeit.timeit("count(pts)", setup="from __main__ import count,pts",number=1)*1000/1,'ms')
     # count(100)

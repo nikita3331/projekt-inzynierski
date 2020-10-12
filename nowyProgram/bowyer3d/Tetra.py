@@ -11,6 +11,7 @@ class Tetrahedron():
         self.edges=[(self.A,self.B),(self.B,self.C),(self.C,self.A),(self.A,self.D),(self.B,self.D),(self.C,self.D)]
         self.faces=[(self.A,self.B,self.C),(self.A,self.B,self.D),(self.A,self.C,self.D),(self.C,self.B,self.D)]
         self.vertecies=[self.A,self.B,self.C,self.D]
+        # self.verteciesTuple=[self.A.toTuple(),self.B.toTuple(),self.C.toTuple(),self.D.toTuple()]
         self.a=self.dist(self.B,self.C)
         self.b=self.dist(self.A,self.C)
         self.c=self.dist(self.B,self.A)
