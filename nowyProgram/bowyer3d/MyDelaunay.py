@@ -14,41 +14,47 @@ import collections
 
 class Delaunay():
     #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
-    #https://stackoverflow.com/questions/58116412/a-bowyer-watson-delaunay-triangulation-i-implemented-doesnt-remove-the-triangle
-    def __init__(self,pointSet): #big A is point,small a is vertice
+    def __init__(self,pointSet):
         self.pointSet=pointSet
         self.vertices=[]
         self.trianglePoints=[]
     def computeTrianglePoints(self):
-        #https://www.youtube.com/watch?v=GctAunEuHt4&ab_channel=SCIco
-        self.superTetra=Tetrahedron.createSuperTetra(10000)
-        triangulation=[] #empty triangle mesh data structure
-        triangulation.append(self.superTetra)  #add super-triangle to triangulation
+        self.superTetra=Tetrahedron.createSuperTetra(10000) #first create super tetra where are all points
+        triangulation=[] #all triangles go here
+        triangulation.append(self.superTetra)  #add first super tri,remove it at the end
         itera=0
-        for idx,point in enumerate(self.pointSet): #for each point in set,add to triangulation
+        for idx,point in enumerate(self.pointSet): 
             if idx%100==0:
                 print('Procent ukonczenia ',idx*100/len(self.pointSet),'%',flush=True)
             badTetra = []
-            for tetra in triangulation:
+            for tetra in triangulation: # lets check if point is in sphere of any tetrahedra
                 if tetra.pointInSphere(point):
                     badTetra.append(tetra)
                 itera+=1
-            for tetrahe in badTetra:
+            for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones
+
+                #-----this part takes 26% of time
                 myVert=tetrahe.vertecies
-                allfaces=list(itertools.combinations(myVert, 3))
+                allfaces=list(itertools.combinations(myVert, 3)) #generate faces from vertecies
+                #---- convert itertools tuples,to set {} for easier subtraction
                 buff=[]
                 for face in allfaces:
                     buff.append(set(face))
                 allfaces=buff
+                #----
+                #--this takes 48% of time
                 sharedWithOtherFaces=[]
-                for other in badTetra:
+                for other in badTetra: #check if our tetrahedra hes 3 same vertices ,so has the same face
                     sharedFace=self.compareTetraFaces(myVert,other.vertecies)
-                    if sharedFace!=[]:
+                    if len(sharedFace)==3:
                         allfaces.remove(set(sharedFace))
+                #----
+                #---this takes 10% of time
                 for notSharedFace in allfaces:
-                    listed=list(notSharedFace)
+                    listed=list(notSharedFace) #convert to list for indexing ,because set cant be indexed
                     newTetra = Tetrahedron(listed[0],listed[1],listed[2],point)
                     triangulation.append(newTetra)
+                #---
             for badTet in badTetra:
                 itera+=1
                 triangulation.remove(badTet)
@@ -58,10 +64,7 @@ class Delaunay():
         triangulation = [tetra for tetra in triangulation if not onSuper(tetra)]
         return triangulation
     def compareTetraFaces(self,vertA,vertB):
-        dele=set (vertB ) - set(vertA)
-        face=[]
-        if dele!=set(vertB) and len(dele)==1:
-            face=tuple(set(vertB)-dele)
+        face=set(vertB).intersection(set(vertA)) #how many verticies are the same
         return face
     def printAll(self,triangulation):
         print('=========================================================')            
@@ -90,12 +93,13 @@ class Delaunay():
         colors=[]
         for vert in self.transformed:
             for index in vert:
-                xyz.append([self.pointSet[index].toArr()[0],self.pointSet[index].toArr()[1],self.pointSet[index].toArr()[2]])
+                myPt=self.pointSet[index].toArr()
+                xyz.append([myPt[0],myPt[1],myPt[2]])
             vertexComb= list(itertools.combinations(vert, 3))
-            for p in vertexComb:
+            for p in vertexComb: #adding faces of tetrahedra
                 faces.append(p)
             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))
-            colors.append(myFaceColor)
+            colors.append(myFaceColor)#same color for each face of tetra
             colors.append(myFaceColor)
             colors.append(myFaceColor)
             colors.append(myFaceColor)

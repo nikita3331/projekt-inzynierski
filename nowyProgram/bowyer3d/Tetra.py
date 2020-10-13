@@ -8,10 +8,7 @@ class Tetrahedron():
         self.B=B
         self.C=C
         self.D=D
-        self.edges=[(self.A,self.B),(self.B,self.C),(self.C,self.A),(self.A,self.D),(self.B,self.D),(self.C,self.D)]
-        self.faces=[(self.A,self.B,self.C),(self.A,self.B,self.D),(self.A,self.C,self.D),(self.C,self.B,self.D)]
         self.vertecies=[self.A,self.B,self.C,self.D]
-        # self.verteciesTuple=[self.A.toTuple(),self.B.toTuple(),self.C.toTuple(),self.D.toTuple()]
         self.a=self.dist(self.B,self.C)
         self.b=self.dist(self.A,self.C)
         self.c=self.dist(self.B,self.A)
@@ -55,14 +52,6 @@ class Tetrahedron():
         else:
             return False
         
-    def splitIntoTetrahedron(self,point):
-        vertexComb= list(itertools.combinations([self.A,self.B,self.C,self.D], 3))
-        newTetra=[]
-        for row in vertexComb:
-            newtet=Tetrahedron(row[0],row[1],row[2],point)
-            if newtet.isValidTetra:
-                newTetra.append(newtet)
-        return newTetra
     def initValues(self):
         if self.isValidTetra:
             self.O=self.circumCircleCenter()
@@ -75,11 +64,7 @@ class Tetrahedron():
         D=Point(0,0,100*2*length)
         superTri=cls(A,B,C,D) 
         return superTri
-    def faceIsEqual(face,otherFace):
-        first=(face[0] == otherFace[0] and face[1] == otherFace[1] and face[2] == otherFace[2])
-        second=(face[0] == otherFace[1] and face[1] == otherFace[2] and face[2] == otherFace[0])
-        third=(face[0] == otherFace[2] and face[1] == otherFace[0] and face[2] == otherFace[1])
-        return  first or second or third
+
     def HasVertex(self,point):
         return (self.A == point) or (self.B == point) or (self.C == point) or (self.D == point)     
 

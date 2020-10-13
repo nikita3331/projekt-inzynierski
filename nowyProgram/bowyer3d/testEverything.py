@@ -21,9 +21,9 @@ def count(pts):
 
     comp=Delaunay(pts)
     transformed,normalPoints=comp.computeVertices()
-    comp.plotSelf()
+    comp.plotSelf() #for showing tetra
 
 if __name__ == '__main__':
-    pts=generatePoints(10000)
+    pts=generatePoints(500)
     print('sredni czas nowego',timeit.timeit("count(pts)", setup="from __main__ import count,pts",number=1)*1000/1,'ms')
     # count(100)
