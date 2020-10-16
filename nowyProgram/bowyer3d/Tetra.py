@@ -16,7 +16,7 @@ class Tetrahedron():
         self.f=self.dist(self.D,self.B)
         self.g=self.dist(self.D,self.C)
         self.p=(self.a+self.b+self.c)/2
-        self.isValidTetra=self.checkValid()
+        self.isValidTetra=True
         self.initValues()
     def printSelf(self):
         print('A = ',self.A.toArr(),'B = ',self.B.toArr(),'C = ',self.C.toArr(),'D = ',self.D.toArr())
