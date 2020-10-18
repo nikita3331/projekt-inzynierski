@@ -26,9 +26,12 @@ class Delaunay():
             if len(sharedFace)==3:
                 allFaces.remove(sharedFace)
         return allFaces
+    def dist(self,p1,p2):
+        distance=math.sqrt((p1[0]-p2[0])**2+(p1[1]-p2[1])**2+(p1[2]-p2[2])**2) 
+        return distance
     def removeTouchingTetra(self,tetrahe,badTetra,triangulation,point):
         myVert=tetrahe.vertecies
-        allfaces=[{myVert[0],myVert[1],myVert[2]},{myVert[0],myVert[1],myVert[3]},{myVert[3],myVert[1],myVert[2]},{myVert[0],myVert[3],myVert[2]}]
+        allfaces= [{myVert[0],myVert[1],myVert[2]},{myVert[0],myVert[1],myVert[3]},{myVert[3],myVert[1],myVert[2]},{myVert[0],myVert[3],myVert[2]}]
         #----
         #--this takes 48% of time
         sharedWithOtherFaces=[]
@@ -41,10 +44,12 @@ class Delaunay():
             triangulation.append(Tetrahedron(first,second,third,point))
         #---
         triangulation.remove(tetrahe)
+        return triangulation
     def computeTrianglePoints(self):
         self.superTetra=Tetrahedron.createSuperTetra(10000) #first create super tetra where are all points
         triangulation=[] #all triangles go here
-        triangulation.append(self.superTetra)  #add first super tri,remove it at the end
+        triangulation.append(self.superTetra)
+        # triangulation.append(self.superTetra)  #add first super tri,remove it at the end
         itera=0
         totalStartTime=time.time()
         firstTime=0
@@ -62,8 +67,9 @@ class Delaunay():
             firstET=time.time()
             firstTime+=(firstET-firstT)
             firstT=time.time()
+            badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones
-                self.removeTouchingTetra(tetrahe,badTetra,triangulation,point) #prepared for multiprocess
+                triangulation=self.removeTouchingTetra(tetrahe,badTetra,triangulation,point) #prepared for multiprocess
             firstET=time.time()
             secondTime+=firstET-firstT
         totalEndTime=time.time()
@@ -115,6 +121,14 @@ class Delaunay():
 
         return xyz,faces,colors
     def computeVertices(self):
+        # totalx=0
+        # totaly=0
+        # totalz=0
+        # for i in self.pointSet:
+        #     totalx+=i[0]
+        #     totaly+=i[1]
+        #     totalz+=i[2]
+        # self.pointSet=sorted(self.pointSet,key=lambda x: self.dist(x,(totalx/len(self.pointSet),totaly/len(self.pointSet),totalz/len(self.pointSet))))
         self.tetraPoints=self.computeTrianglePoints()
         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
         return self.transformed,self.tetraPoints

@@ -10,29 +10,26 @@ import math
 
 
 
-def myfunc(lista,iterator):
+def myfunc(iterator):
     total=0
     for i in range(0,1000):
         for j in range(0,1000):
             total+=i*j
-    lista.append(total)
+    return total
 
 if __name__ == '__main__':
-    manager = Manager()
 
-    l = manager.list()
-    processes=[]
 
 
 
 
 
     startTime=time.time()
-    pool = Pool(processes=5)
+    pool = Pool()
 
-    pool.starmap(myfunc, ((l, i) for i in range(0, 100)))
+    vals=pool.starmap(myfunc, ((i,) for i in range(0, 100)))
     pool.close()
-
+    print(vals)
     endTime=time.time()
     print('czas pierwszegop',endTime-startTime)
     lista=[]
@@ -47,7 +44,7 @@ if __name__ == '__main__':
     endTime=time.time()
     
     print('czas drguiego',endTime-startTime)
-    returned=np.array(lista)-np.array(l)
+    returned=np.array(lista)-np.array(vals)
     print(returned)
 
 
