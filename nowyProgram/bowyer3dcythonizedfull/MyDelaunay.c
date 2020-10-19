@@ -1100,6 +1100,8 @@ typedef npy_clongdouble __pyx_t_5numpy_clongdouble_t;
  * cdef inline object PyArray_MultiIterNew1(a):
  */
 typedef npy_cdouble __pyx_t_5numpy_complex_t;
+struct __pyx_ctuple_double__and_double__and_double__and_long;
+typedef struct __pyx_ctuple_double__and_double__and_double__and_long __pyx_ctuple_double__and_double__and_double__and_long;
 struct __pyx_ctuple_double__and_double__and_double;
 typedef struct __pyx_ctuple_double__and_double__and_double __pyx_ctuple_double__and_double__and_double;
 struct __pyx_ctuple_long__and_long__and_long;
@@ -1107,12 +1109,26 @@ typedef struct __pyx_ctuple_long__and_long__and_long __pyx_ctuple_long__and_long
 struct __pyx_ctuple_int__and_int__and_int;
 typedef struct __pyx_ctuple_int__and_int__and_int __pyx_ctuple_int__and_int__and_int;
 
-/* "MyDelaunay.pyx":38
+/* "MyDelaunay.pyx":30
  *                 allFaces.remove(sharedFace)
  *         return allFaces
- *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double )point):             # <<<<<<<<<<<<<<
+ *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double,long int )point):             # <<<<<<<<<<<<<<
  *         cdef list myVert
  *         cdef list allfaces
+ */
+struct __pyx_ctuple_double__and_double__and_double__and_long {
+  double f0;
+  double f1;
+  double f2;
+  long f3;
+};
+
+/* "MyDelaunay.pyx":110
+ * 
+ *         return filteredTriangulation
+ *     cdef  double calcDistance(self,( double, double, double) A,( double, double, double,long int) B):             # <<<<<<<<<<<<<<
+ *         cdef double calculated
+ *         cdef double suma
  */
 struct __pyx_ctuple_double__and_double__and_double {
   double f0;
@@ -1120,11 +1136,11 @@ struct __pyx_ctuple_double__and_double__and_double {
   double f2;
 };
 
-/* "MyDelaunay.pyx":149
+/* "MyDelaunay.pyx":144
  * 
  *         cdef long int index
  *         cdef (long int,long int,long int) p             # <<<<<<<<<<<<<<
- *         cdef (double,double,double) myPt
+ *         cdef (double,double,double,long int) myPt
  *         cdef (int,int,int) myFaceColor
  */
 struct __pyx_ctuple_long__and_long__and_long {
@@ -1133,9 +1149,9 @@ struct __pyx_ctuple_long__and_long__and_long {
   long f2;
 };
 
-/* "MyDelaunay.pyx":151
+/* "MyDelaunay.pyx":146
  *         cdef (long int,long int,long int) p
- *         cdef (double,double,double) myPt
+ *         cdef (double,double,double,long int) myPt
  *         cdef (int,int,int) myFaceColor             # <<<<<<<<<<<<<<
  * 
  *         xyz=[]
@@ -1149,23 +1165,23 @@ struct __pyx_ctuple_int__and_int__and_int {
 /* "Tetra.pxd":1
  * cdef class Tetrahedron:             # <<<<<<<<<<<<<<
  *     cdef public:
- *         cdef (double,double,double) A
+ *         cdef (double,double,double,long int) A #vert
  */
 struct __pyx_obj_5Tetra_Tetrahedron {
   PyObject_HEAD
   struct __pyx_vtabstruct_5Tetra_Tetrahedron *__pyx_vtab;
-  __pyx_ctuple_double__and_double__and_double A;
-  __pyx_ctuple_double__and_double__and_double B;
-  __pyx_ctuple_double__and_double__and_double C;
-  __pyx_ctuple_double__and_double__and_double D;
+  __pyx_ctuple_double__and_double__and_double__and_long A;
+  __pyx_ctuple_double__and_double__and_double__and_long B;
+  __pyx_ctuple_double__and_double__and_double__and_long C;
+  __pyx_ctuple_double__and_double__and_double__and_long D;
   double R;
   __pyx_ctuple_double__and_double__and_double O;
   PyObject *vertecies;
 };
 
 
-/* "MyDelaunay.pyx":17
- * from CreateNewTetra import tetraLoop
+/* "MyDelaunay.pyx":9
+ * import time
  * 
  * cdef class Delaunay():             # <<<<<<<<<<<<<<
  *     #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
@@ -1187,22 +1203,22 @@ struct __pyx_obj_10MyDelaunay_Delaunay {
 /* "Tetra.pxd":1
  * cdef class Tetrahedron:             # <<<<<<<<<<<<<<
  *     cdef public:
- *         cdef (double,double,double) A
+ *         cdef (double,double,double,long int) A #vert
  */
 
 struct __pyx_vtabstruct_5Tetra_Tetrahedron {
   PyObject *(*calculateSphereCenter)(struct __pyx_obj_5Tetra_Tetrahedron *);
-  PyObject *(*calcCenter)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double);
-  double (*calcDet)(struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, double, double, double, double, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double);
-  int (*pointInSphere)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double);
-  double (*dist)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double);
-  int (*HasVertex)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double);
+  PyObject *(*calcCenter)(struct __pyx_obj_5Tetra_Tetrahedron *);
+  double (*calcDet)(struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, double, double, double, double);
+  int (*pointInSphere)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double__and_long);
+  double (*dist)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double__and_long);
+  int (*HasVertex)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double__and_long);
 };
 static struct __pyx_vtabstruct_5Tetra_Tetrahedron *__pyx_vtabptr_5Tetra_Tetrahedron;
 
 
-/* "MyDelaunay.pyx":17
- * from CreateNewTetra import tetraLoop
+/* "MyDelaunay.pyx":9
+ * import time
  * 
  * cdef class Delaunay():             # <<<<<<<<<<<<<<
  *     #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
@@ -1211,10 +1227,11 @@ static struct __pyx_vtabstruct_5Tetra_Tetrahedron *__pyx_vtabptr_5Tetra_Tetrahed
 
 struct __pyx_vtabstruct_10MyDelaunay_Delaunay {
   PyObject *(*removeSharedFace)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *, PyObject *, PyObject *);
-  PyObject *(*removeTouchingTetra)(struct __pyx_obj_10MyDelaunay_Delaunay *, struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, PyObject *, __pyx_ctuple_double__and_double__and_double);
+  PyObject *(*removeTouchingTetra)(struct __pyx_obj_10MyDelaunay_Delaunay *, struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, PyObject *, __pyx_ctuple_double__and_double__and_double__and_long);
   struct __pyx_obj_5Tetra_Tetrahedron *(*createSuperTetra)(struct __pyx_obj_10MyDelaunay_Delaunay *, double);
   int (*liesOnSuper)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *);
   PyObject *(*computeTrianglePoints)(struct __pyx_obj_10MyDelaunay_Delaunay *);
+  double (*calcDistance)(struct __pyx_obj_10MyDelaunay_Delaunay *, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double__and_long);
   PyObject *(*compareTetraFaces)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *, PyObject *);
   PyObject *(*transformToIndexes)(struct __pyx_obj_10MyDelaunay_Delaunay *);
   PyObject *(*computerVertexCoordsFacesColors)(struct __pyx_obj_10MyDelaunay_Delaunay *);
@@ -1540,16 +1557,6 @@ static CYTHON_INLINE int __Pyx_TypeTest(PyObject *obj, PyTypeObject *type);
 /* PyObjectCall2Args.proto */
 static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyObject* arg1, PyObject* arg2);
 
-/* SetItemInt.proto */
-#define __Pyx_SetItemInt(o, i, v, type, is_signed, to_py_func, is_list, wraparound, boundscheck)\
-    (__Pyx_fits_Py_ssize_t(i, type, is_signed) ?\
-    __Pyx_SetItemInt_Fast(o, (Py_ssize_t)i, v, is_list, wraparound, boundscheck) :\
-    (is_list ? (PyErr_SetString(PyExc_IndexError, "list assignment index out of range"), -1) :\
-               __Pyx_SetItemInt_Generic(o, to_py_func(i), v)))
-static int __Pyx_SetItemInt_Generic(PyObject *o, PyObject *j, PyObject *v);
-static CYTHON_INLINE int __Pyx_SetItemInt_Fast(PyObject *o, Py_ssize_t i, PyObject *v,
-                                               int is_list, int wraparound, int boundscheck);
-
 /* PyErrExceptionMatches.proto */
 #if CYTHON_FAST_THREAD_STATE
 #define __Pyx_PyErr_ExceptionMatches(err) __Pyx_PyErr_ExceptionMatchesInState(__pyx_tstate, err)
@@ -1681,7 +1688,7 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value);
 
 /* ToPyCTupleUtility.proto */
-static PyObject* __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_ctuple_double__and_double__and_double);
+static PyObject* __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_ctuple_double__and_double__and_double__and_long);
 
 /* Print.proto */
 static int __Pyx_Print(PyObject*, PyObject *, int);
@@ -1692,6 +1699,9 @@ static PyObject* __pyx_print_kwargs = 0;
 
 /* FromPyCTupleUtility.proto */
 static __pyx_ctuple_double__and_double__and_double __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double(PyObject *);
+
+/* FromPyCTupleUtility.proto */
+static __pyx_ctuple_double__and_double__and_double__and_long __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double__and_long(PyObject *);
 
 /* FromPyCTupleUtility.proto */
 static __pyx_ctuple_long__and_long__and_long __pyx_convert__from_py___pyx_ctuple_long__and_long__and_long(PyObject *);
@@ -1832,10 +1842,11 @@ static int __Pyx_check_binary_version(void);
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, PyObject *__pyx_v_myVert, PyObject *__pyx_v_otherVert, PyObject *__pyx_v_allFaces); /* proto*/
-static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, struct __pyx_obj_5Tetra_Tetrahedron *__pyx_v_tetrahe, PyObject *__pyx_v_badTetra, PyObject *__pyx_v_triangulation, __pyx_ctuple_double__and_double__and_double __pyx_v_point); /* proto*/
+static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, struct __pyx_obj_5Tetra_Tetrahedron *__pyx_v_tetrahe, PyObject *__pyx_v_badTetra, PyObject *__pyx_v_triangulation, __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_point); /* proto*/
 static struct __pyx_obj_5Tetra_Tetrahedron *__pyx_f_10MyDelaunay_8Delaunay_createSuperTetra(CYTHON_UNUSED struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, double __pyx_v_length); /* proto*/
 static int __pyx_f_10MyDelaunay_8Delaunay_liesOnSuper(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, PyObject *__pyx_v_vert); /* proto*/
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self); /* proto*/
+static double __pyx_f_10MyDelaunay_8Delaunay_calcDistance(CYTHON_UNUSED struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, __pyx_ctuple_double__and_double__and_double __pyx_v_A, __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_B); /* proto*/
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_compareTetraFaces(CYTHON_UNUSED struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, PyObject *__pyx_v_vertA, PyObject *__pyx_v_vertB); /* proto*/
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self); /* proto*/
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self); /* proto*/
@@ -1886,16 +1897,15 @@ int __pyx_module_is_main_MyDelaunay = 0;
 
 /* Implementation of 'MyDelaunay' */
 static PyObject *__pyx_builtin_range;
-static PyObject *__pyx_builtin_enumerate;
 static PyObject *__pyx_builtin_ValueError;
 static PyObject *__pyx_builtin_RuntimeError;
 static PyObject *__pyx_builtin_ImportError;
 static const char __pyx_k_[] = "%";
+static const char __pyx_k_O[] = "O";
+static const char __pyx_k_R[] = "R";
 static const char __pyx_k_np[] = "np";
-static const char __pyx_k__10[] = "*";
 static const char __pyx_k_end[] = "end";
 static const char __pyx_k_new[] = "__new__";
-static const char __pyx_k_plt[] = "plt";
 static const char __pyx_k_dict[] = "__dict__";
 static const char __pyx_k_file[] = "file";
 static const char __pyx_k_main[] = "__main__";
@@ -1907,8 +1917,6 @@ static const char __pyx_k_cross[] = "cross";
 static const char __pyx_k_numpy[] = "numpy";
 static const char __pyx_k_print[] = "print";
 static const char __pyx_k_range[] = "range";
-static const char __pyx_k_Axes3D[] = "Axes3D";
-static const char __pyx_k_axes3d[] = "axes3d";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_pickle[] = "pickle";
 static const char __pyx_k_random[] = "random";
@@ -1924,20 +1932,16 @@ static const char __pyx_k_pointSet[] = "pointSet";
 static const char __pyx_k_pyx_type[] = "__pyx_type";
 static const char __pyx_k_setstate[] = "__setstate__";
 static const char __pyx_k_subtract[] = "subtract";
-static const char __pyx_k_enumerate[] = "enumerate";
 static const char __pyx_k_pyx_state[] = "__pyx_state";
 static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
-static const char __pyx_k_tetraLoop[] = "tetraLoop";
 static const char __pyx_k_vertecies[] = "vertecies";
 static const char __pyx_k_MyDelaunay[] = "MyDelaunay";
 static const char __pyx_k_ValueError[] = "ValueError";
-static const char __pyx_k_checkPoint[] = "checkPoint";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_totaj_time[] = "totaj time";
 static const char __pyx_k_ImportError[] = "ImportError";
 static const char __pyx_k_PickleError[] = "PickleError";
-static const char __pyx_k_collections[] = "collections";
 static const char __pyx_k_intersect1d[] = "intersect1d";
 static const char __pyx_k_second_time[] = "second time ";
 static const char __pyx_k_RuntimeError[] = "RuntimeError";
@@ -1945,19 +1949,13 @@ static const char __pyx_k_intersection[] = "intersection";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
-static const char __pyx_k_CreateNewTetra[] = "CreateNewTetra";
-static const char __pyx_k_PointInAllTetra[] = "PointInAllTetra";
 static const char __pyx_k_computeVertices[] = "computeVertices";
 static const char __pyx_k_pyx_PickleError[] = "__pyx_PickleError";
 static const char __pyx_k_setstate_cython[] = "__setstate_cython__";
-static const char __pyx_k_Poly3DCollection[] = "Poly3DCollection";
-static const char __pyx_k_matplotlib_pyplot[] = "matplotlib.pyplot";
 static const char __pyx_k_Procent_ukonczenia[] = "Procent ukonczenia ";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
-static const char __pyx_k_mpl_toolkits_mplot3d[] = "mpl_toolkits.mplot3d";
 static const char __pyx_k_first_time_percentage[] = "first time percentage";
 static const char __pyx_k_pyx_unpickle_Delaunay[] = "__pyx_unpickle_Delaunay";
-static const char __pyx_k_mpl_toolkits_mplot3d_art3d[] = "mpl_toolkits.mplot3d.art3d";
 static const char __pyx_k_ndarray_is_not_C_contiguous[] = "ndarray is not C contiguous";
 static const char __pyx_k_numpy_core_multiarray_failed_to[] = "numpy.core.multiarray failed to import";
 static const char __pyx_k_unknown_dtype_code_in_numpy_pxd[] = "unknown dtype code in numpy.pxd (%d)";
@@ -1968,8 +1966,6 @@ static const char __pyx_k_ndarray_is_not_Fortran_contiguou[] = "ndarray is not F
 static const char __pyx_k_numpy_core_umath_failed_to_impor[] = "numpy.core.umath failed to import";
 static const char __pyx_k_Format_string_allocated_too_shor_2[] = "Format string allocated too short.";
 static PyObject *__pyx_kp_s_;
-static PyObject *__pyx_n_s_Axes3D;
-static PyObject *__pyx_n_s_CreateNewTetra;
 static PyObject *__pyx_n_s_Delaunay;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor;
 static PyObject *__pyx_kp_u_Format_string_allocated_too_shor_2;
@@ -1977,24 +1973,19 @@ static PyObject *__pyx_n_s_ImportError;
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0xc9;
 static PyObject *__pyx_n_s_MyDelaunay;
 static PyObject *__pyx_kp_u_Non_native_byte_order_not_suppor;
+static PyObject *__pyx_n_s_O;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_Point;
 static PyObject *__pyx_n_s_Point3D;
-static PyObject *__pyx_n_s_PointInAllTetra;
-static PyObject *__pyx_n_s_Poly3DCollection;
 static PyObject *__pyx_kp_s_Procent_ukonczenia;
+static PyObject *__pyx_n_s_R;
 static PyObject *__pyx_n_s_RuntimeError;
 static PyObject *__pyx_n_s_ValueError;
-static PyObject *__pyx_n_s__10;
-static PyObject *__pyx_n_s_axes3d;
-static PyObject *__pyx_n_s_checkPoint;
 static PyObject *__pyx_n_s_cline_in_traceback;
-static PyObject *__pyx_n_s_collections;
 static PyObject *__pyx_n_s_computeVertices;
 static PyObject *__pyx_n_s_cross;
 static PyObject *__pyx_n_s_dict;
 static PyObject *__pyx_n_s_end;
-static PyObject *__pyx_n_s_enumerate;
 static PyObject *__pyx_n_s_file;
 static PyObject *__pyx_kp_s_first_time_percentage;
 static PyObject *__pyx_n_s_getstate;
@@ -2002,9 +1993,6 @@ static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_intersect1d;
 static PyObject *__pyx_n_s_intersection;
 static PyObject *__pyx_n_s_main;
-static PyObject *__pyx_n_s_matplotlib_pyplot;
-static PyObject *__pyx_n_s_mpl_toolkits_mplot3d;
-static PyObject *__pyx_n_s_mpl_toolkits_mplot3d_art3d;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_kp_u_ndarray_is_not_C_contiguous;
 static PyObject *__pyx_kp_u_ndarray_is_not_Fortran_contiguou;
@@ -2015,7 +2003,6 @@ static PyObject *__pyx_kp_s_numpy_core_multiarray_failed_to;
 static PyObject *__pyx_kp_s_numpy_core_umath_failed_to_impor;
 static PyObject *__pyx_n_s_pickle;
 static PyObject *__pyx_n_s_plotSelf;
-static PyObject *__pyx_n_s_plt;
 static PyObject *__pyx_n_s_pointSet;
 static PyObject *__pyx_n_s_print;
 static PyObject *__pyx_n_s_pyx_PickleError;
@@ -2038,7 +2025,6 @@ static PyObject *__pyx_n_s_setstate_cython;
 static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_subtract;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_n_s_tetraLoop;
 static PyObject *__pyx_n_s_time;
 static PyObject *__pyx_kp_s_totaj_time;
 static PyObject *__pyx_kp_u_unknown_dtype_code_in_numpy_pxd;
@@ -2083,11 +2069,11 @@ static PyObject *__pyx_tuple__6;
 static PyObject *__pyx_tuple__7;
 static PyObject *__pyx_tuple__8;
 static PyObject *__pyx_tuple__9;
-static PyObject *__pyx_tuple__11;
-static PyObject *__pyx_codeobj__12;
+static PyObject *__pyx_tuple__10;
+static PyObject *__pyx_codeobj__11;
 /* Late includes */
 
-/* "MyDelaunay.pyx":26
+/* "MyDelaunay.pyx":18
  *         cdef list transformed
  *         cdef Tetra.Tetrahedron superTetra
  *     def __init__(self,list pointSet):             # <<<<<<<<<<<<<<
@@ -2121,7 +2107,7 @@ static int __pyx_pw_10MyDelaunay_8Delaunay_1__init__(PyObject *__pyx_v_self, PyO
         else goto __pyx_L5_argtuple_error;
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 26, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 18, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
@@ -2132,13 +2118,13 @@ static int __pyx_pw_10MyDelaunay_8Delaunay_1__init__(PyObject *__pyx_v_self, PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 26, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 18, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("MyDelaunay.Delaunay.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_pointSet), (&PyList_Type), 1, "pointSet", 1))) __PYX_ERR(0, 26, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_pointSet), (&PyList_Type), 1, "pointSet", 1))) __PYX_ERR(0, 18, __pyx_L1_error)
   __pyx_r = __pyx_pf_10MyDelaunay_8Delaunay___init__(((struct __pyx_obj_10MyDelaunay_Delaunay *)__pyx_v_self), __pyx_v_pointSet);
 
   /* function exit code */
@@ -2156,7 +2142,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay___init__(struct __pyx_obj_10MyDelauna
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "MyDelaunay.pyx":27
+  /* "MyDelaunay.pyx":19
  *         cdef Tetra.Tetrahedron superTetra
  *     def __init__(self,list pointSet):
  *         self.pointSet=pointSet             # <<<<<<<<<<<<<<
@@ -2169,14 +2155,14 @@ static int __pyx_pf_10MyDelaunay_8Delaunay___init__(struct __pyx_obj_10MyDelauna
   __Pyx_DECREF(__pyx_v_self->pointSet);
   __pyx_v_self->pointSet = __pyx_v_pointSet;
 
-  /* "MyDelaunay.pyx":28
+  /* "MyDelaunay.pyx":20
  *     def __init__(self,list pointSet):
  *         self.pointSet=pointSet
  *         self.vertices=[]             # <<<<<<<<<<<<<<
  *         self.trianglePoints=[]
  *         self.superTetra=self.createSuperTetra(10000) #first create super tetra where are all points
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 28, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 20, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->vertices);
@@ -2184,14 +2170,14 @@ static int __pyx_pf_10MyDelaunay_8Delaunay___init__(struct __pyx_obj_10MyDelauna
   __pyx_v_self->vertices = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":29
+  /* "MyDelaunay.pyx":21
  *         self.pointSet=pointSet
  *         self.vertices=[]
  *         self.trianglePoints=[]             # <<<<<<<<<<<<<<
  *         self.superTetra=self.createSuperTetra(10000) #first create super tetra where are all points
  *     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 29, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 21, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->trianglePoints);
@@ -2199,14 +2185,14 @@ static int __pyx_pf_10MyDelaunay_8Delaunay___init__(struct __pyx_obj_10MyDelauna
   __pyx_v_self->trianglePoints = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":30
+  /* "MyDelaunay.pyx":22
  *         self.vertices=[]
  *         self.trianglePoints=[]
  *         self.superTetra=self.createSuperTetra(10000) #first create super tetra where are all points             # <<<<<<<<<<<<<<
  *     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):
  *         cdef set sharedFace
  */
-  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->createSuperTetra(__pyx_v_self, 10000.0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 30, __pyx_L1_error)
+  __pyx_t_1 = ((PyObject *)((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->createSuperTetra(__pyx_v_self, 10000.0)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 22, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->superTetra);
@@ -2214,7 +2200,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay___init__(struct __pyx_obj_10MyDelauna
   __pyx_v_self->superTetra = ((struct __pyx_obj_5Tetra_Tetrahedron *)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":26
+  /* "MyDelaunay.pyx":18
  *         cdef list transformed
  *         cdef Tetra.Tetrahedron superTetra
  *     def __init__(self,list pointSet):             # <<<<<<<<<<<<<<
@@ -2234,7 +2220,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay___init__(struct __pyx_obj_10MyDelauna
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":31
+/* "MyDelaunay.pyx":23
  *         self.trianglePoints=[]
  *         self.superTetra=self.createSuperTetra(10000) #first create super tetra where are all points
  *     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):             # <<<<<<<<<<<<<<
@@ -2251,7 +2237,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("removeSharedFace", 0);
 
-  /* "MyDelaunay.pyx":33
+  /* "MyDelaunay.pyx":25
  *     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):
  *         cdef set sharedFace
  *         if len(allFaces)>0:             # <<<<<<<<<<<<<<
@@ -2260,25 +2246,25 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
  */
   if (unlikely(__pyx_v_allFaces == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 33, __pyx_L1_error)
+    __PYX_ERR(0, 25, __pyx_L1_error)
   }
-  __pyx_t_1 = PyList_GET_SIZE(__pyx_v_allFaces); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_t_1 = PyList_GET_SIZE(__pyx_v_allFaces); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 25, __pyx_L1_error)
   __pyx_t_2 = ((__pyx_t_1 > 0) != 0);
   if (__pyx_t_2) {
 
-    /* "MyDelaunay.pyx":34
+    /* "MyDelaunay.pyx":26
  *         cdef set sharedFace
  *         if len(allFaces)>0:
  *             sharedFace=self.compareTetraFaces(myVert,otherVert)             # <<<<<<<<<<<<<<
  *             if len(sharedFace)==3:
  *                 allFaces.remove(sharedFace)
  */
-    __pyx_t_3 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->compareTetraFaces(__pyx_v_self, __pyx_v_myVert, __pyx_v_otherVert); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 34, __pyx_L1_error)
+    __pyx_t_3 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->compareTetraFaces(__pyx_v_self, __pyx_v_myVert, __pyx_v_otherVert); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 26, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __pyx_v_sharedFace = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":35
+    /* "MyDelaunay.pyx":27
  *         if len(allFaces)>0:
  *             sharedFace=self.compareTetraFaces(myVert,otherVert)
  *             if len(sharedFace)==3:             # <<<<<<<<<<<<<<
@@ -2287,24 +2273,24 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
  */
     if (unlikely(__pyx_v_sharedFace == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 35, __pyx_L1_error)
+      __PYX_ERR(0, 27, __pyx_L1_error)
     }
-    __pyx_t_1 = PySet_GET_SIZE(__pyx_v_sharedFace); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 35, __pyx_L1_error)
+    __pyx_t_1 = PySet_GET_SIZE(__pyx_v_sharedFace); if (unlikely(__pyx_t_1 == ((Py_ssize_t)-1))) __PYX_ERR(0, 27, __pyx_L1_error)
     __pyx_t_2 = ((__pyx_t_1 == 3) != 0);
     if (__pyx_t_2) {
 
-      /* "MyDelaunay.pyx":36
+      /* "MyDelaunay.pyx":28
  *             sharedFace=self.compareTetraFaces(myVert,otherVert)
  *             if len(sharedFace)==3:
  *                 allFaces.remove(sharedFace)             # <<<<<<<<<<<<<<
  *         return allFaces
- *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double )point):
+ *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double,long int )point):
  */
-      __pyx_t_3 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyList_Type_remove, __pyx_v_allFaces, __pyx_v_sharedFace); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 36, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyList_Type_remove, __pyx_v_allFaces, __pyx_v_sharedFace); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 28, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-      /* "MyDelaunay.pyx":35
+      /* "MyDelaunay.pyx":27
  *         if len(allFaces)>0:
  *             sharedFace=self.compareTetraFaces(myVert,otherVert)
  *             if len(sharedFace)==3:             # <<<<<<<<<<<<<<
@@ -2313,7 +2299,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
  */
     }
 
-    /* "MyDelaunay.pyx":33
+    /* "MyDelaunay.pyx":25
  *     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):
  *         cdef set sharedFace
  *         if len(allFaces)>0:             # <<<<<<<<<<<<<<
@@ -2322,11 +2308,11 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
  */
   }
 
-  /* "MyDelaunay.pyx":37
+  /* "MyDelaunay.pyx":29
  *             if len(sharedFace)==3:
  *                 allFaces.remove(sharedFace)
  *         return allFaces             # <<<<<<<<<<<<<<
- *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double )point):
+ *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double,long int )point):
  *         cdef list myVert
  */
   __Pyx_XDECREF(__pyx_r);
@@ -2334,7 +2320,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
   __pyx_r = __pyx_v_allFaces;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":31
+  /* "MyDelaunay.pyx":23
  *         self.trianglePoints=[]
  *         self.superTetra=self.createSuperTetra(10000) #first create super tetra where are all points
  *     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):             # <<<<<<<<<<<<<<
@@ -2354,15 +2340,15 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace(struct __pyx_ob
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":38
+/* "MyDelaunay.pyx":30
  *                 allFaces.remove(sharedFace)
  *         return allFaces
- *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double )point):             # <<<<<<<<<<<<<<
+ *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double,long int )point):             # <<<<<<<<<<<<<<
  *         cdef list myVert
  *         cdef list allfaces
  */
 
-static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, struct __pyx_obj_5Tetra_Tetrahedron *__pyx_v_tetrahe, PyObject *__pyx_v_badTetra, PyObject *__pyx_v_triangulation, __pyx_ctuple_double__and_double__and_double __pyx_v_point) {
+static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, struct __pyx_obj_5Tetra_Tetrahedron *__pyx_v_tetrahe, PyObject *__pyx_v_badTetra, PyObject *__pyx_v_triangulation, __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_point) {
   PyObject *__pyx_v_myVert = 0;
   PyObject *__pyx_v_allfaces = 0;
   CYTHON_UNUSED PyObject *__pyx_v_sharedWithOtherFaces = 0;
@@ -2389,7 +2375,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
   int __pyx_t_14;
   __Pyx_RefNannySetupContext("removeTouchingTetra", 0);
 
-  /* "MyDelaunay.pyx":44
+  /* "MyDelaunay.pyx":36
  *         cdef int firstIterator
  *         cdef int notSharedIterator
  *         myVert=tetrahe.vertecies             # <<<<<<<<<<<<<<
@@ -2401,7 +2387,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
   __pyx_v_myVert = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":45
+  /* "MyDelaunay.pyx":37
  *         cdef int notSharedIterator
  *         myVert=tetrahe.vertecies
  *         allfaces= [{myVert[0],myVert[1],myVert[2]},{myVert[0],myVert[1],myVert[3]},{myVert[3],myVert[1],myVert[2]},{myVert[0],myVert[3],myVert[2]}]             # <<<<<<<<<<<<<<
@@ -2410,109 +2396,109 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = PySet_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_4 = PySet_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (PySet_Add(__pyx_t_4, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_4, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PySet_Add(__pyx_t_4, __pyx_t_2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_4, __pyx_t_2) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PySet_Add(__pyx_t_4, __pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_4, __pyx_t_3) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_5 = PySet_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_5 = PySet_New(0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_5);
-  if (PySet_Add(__pyx_t_5, __pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_5, __pyx_t_3) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PySet_Add(__pyx_t_5, __pyx_t_2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_5, __pyx_t_2) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PySet_Add(__pyx_t_5, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_5, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_6 = PySet_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_6 = PySet_New(0); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  if (PySet_Add(__pyx_t_6, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_6, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PySet_Add(__pyx_t_6, __pyx_t_2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_6, __pyx_t_2) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PySet_Add(__pyx_t_6, __pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_6, __pyx_t_3) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_myVert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_GetItemInt_List(__pyx_v_myVert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   if (unlikely(__pyx_v_myVert == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 45, __pyx_L1_error)
+    __PYX_ERR(0, 37, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_myVert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_7 = PySet_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_7 = PySet_New(0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  if (PySet_Add(__pyx_t_7, __pyx_t_3) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_7, __pyx_t_3) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (PySet_Add(__pyx_t_7, __pyx_t_2) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_7, __pyx_t_2) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  if (PySet_Add(__pyx_t_7, __pyx_t_1) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
+  if (PySet_Add(__pyx_t_7, __pyx_t_1) < 0) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyList_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 37, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_4);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_t_4);
@@ -2529,19 +2515,19 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
   __pyx_v_allfaces = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":46
+  /* "MyDelaunay.pyx":38
  *         myVert=tetrahe.vertecies
  *         allfaces= [{myVert[0],myVert[1],myVert[2]},{myVert[0],myVert[1],myVert[3]},{myVert[3],myVert[1],myVert[2]},{myVert[0],myVert[3],myVert[2]}]
  *         sharedWithOtherFaces=[]             # <<<<<<<<<<<<<<
  *         for firstIterator in range(0,len(badTetra)):
  *             if len(allfaces)>0:
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 38, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_sharedWithOtherFaces = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":47
+  /* "MyDelaunay.pyx":39
  *         allfaces= [{myVert[0],myVert[1],myVert[2]},{myVert[0],myVert[1],myVert[3]},{myVert[3],myVert[1],myVert[2]},{myVert[0],myVert[3],myVert[2]}]
  *         sharedWithOtherFaces=[]
  *         for firstIterator in range(0,len(badTetra)):             # <<<<<<<<<<<<<<
@@ -2550,14 +2536,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
   if (unlikely(__pyx_v_badTetra == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 47, __pyx_L1_error)
+    __PYX_ERR(0, 39, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_badTetra); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_badTetra); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 39, __pyx_L1_error)
   __pyx_t_9 = __pyx_t_8;
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_firstIterator = __pyx_t_10;
 
-    /* "MyDelaunay.pyx":48
+    /* "MyDelaunay.pyx":40
  *         sharedWithOtherFaces=[]
  *         for firstIterator in range(0,len(badTetra)):
  *             if len(allfaces)>0:             # <<<<<<<<<<<<<<
@@ -2566,13 +2552,13 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
     if (unlikely(__pyx_v_allfaces == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-      __PYX_ERR(0, 48, __pyx_L1_error)
+      __PYX_ERR(0, 40, __pyx_L1_error)
     }
-    __pyx_t_11 = PyList_GET_SIZE(__pyx_v_allfaces); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 48, __pyx_L1_error)
+    __pyx_t_11 = PyList_GET_SIZE(__pyx_v_allfaces); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 40, __pyx_L1_error)
     __pyx_t_12 = ((__pyx_t_11 > 0) != 0);
     if (__pyx_t_12) {
 
-      /* "MyDelaunay.pyx":49
+      /* "MyDelaunay.pyx":41
  *         for firstIterator in range(0,len(badTetra)):
  *             if len(allfaces)>0:
  *                 allfaces=self.removeSharedFace(myVert,badTetra[firstIterator].vertecies,allfaces)             # <<<<<<<<<<<<<<
@@ -2581,21 +2567,21 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
       if (unlikely(__pyx_v_badTetra == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 49, __pyx_L1_error)
+        __PYX_ERR(0, 41, __pyx_L1_error)
       }
-      __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_badTetra, __pyx_v_firstIterator, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_badTetra, __pyx_v_firstIterator, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_vertecies); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 49, __pyx_L1_error)
+      __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_vertecies); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-      if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 49, __pyx_L1_error)
-      __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->removeSharedFace(__pyx_v_self, __pyx_v_myVert, ((PyObject*)__pyx_t_7), __pyx_v_allfaces); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
+      if (!(likely(PyList_CheckExact(__pyx_t_7))||((__pyx_t_7) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_7)->tp_name), 0))) __PYX_ERR(0, 41, __pyx_L1_error)
+      __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->removeSharedFace(__pyx_v_self, __pyx_v_myVert, ((PyObject*)__pyx_t_7), __pyx_v_allfaces); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 41, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
       __Pyx_DECREF_SET(__pyx_v_allfaces, ((PyObject*)__pyx_t_1));
       __pyx_t_1 = 0;
 
-      /* "MyDelaunay.pyx":48
+      /* "MyDelaunay.pyx":40
  *         sharedWithOtherFaces=[]
  *         for firstIterator in range(0,len(badTetra)):
  *             if len(allfaces)>0:             # <<<<<<<<<<<<<<
@@ -2605,7 +2591,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
     }
   }
 
-  /* "MyDelaunay.pyx":50
+  /* "MyDelaunay.pyx":42
  *             if len(allfaces)>0:
  *                 allfaces=self.removeSharedFace(myVert,badTetra[firstIterator].vertecies,allfaces)
  *         for notSharedIterator in range(0,len(allfaces)):             # <<<<<<<<<<<<<<
@@ -2614,14 +2600,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
   if (unlikely(__pyx_v_allfaces == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 50, __pyx_L1_error)
+    __PYX_ERR(0, 42, __pyx_L1_error)
   }
-  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_allfaces); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_8 = PyList_GET_SIZE(__pyx_v_allfaces); if (unlikely(__pyx_t_8 == ((Py_ssize_t)-1))) __PYX_ERR(0, 42, __pyx_L1_error)
   __pyx_t_9 = __pyx_t_8;
   for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_9; __pyx_t_10+=1) {
     __pyx_v_notSharedIterator = __pyx_t_10;
 
-    /* "MyDelaunay.pyx":51
+    /* "MyDelaunay.pyx":43
  *                 allfaces=self.removeSharedFace(myVert,badTetra[firstIterator].vertecies,allfaces)
  *         for notSharedIterator in range(0,len(allfaces)):
  *             first, second,third = allfaces[notSharedIterator]             # <<<<<<<<<<<<<<
@@ -2630,9 +2616,9 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
     if (unlikely(__pyx_v_allfaces == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 51, __pyx_L1_error)
+      __PYX_ERR(0, 43, __pyx_L1_error)
     }
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_allfaces, __pyx_v_notSharedIterator, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_allfaces, __pyx_v_notSharedIterator, int, 1, __Pyx_PyInt_From_int, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 43, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     if ((likely(PyTuple_CheckExact(__pyx_t_1))) || (PyList_CheckExact(__pyx_t_1))) {
       PyObject* sequence = __pyx_t_1;
@@ -2640,7 +2626,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
       if (unlikely(size != 3)) {
         if (size > 3) __Pyx_RaiseTooManyValuesError(3);
         else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
-        __PYX_ERR(0, 51, __pyx_L1_error)
+        __PYX_ERR(0, 43, __pyx_L1_error)
       }
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
       if (likely(PyTuple_CheckExact(sequence))) {
@@ -2656,17 +2642,17 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
       __Pyx_INCREF(__pyx_t_6);
       __Pyx_INCREF(__pyx_t_5);
       #else
-      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_7 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_7);
-      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_6 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
-      __pyx_t_5 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(sequence, 2); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     } else {
       Py_ssize_t index = -1;
-      __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
+      __pyx_t_4 = PyObject_GetIter(__pyx_t_1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 43, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_t_13 = Py_TYPE(__pyx_t_4)->tp_iternext;
@@ -2676,7 +2662,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
       __Pyx_GOTREF(__pyx_t_6);
       index = 2; __pyx_t_5 = __pyx_t_13(__pyx_t_4); if (unlikely(!__pyx_t_5)) goto __pyx_L8_unpacking_failed;
       __Pyx_GOTREF(__pyx_t_5);
-      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_4), 3) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
+      if (__Pyx_IternextUnpackEndCheck(__pyx_t_13(__pyx_t_4), 3) < 0) __PYX_ERR(0, 43, __pyx_L1_error)
       __pyx_t_13 = NULL;
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       goto __pyx_L9_unpacking_done;
@@ -2684,7 +2670,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
       __pyx_t_13 = NULL;
       if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
-      __PYX_ERR(0, 51, __pyx_L1_error)
+      __PYX_ERR(0, 43, __pyx_L1_error)
       __pyx_L9_unpacking_done:;
     }
     __Pyx_XDECREF_SET(__pyx_v_first, __pyx_t_7);
@@ -2694,7 +2680,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
     __Pyx_XDECREF_SET(__pyx_v_third, __pyx_t_5);
     __pyx_t_5 = 0;
 
-    /* "MyDelaunay.pyx":52
+    /* "MyDelaunay.pyx":44
  *         for notSharedIterator in range(0,len(allfaces)):
  *             first, second,third = allfaces[notSharedIterator]
  *             triangulation.append(Tetra.Tetrahedron(first,second,third,point))             # <<<<<<<<<<<<<<
@@ -2703,11 +2689,11 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
  */
     if (unlikely(__pyx_v_triangulation == Py_None)) {
       PyErr_Format(PyExc_AttributeError, "'NoneType' object has no attribute '%.30s'", "append");
-      __PYX_ERR(0, 52, __pyx_L1_error)
+      __PYX_ERR(0, 44, __pyx_L1_error)
     }
-    __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_1 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_v_point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_5 = PyTuple_New(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_INCREF(__pyx_v_first);
     __Pyx_GIVEREF(__pyx_v_first);
@@ -2721,40 +2707,40 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
     __Pyx_GIVEREF(__pyx_t_1);
     PyTuple_SET_ITEM(__pyx_t_5, 3, __pyx_t_1);
     __pyx_t_1 = 0;
-    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5Tetra_Tetrahedron), __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5Tetra_Tetrahedron), __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_triangulation, __pyx_t_1); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 52, __pyx_L1_error)
+    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_triangulation, __pyx_t_1); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 44, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   }
 
-  /* "MyDelaunay.pyx":53
+  /* "MyDelaunay.pyx":45
  *             first, second,third = allfaces[notSharedIterator]
  *             triangulation.append(Tetra.Tetrahedron(first,second,third,point))
  *         triangulation.remove(tetrahe)             # <<<<<<<<<<<<<<
  *         return triangulation
  *     cdef Tetra.Tetrahedron createSuperTetra(self,double length):
  */
-  __pyx_t_1 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyList_Type_remove, __pyx_v_triangulation, ((PyObject *)__pyx_v_tetrahe)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_CallUnboundCMethod1(&__pyx_umethod_PyList_Type_remove, __pyx_v_triangulation, ((PyObject *)__pyx_v_tetrahe)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 45, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":54
+  /* "MyDelaunay.pyx":46
  *             triangulation.append(Tetra.Tetrahedron(first,second,third,point))
  *         triangulation.remove(tetrahe)
  *         return triangulation             # <<<<<<<<<<<<<<
  *     cdef Tetra.Tetrahedron createSuperTetra(self,double length):
- *         cdef (double,double,double) A
+ *         cdef (double,double,double,long int) A
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_triangulation);
   __pyx_r = __pyx_v_triangulation;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":38
+  /* "MyDelaunay.pyx":30
  *                 allFaces.remove(sharedFace)
  *         return allFaces
- *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double )point):             # <<<<<<<<<<<<<<
+ *     cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double,long int )point):             # <<<<<<<<<<<<<<
  *         cdef list myVert
  *         cdef list allfaces
  */
@@ -2782,22 +2768,22 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra(struct __pyx
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":55
+/* "MyDelaunay.pyx":47
  *         triangulation.remove(tetrahe)
  *         return triangulation
  *     cdef Tetra.Tetrahedron createSuperTetra(self,double length):             # <<<<<<<<<<<<<<
- *         cdef (double,double,double) A
- *         cdef (double,double,double) B
+ *         cdef (double,double,double,long int) A
+ *         cdef (double,double,double,long int) B
  */
 
 static struct __pyx_obj_5Tetra_Tetrahedron *__pyx_f_10MyDelaunay_8Delaunay_createSuperTetra(CYTHON_UNUSED struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, double __pyx_v_length) {
-  __pyx_ctuple_double__and_double__and_double __pyx_v_A;
-  __pyx_ctuple_double__and_double__and_double __pyx_v_B;
-  __pyx_ctuple_double__and_double__and_double __pyx_v_C;
-  __pyx_ctuple_double__and_double__and_double __pyx_v_D;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_A;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_B;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_C;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_D;
   struct __pyx_obj_5Tetra_Tetrahedron *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  __pyx_ctuple_double__and_double__and_double __pyx_t_1;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_t_1;
   double __pyx_t_2;
   double __pyx_t_3;
   double __pyx_t_4;
@@ -2809,95 +2795,99 @@ static struct __pyx_obj_5Tetra_Tetrahedron *__pyx_f_10MyDelaunay_8Delaunay_creat
   PyObject *__pyx_t_10 = NULL;
   __Pyx_RefNannySetupContext("createSuperTetra", 0);
 
-  /* "MyDelaunay.pyx":60
- *         cdef (double,double,double) C
- *         cdef (double,double,double) D
- *         A=(-3*length,0,-100*2*length)             # <<<<<<<<<<<<<<
- *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length)
- *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length)
+  /* "MyDelaunay.pyx":52
+ *         cdef (double,double,double,long int) C
+ *         cdef (double,double,double,long int) D
+ *         A=(-3*length,0,-100*2*length,0)             # <<<<<<<<<<<<<<
+ *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length,1)
+ *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length,2)
  */
   __pyx_t_1.f0 = (-3.0 * __pyx_v_length);
   __pyx_t_1.f1 = 0.0;
   __pyx_t_1.f2 = (-200.0 * __pyx_v_length);
+  __pyx_t_1.f3 = 0;
   __pyx_v_A = __pyx_t_1;
 
-  /* "MyDelaunay.pyx":61
- *         cdef (double,double,double) D
- *         A=(-3*length,0,-100*2*length)
- *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length)             # <<<<<<<<<<<<<<
- *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length)
- *         D=(0,0,100*2*length)
+  /* "MyDelaunay.pyx":53
+ *         cdef (double,double,double,long int) D
+ *         A=(-3*length,0,-100*2*length,0)
+ *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length,1)             # <<<<<<<<<<<<<<
+ *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length,2)
+ *         D=(0,0,100*2*length,3)
  */
   __pyx_t_2 = (3.0 * __pyx_v_length);
   __pyx_t_3 = sqrt(2.0);
   if (unlikely(__pyx_t_3 == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 61, __pyx_L1_error)
+    __PYX_ERR(0, 53, __pyx_L1_error)
   }
   __pyx_t_4 = (3.0 * __pyx_v_length);
   __pyx_t_5 = sqrt(2.0);
   if (unlikely(__pyx_t_5 == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 61, __pyx_L1_error)
+    __PYX_ERR(0, 53, __pyx_L1_error)
   }
   __pyx_t_1.f0 = (__pyx_t_2 / __pyx_t_3);
   __pyx_t_1.f1 = (__pyx_t_4 / __pyx_t_5);
   __pyx_t_1.f2 = (-200.0 * __pyx_v_length);
+  __pyx_t_1.f3 = 1;
   __pyx_v_B = __pyx_t_1;
 
-  /* "MyDelaunay.pyx":62
- *         A=(-3*length,0,-100*2*length)
- *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length)
- *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length)             # <<<<<<<<<<<<<<
- *         D=(0,0,100*2*length)
+  /* "MyDelaunay.pyx":54
+ *         A=(-3*length,0,-100*2*length,0)
+ *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length,1)
+ *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length,2)             # <<<<<<<<<<<<<<
+ *         D=(0,0,100*2*length,3)
  *         return Tetra.Tetrahedron(A,B,C,D)
  */
   __pyx_t_5 = (3.0 * __pyx_v_length);
   __pyx_t_4 = sqrt(2.0);
   if (unlikely(__pyx_t_4 == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 62, __pyx_L1_error)
+    __PYX_ERR(0, 54, __pyx_L1_error)
   }
   __pyx_t_3 = (-3.0 * __pyx_v_length);
   __pyx_t_2 = sqrt(2.0);
   if (unlikely(__pyx_t_2 == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 62, __pyx_L1_error)
+    __PYX_ERR(0, 54, __pyx_L1_error)
   }
   __pyx_t_1.f0 = (__pyx_t_5 / __pyx_t_4);
   __pyx_t_1.f1 = (__pyx_t_3 / __pyx_t_2);
   __pyx_t_1.f2 = (-200.0 * __pyx_v_length);
+  __pyx_t_1.f3 = 2;
   __pyx_v_C = __pyx_t_1;
 
-  /* "MyDelaunay.pyx":63
- *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length)
- *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length)
- *         D=(0,0,100*2*length)             # <<<<<<<<<<<<<<
+  /* "MyDelaunay.pyx":55
+ *         B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length,1)
+ *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length,2)
+ *         D=(0,0,100*2*length,3)             # <<<<<<<<<<<<<<
  *         return Tetra.Tetrahedron(A,B,C,D)
  *     cdef bint liesOnSuper(self,list vert):
  */
   __pyx_t_1.f0 = 0.0;
   __pyx_t_1.f1 = 0.0;
   __pyx_t_1.f2 = (200.0 * __pyx_v_length);
+  __pyx_t_1.f3 = 3;
   __pyx_v_D = __pyx_t_1;
 
-  /* "MyDelaunay.pyx":64
- *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length)
- *         D=(0,0,100*2*length)
+  /* "MyDelaunay.pyx":56
+ *         C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length,2)
+ *         D=(0,0,100*2*length,3)
  *         return Tetra.Tetrahedron(A,B,C,D)             # <<<<<<<<<<<<<<
  *     cdef bint liesOnSuper(self,list vert):
  *         return len(np.intersect1d(vert, self.superTetra.vertecies))>2
  */
   __Pyx_XDECREF(((PyObject *)__pyx_r));
-  __pyx_t_6 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_A); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_6 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_v_A); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_6);
-  __pyx_t_7 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_B); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_7 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_v_B); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_7);
-  __pyx_t_8 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_C); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_8 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_v_C); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_8);
-  __pyx_t_9 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_D); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_9 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_v_D); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
-  __pyx_t_10 = PyTuple_New(4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_10 = PyTuple_New(4); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_10);
   __Pyx_GIVEREF(__pyx_t_6);
   PyTuple_SET_ITEM(__pyx_t_10, 0, __pyx_t_6);
@@ -2911,19 +2901,19 @@ static struct __pyx_obj_5Tetra_Tetrahedron *__pyx_f_10MyDelaunay_8Delaunay_creat
   __pyx_t_7 = 0;
   __pyx_t_8 = 0;
   __pyx_t_9 = 0;
-  __pyx_t_9 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5Tetra_Tetrahedron), __pyx_t_10, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_t_9 = __Pyx_PyObject_Call(((PyObject *)__pyx_ptype_5Tetra_Tetrahedron), __pyx_t_10, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 56, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_9);
   __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
   __pyx_r = ((struct __pyx_obj_5Tetra_Tetrahedron *)__pyx_t_9);
   __pyx_t_9 = 0;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":55
+  /* "MyDelaunay.pyx":47
  *         triangulation.remove(tetrahe)
  *         return triangulation
  *     cdef Tetra.Tetrahedron createSuperTetra(self,double length):             # <<<<<<<<<<<<<<
- *         cdef (double,double,double) A
- *         cdef (double,double,double) B
+ *         cdef (double,double,double,long int) A
+ *         cdef (double,double,double,long int) B
  */
 
   /* function exit code */
@@ -2941,8 +2931,8 @@ static struct __pyx_obj_5Tetra_Tetrahedron *__pyx_f_10MyDelaunay_8Delaunay_creat
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":65
- *         D=(0,0,100*2*length)
+/* "MyDelaunay.pyx":57
+ *         D=(0,0,100*2*length,3)
  *         return Tetra.Tetrahedron(A,B,C,D)
  *     cdef bint liesOnSuper(self,list vert):             # <<<<<<<<<<<<<<
  *         return len(np.intersect1d(vert, self.superTetra.vertecies))>2
@@ -2960,16 +2950,16 @@ static int __pyx_f_10MyDelaunay_8Delaunay_liesOnSuper(struct __pyx_obj_10MyDelau
   Py_ssize_t __pyx_t_6;
   __Pyx_RefNannySetupContext("liesOnSuper", 0);
 
-  /* "MyDelaunay.pyx":66
+  /* "MyDelaunay.pyx":58
  *         return Tetra.Tetrahedron(A,B,C,D)
  *     cdef bint liesOnSuper(self,list vert):
  *         return len(np.intersect1d(vert, self.superTetra.vertecies))>2             # <<<<<<<<<<<<<<
  *     cdef list computeTrianglePoints(self):
  *         cdef list triangulation
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_np); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_intersect1d); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_2, __pyx_n_s_intersect1d); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
   __pyx_t_2 = NULL;
@@ -2987,7 +2977,7 @@ static int __pyx_f_10MyDelaunay_8Delaunay_liesOnSuper(struct __pyx_obj_10MyDelau
   #if CYTHON_FAST_PYCALL
   if (PyFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_vert, __pyx_v_self->superTetra->vertecies};
-    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
@@ -2995,13 +2985,13 @@ static int __pyx_f_10MyDelaunay_8Delaunay_liesOnSuper(struct __pyx_obj_10MyDelau
   #if CYTHON_FAST_PYCCALL
   if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
     PyObject *__pyx_temp[3] = {__pyx_t_2, __pyx_v_vert, __pyx_v_self->superTetra->vertecies};
-    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_4, 2+__pyx_t_4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_XDECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_GOTREF(__pyx_t_1);
   } else
   #endif
   {
-    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(2+__pyx_t_4); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     if (__pyx_t_2) {
       __Pyx_GIVEREF(__pyx_t_2); PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_2); __pyx_t_2 = NULL;
@@ -3012,18 +3002,18 @@ static int __pyx_f_10MyDelaunay_8Delaunay_liesOnSuper(struct __pyx_obj_10MyDelau
     __Pyx_INCREF(__pyx_v_self->superTetra->vertecies);
     __Pyx_GIVEREF(__pyx_v_self->superTetra->vertecies);
     PyTuple_SET_ITEM(__pyx_t_5, 1+__pyx_t_4, __pyx_v_self->superTetra->vertecies);
-    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 66, __pyx_L1_error)
+    __pyx_t_1 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_5, NULL); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 58, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
     __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
   }
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_6 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_t_6 = PyObject_Length(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 58, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_r = (__pyx_t_6 > 2);
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":65
- *         D=(0,0,100*2*length)
+  /* "MyDelaunay.pyx":57
+ *         D=(0,0,100*2*length,3)
  *         return Tetra.Tetrahedron(A,B,C,D)
  *     cdef bint liesOnSuper(self,list vert):             # <<<<<<<<<<<<<<
  *         return len(np.intersect1d(vert, self.superTetra.vertecies))>2
@@ -3043,7 +3033,7 @@ static int __pyx_f_10MyDelaunay_8Delaunay_liesOnSuper(struct __pyx_obj_10MyDelau
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":67
+/* "MyDelaunay.pyx":59
  *     cdef bint liesOnSuper(self,list vert):
  *         return len(np.intersect1d(vert, self.superTetra.vertecies))>2
  *     cdef list computeTrianglePoints(self):             # <<<<<<<<<<<<<<
@@ -3064,6 +3054,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
   long __pyx_v_idx;
   PyObject *__pyx_v_badTetra = 0;
   struct __pyx_obj_5Tetra_Tetrahedron *__pyx_v_tetrahe = 0;
+  long __pyx_v_iterator;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3077,26 +3068,26 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
   int __pyx_t_9;
   long __pyx_t_10;
   Py_ssize_t __pyx_t_11;
-  PyObject *__pyx_t_12 = NULL;
-  int __pyx_t_13;
-  PyObject *__pyx_t_14 = NULL;
-  __pyx_ctuple_double__and_double__and_double __pyx_t_15;
+  Py_ssize_t __pyx_t_12;
+  __pyx_ctuple_double__and_double__and_double __pyx_t_13;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_t_14;
+  PyObject *__pyx_t_15 = NULL;
   __Pyx_RefNannySetupContext("computeTrianglePoints", 0);
 
-  /* "MyDelaunay.pyx":84
+  /* "MyDelaunay.pyx":75
  *         cdef long int tetraheIdx
- * 
+ *         cdef long int iterator
  *         triangulation=[] #all triangles go here             # <<<<<<<<<<<<<<
  *         triangulation.append(self.superTetra)
  *         totalStartTime=time.time()
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 84, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 75, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_triangulation = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":85
- * 
+  /* "MyDelaunay.pyx":76
+ *         cdef long int iterator
  *         triangulation=[] #all triangles go here
  *         triangulation.append(self.superTetra)             # <<<<<<<<<<<<<<
  *         totalStartTime=time.time()
@@ -3104,19 +3095,19 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
   __pyx_t_1 = ((PyObject *)__pyx_v_self->superTetra);
   __Pyx_INCREF(__pyx_t_1);
-  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_triangulation, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 85, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_triangulation, __pyx_t_1); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 76, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":86
+  /* "MyDelaunay.pyx":77
  *         triangulation=[] #all triangles go here
  *         triangulation.append(self.superTetra)
  *         totalStartTime=time.time()             # <<<<<<<<<<<<<<
  *         firstTime=0
  *         secondTime=0
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __pyx_t_3 = NULL;
@@ -3131,14 +3122,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
   }
   __pyx_t_1 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_4, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 86, __pyx_L1_error)
+  if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 86, __pyx_L1_error)
+  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_1); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 77, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_v_totalStartTime = __pyx_t_5;
 
-  /* "MyDelaunay.pyx":87
+  /* "MyDelaunay.pyx":78
  *         triangulation.append(self.superTetra)
  *         totalStartTime=time.time()
  *         firstTime=0             # <<<<<<<<<<<<<<
@@ -3147,7 +3138,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
   __pyx_v_firstTime = 0.0;
 
-  /* "MyDelaunay.pyx":88
+  /* "MyDelaunay.pyx":79
  *         totalStartTime=time.time()
  *         firstTime=0
  *         secondTime=0             # <<<<<<<<<<<<<<
@@ -3156,7 +3147,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
   __pyx_v_secondTime = 0.0;
 
-  /* "MyDelaunay.pyx":89
+  /* "MyDelaunay.pyx":80
  *         firstTime=0
  *         secondTime=0
  *         for idx in range(0,len(self.pointSet)):             # <<<<<<<<<<<<<<
@@ -3167,15 +3158,15 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
   __Pyx_INCREF(__pyx_t_1);
   if (unlikely(__pyx_t_1 == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-    __PYX_ERR(0, 89, __pyx_L1_error)
+    __PYX_ERR(0, 80, __pyx_L1_error)
   }
-  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 89, __pyx_L1_error)
+  __pyx_t_6 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_6 == ((Py_ssize_t)-1))) __PYX_ERR(0, 80, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __pyx_t_7 = __pyx_t_6;
   for (__pyx_t_8 = 0; __pyx_t_8 < __pyx_t_7; __pyx_t_8+=1) {
     __pyx_v_idx = __pyx_t_8;
 
-    /* "MyDelaunay.pyx":90
+    /* "MyDelaunay.pyx":81
  *         secondTime=0
  *         for idx in range(0,len(self.pointSet)):
  *             if idx%100==0:             # <<<<<<<<<<<<<<
@@ -3185,33 +3176,33 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
     __pyx_t_9 = ((__Pyx_mod_long(__pyx_v_idx, 0x64) == 0) != 0);
     if (__pyx_t_9) {
 
-      /* "MyDelaunay.pyx":91
+      /* "MyDelaunay.pyx":82
  *         for idx in range(0,len(self.pointSet)):
  *             if idx%100==0:
  *                 print('Procent ukonczenia ',idx*100/len(self.pointSet),'%')             # <<<<<<<<<<<<<<
  *             firstT=time.time()
- *             badTetra=checkPoint(self.pointSet[idx],triangulation)
+ *             badTetra=[]
  */
       __pyx_t_10 = (__pyx_v_idx * 0x64);
       __pyx_t_1 = __pyx_v_self->pointSet;
       __Pyx_INCREF(__pyx_t_1);
       if (unlikely(__pyx_t_1 == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
-        __PYX_ERR(0, 91, __pyx_L1_error)
+        __PYX_ERR(0, 82, __pyx_L1_error)
       }
-      __pyx_t_11 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_11 = PyList_GET_SIZE(__pyx_t_1); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       if (unlikely(__pyx_t_11 == 0)) {
         PyErr_SetString(PyExc_ZeroDivisionError, "integer division or modulo by zero");
-        __PYX_ERR(0, 91, __pyx_L1_error)
+        __PYX_ERR(0, 82, __pyx_L1_error)
       }
       else if (sizeof(Py_ssize_t) == sizeof(long) && (!(((Py_ssize_t)-1) > 0)) && unlikely(__pyx_t_11 == (Py_ssize_t)-1)  && unlikely(UNARY_NEG_WOULD_OVERFLOW(__pyx_t_10))) {
         PyErr_SetString(PyExc_OverflowError, "value too large to perform division");
-        __PYX_ERR(0, 91, __pyx_L1_error)
+        __PYX_ERR(0, 82, __pyx_L1_error)
       }
-      __pyx_t_1 = PyInt_FromSsize_t(__Pyx_div_Py_ssize_t(__pyx_t_10, __pyx_t_11)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_1 = PyInt_FromSsize_t(__Pyx_div_Py_ssize_t(__pyx_t_10, __pyx_t_11)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
-      __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
+      __pyx_t_4 = PyTuple_New(3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_4);
       __Pyx_INCREF(__pyx_kp_s_Procent_ukonczenia);
       __Pyx_GIVEREF(__pyx_kp_s_Procent_ukonczenia);
@@ -3222,10 +3213,10 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
       __Pyx_GIVEREF(__pyx_kp_s_);
       PyTuple_SET_ITEM(__pyx_t_4, 2, __pyx_kp_s_);
       __pyx_t_1 = 0;
-      if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 91, __pyx_L1_error)
+      if (__Pyx_PrintOne(0, __pyx_t_4) < 0) __PYX_ERR(0, 82, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-      /* "MyDelaunay.pyx":90
+      /* "MyDelaunay.pyx":81
  *         secondTime=0
  *         for idx in range(0,len(self.pointSet)):
  *             if idx%100==0:             # <<<<<<<<<<<<<<
@@ -3234,16 +3225,16 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
     }
 
-    /* "MyDelaunay.pyx":92
+    /* "MyDelaunay.pyx":83
  *             if idx%100==0:
  *                 print('Procent ukonczenia ',idx*100/len(self.pointSet),'%')
  *             firstT=time.time()             # <<<<<<<<<<<<<<
- *             badTetra=checkPoint(self.pointSet[idx],triangulation)
- *             firstET=time.time()
+ *             badTetra=[]
+ * 
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
     __pyx_t_1 = NULL;
@@ -3258,112 +3249,144 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
     }
     __pyx_t_4 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
     __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 92, __pyx_L1_error)
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 92, __pyx_L1_error)
+    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 83, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_firstT = __pyx_t_5;
 
-    /* "MyDelaunay.pyx":93
+    /* "MyDelaunay.pyx":84
  *                 print('Procent ukonczenia ',idx*100/len(self.pointSet),'%')
  *             firstT=time.time()
- *             badTetra=checkPoint(self.pointSet[idx],triangulation)             # <<<<<<<<<<<<<<
- *             firstET=time.time()
- *             firstTime+=(firstET-firstT)
+ *             badTetra=[]             # <<<<<<<<<<<<<<
+ * 
+ *             for iterator in range(0,len(triangulation)):
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_checkPoint); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 93, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_3);
-    if (unlikely(__pyx_v_self->pointSet == Py_None)) {
-      PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 93, __pyx_L1_error)
-    }
-    __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->pointSet, __pyx_v_idx, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_1);
-    __pyx_t_12 = NULL;
-    __pyx_t_13 = 0;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_12 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_12)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_12);
-        __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_3, function);
-        __pyx_t_13 = 1;
-      }
-    }
-    #if CYTHON_FAST_PYCALL
-    if (PyFunction_Check(__pyx_t_3)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_12, __pyx_t_1, __pyx_v_triangulation};
-      __pyx_t_4 = __Pyx_PyFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_13, 2+__pyx_t_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    } else
-    #endif
-    #if CYTHON_FAST_PYCCALL
-    if (__Pyx_PyFastCFunction_Check(__pyx_t_3)) {
-      PyObject *__pyx_temp[3] = {__pyx_t_12, __pyx_t_1, __pyx_v_triangulation};
-      __pyx_t_4 = __Pyx_PyCFunction_FastCall(__pyx_t_3, __pyx_temp+1-__pyx_t_13, 2+__pyx_t_13); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
-      __Pyx_XDECREF(__pyx_t_12); __pyx_t_12 = 0;
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-    } else
-    #endif
-    {
-      __pyx_t_14 = PyTuple_New(2+__pyx_t_13); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 93, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_14);
-      if (__pyx_t_12) {
-        __Pyx_GIVEREF(__pyx_t_12); PyTuple_SET_ITEM(__pyx_t_14, 0, __pyx_t_12); __pyx_t_12 = NULL;
-      }
-      __Pyx_GIVEREF(__pyx_t_1);
-      PyTuple_SET_ITEM(__pyx_t_14, 0+__pyx_t_13, __pyx_t_1);
-      __Pyx_INCREF(__pyx_v_triangulation);
-      __Pyx_GIVEREF(__pyx_v_triangulation);
-      PyTuple_SET_ITEM(__pyx_t_14, 1+__pyx_t_13, __pyx_v_triangulation);
-      __pyx_t_1 = 0;
-      __pyx_t_4 = __Pyx_PyObject_Call(__pyx_t_3, __pyx_t_14, NULL); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 93, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_4);
-      __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    }
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (!(likely(PyList_CheckExact(__pyx_t_4))||((__pyx_t_4) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 93, __pyx_L1_error)
+    __pyx_t_4 = PyList_New(0); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 84, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_4);
     __Pyx_XDECREF_SET(__pyx_v_badTetra, ((PyObject*)__pyx_t_4));
     __pyx_t_4 = 0;
 
-    /* "MyDelaunay.pyx":94
- *             firstT=time.time()
- *             badTetra=checkPoint(self.pointSet[idx],triangulation)
+    /* "MyDelaunay.pyx":86
+ *             badTetra=[]
+ * 
+ *             for iterator in range(0,len(triangulation)):             # <<<<<<<<<<<<<<
+ *                 if self.calcDistance(triangulation[iterator].O,self.pointSet[idx])<triangulation[iterator].R:
+ *                     badTetra.append(triangulation[iterator])
+ */
+    if (unlikely(__pyx_v_triangulation == Py_None)) {
+      PyErr_SetString(PyExc_TypeError, "object of type 'NoneType' has no len()");
+      __PYX_ERR(0, 86, __pyx_L1_error)
+    }
+    __pyx_t_11 = PyList_GET_SIZE(__pyx_v_triangulation); if (unlikely(__pyx_t_11 == ((Py_ssize_t)-1))) __PYX_ERR(0, 86, __pyx_L1_error)
+    __pyx_t_12 = __pyx_t_11;
+    for (__pyx_t_10 = 0; __pyx_t_10 < __pyx_t_12; __pyx_t_10+=1) {
+      __pyx_v_iterator = __pyx_t_10;
+
+      /* "MyDelaunay.pyx":87
+ * 
+ *             for iterator in range(0,len(triangulation)):
+ *                 if self.calcDistance(triangulation[iterator].O,self.pointSet[idx])<triangulation[iterator].R:             # <<<<<<<<<<<<<<
+ *                     badTetra.append(triangulation[iterator])
+ *             firstET=time.time()
+ */
+      if (unlikely(__pyx_v_triangulation == Py_None)) {
+        PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+        __PYX_ERR(0, 87, __pyx_L1_error)
+      }
+      __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_triangulation, __pyx_v_iterator, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_O); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_13 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      if (unlikely(__pyx_v_self->pointSet == Py_None)) {
+        PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+        __PYX_ERR(0, 87, __pyx_L1_error)
+      }
+      __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_self->pointSet, __pyx_v_idx, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_14 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __pyx_t_3 = PyFloat_FromDouble(((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->calcDistance(__pyx_v_self, __pyx_t_13, __pyx_t_14)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_3);
+      if (unlikely(__pyx_v_triangulation == Py_None)) {
+        PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+        __PYX_ERR(0, 87, __pyx_L1_error)
+      }
+      __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_triangulation, __pyx_v_iterator, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_4);
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_4, __pyx_n_s_R); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      __pyx_t_4 = PyObject_RichCompare(__pyx_t_3, __pyx_t_1, Py_LT); __Pyx_XGOTREF(__pyx_t_4); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_9 = __Pyx_PyObject_IsTrue(__pyx_t_4); if (unlikely(__pyx_t_9 < 0)) __PYX_ERR(0, 87, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+      if (__pyx_t_9) {
+
+        /* "MyDelaunay.pyx":88
+ *             for iterator in range(0,len(triangulation)):
+ *                 if self.calcDistance(triangulation[iterator].O,self.pointSet[idx])<triangulation[iterator].R:
+ *                     badTetra.append(triangulation[iterator])             # <<<<<<<<<<<<<<
+ *             firstET=time.time()
+ *             firstTime+=(firstET-firstT)
+ */
+        if (unlikely(__pyx_v_triangulation == Py_None)) {
+          PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
+          __PYX_ERR(0, 88, __pyx_L1_error)
+        }
+        __pyx_t_4 = __Pyx_GetItemInt_List(__pyx_v_triangulation, __pyx_v_iterator, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 88, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_badTetra, __pyx_t_4); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 88, __pyx_L1_error)
+        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
+
+        /* "MyDelaunay.pyx":87
+ * 
+ *             for iterator in range(0,len(triangulation)):
+ *                 if self.calcDistance(triangulation[iterator].O,self.pointSet[idx])<triangulation[iterator].R:             # <<<<<<<<<<<<<<
+ *                     badTetra.append(triangulation[iterator])
+ *             firstET=time.time()
+ */
+      }
+    }
+
+    /* "MyDelaunay.pyx":89
+ *                 if self.calcDistance(triangulation[iterator].O,self.pointSet[idx])<triangulation[iterator].R:
+ *                     badTetra.append(triangulation[iterator])
  *             firstET=time.time()             # <<<<<<<<<<<<<<
  *             firstTime+=(firstET-firstT)
  *             firstT=time.time()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 89, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 94, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_14);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = NULL;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_14))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_14);
-      if (likely(__pyx_t_3)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_14);
-        __Pyx_INCREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = NULL;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_1)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_1);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_14, function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_14, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_14);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 94, __pyx_L1_error)
+    __pyx_t_4 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 89, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_firstET = __pyx_t_5;
 
-    /* "MyDelaunay.pyx":95
- *             badTetra=checkPoint(self.pointSet[idx],triangulation)
+    /* "MyDelaunay.pyx":90
+ *                     badTetra.append(triangulation[iterator])
  *             firstET=time.time()
  *             firstTime+=(firstET-firstT)             # <<<<<<<<<<<<<<
  *             firstT=time.time()
@@ -3371,62 +3394,58 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
     __pyx_v_firstTime = (__pyx_v_firstTime + (__pyx_v_firstET - __pyx_v_firstT));
 
-    /* "MyDelaunay.pyx":96
+    /* "MyDelaunay.pyx":91
  *             firstET=time.time()
  *             firstTime+=(firstET-firstT)
  *             firstT=time.time()             # <<<<<<<<<<<<<<
  *             # badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
  *             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_n_s_time); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 96, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_14);
-    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __pyx_t_14 = NULL;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-      __pyx_t_14 = PyMethod_GET_SELF(__pyx_t_3);
-      if (likely(__pyx_t_14)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-        __Pyx_INCREF(__pyx_t_14);
+    __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_3 = NULL;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+      if (likely(__pyx_t_3)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+        __Pyx_INCREF(__pyx_t_3);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_3, function);
+        __Pyx_DECREF_SET(__pyx_t_1, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_14) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_14) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-    __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 96, __pyx_L1_error)
+    __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 96, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 91, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_firstT = __pyx_t_5;
 
-    /* "MyDelaunay.pyx":98
+    /* "MyDelaunay.pyx":93
  *             firstT=time.time()
  *             # badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
  *             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones             # <<<<<<<<<<<<<<
  *                 triangulation=self.removeTouchingTetra(tetrahe,badTetra,triangulation,self.pointSet[idx]) #prepared for multiprocess
  *             firstET=time.time()
  */
-    if (unlikely(__pyx_v_badTetra == Py_None)) {
-      PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 98, __pyx_L1_error)
-    }
     __pyx_t_4 = __pyx_v_badTetra; __Pyx_INCREF(__pyx_t_4); __pyx_t_11 = 0;
     for (;;) {
       if (__pyx_t_11 >= PyList_GET_SIZE(__pyx_t_4)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_3 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_11); __Pyx_INCREF(__pyx_t_3); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 98, __pyx_L1_error)
+      __pyx_t_1 = PyList_GET_ITEM(__pyx_t_4, __pyx_t_11); __Pyx_INCREF(__pyx_t_1); __pyx_t_11++; if (unlikely(0 < 0)) __PYX_ERR(0, 93, __pyx_L1_error)
       #else
-      __pyx_t_3 = PySequence_ITEM(__pyx_t_4, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 98, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
+      __pyx_t_1 = PySequence_ITEM(__pyx_t_4, __pyx_t_11); __pyx_t_11++; if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 93, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
       #endif
-      if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5Tetra_Tetrahedron))))) __PYX_ERR(0, 98, __pyx_L1_error)
-      __Pyx_XDECREF_SET(__pyx_v_tetrahe, ((struct __pyx_obj_5Tetra_Tetrahedron *)__pyx_t_3));
-      __pyx_t_3 = 0;
+      if (!(likely(((__pyx_t_1) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_1, __pyx_ptype_5Tetra_Tetrahedron))))) __PYX_ERR(0, 93, __pyx_L1_error)
+      __Pyx_XDECREF_SET(__pyx_v_tetrahe, ((struct __pyx_obj_5Tetra_Tetrahedron *)__pyx_t_1));
+      __pyx_t_1 = 0;
 
-      /* "MyDelaunay.pyx":99
+      /* "MyDelaunay.pyx":94
  *             # badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
  *             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones
  *                 triangulation=self.removeTouchingTetra(tetrahe,badTetra,triangulation,self.pointSet[idx]) #prepared for multiprocess             # <<<<<<<<<<<<<<
@@ -3435,18 +3454,18 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
       if (unlikely(__pyx_v_self->pointSet == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 99, __pyx_L1_error)
+        __PYX_ERR(0, 94, __pyx_L1_error)
       }
-      __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_self->pointSet, __pyx_v_idx, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __pyx_t_15 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 99, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-      __pyx_t_3 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->removeTouchingTetra(__pyx_v_self, __pyx_v_tetrahe, __pyx_v_badTetra, __pyx_v_triangulation, __pyx_t_15); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_3);
-      __Pyx_DECREF_SET(__pyx_v_triangulation, ((PyObject*)__pyx_t_3));
-      __pyx_t_3 = 0;
+      __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_self->pointSet, __pyx_v_idx, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __pyx_t_14 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_t_1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 94, __pyx_L1_error)
+      __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+      __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->removeTouchingTetra(__pyx_v_self, __pyx_v_tetrahe, __pyx_v_badTetra, __pyx_v_triangulation, __pyx_t_14); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 94, __pyx_L1_error)
+      __Pyx_GOTREF(__pyx_t_1);
+      __Pyx_DECREF_SET(__pyx_v_triangulation, ((PyObject*)__pyx_t_1));
+      __pyx_t_1 = 0;
 
-      /* "MyDelaunay.pyx":98
+      /* "MyDelaunay.pyx":93
  *             firstT=time.time()
  *             # badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
  *             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones             # <<<<<<<<<<<<<<
@@ -3456,38 +3475,38 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
     }
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
 
-    /* "MyDelaunay.pyx":100
+    /* "MyDelaunay.pyx":95
  *             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones
  *                 triangulation=self.removeTouchingTetra(tetrahe,badTetra,triangulation,self.pointSet[idx]) #prepared for multiprocess
  *             firstET=time.time()             # <<<<<<<<<<<<<<
  *             secondTime+=firstET-firstT
  *         totalEndTime=time.time()
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 95, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_1, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_14 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 100, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_14);
-    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = NULL;
-    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_14))) {
-      __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_14);
-      if (likely(__pyx_t_3)) {
-        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_14);
-        __Pyx_INCREF(__pyx_t_3);
+    __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+    __pyx_t_1 = NULL;
+    if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
+      __pyx_t_1 = PyMethod_GET_SELF(__pyx_t_3);
+      if (likely(__pyx_t_1)) {
+        PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
+        __Pyx_INCREF(__pyx_t_1);
         __Pyx_INCREF(function);
-        __Pyx_DECREF_SET(__pyx_t_14, function);
+        __Pyx_DECREF_SET(__pyx_t_3, function);
       }
     }
-    __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_14, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_14);
-    __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
-    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 100, __pyx_L1_error)
+    __pyx_t_4 = (__pyx_t_1) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_1) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
+    __Pyx_XDECREF(__pyx_t_1); __pyx_t_1 = 0;
+    if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 100, __pyx_L1_error)
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 95, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
     __pyx_v_firstET = __pyx_t_5;
 
-    /* "MyDelaunay.pyx":101
+    /* "MyDelaunay.pyx":96
  *                 triangulation=self.removeTouchingTetra(tetrahe,badTetra,triangulation,self.pointSet[idx]) #prepared for multiprocess
  *             firstET=time.time()
  *             secondTime+=firstET-firstT             # <<<<<<<<<<<<<<
@@ -3497,38 +3516,38 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
     __pyx_v_secondTime = (__pyx_v_secondTime + (__pyx_v_firstET - __pyx_v_firstT));
   }
 
-  /* "MyDelaunay.pyx":102
+  /* "MyDelaunay.pyx":97
  *             firstET=time.time()
  *             secondTime+=firstET-firstT
  *         totalEndTime=time.time()             # <<<<<<<<<<<<<<
  *         totTime=totalEndTime-totalStartTime
  *         print('totaj time',totTime,'first time percentage',firstTime*100/totTime,'%',"second time ",secondTime*100/totTime,'%')
  */
-  __Pyx_GetModuleGlobalName(__pyx_t_14, __pyx_n_s_time); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 102, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_14);
-  __pyx_t_3 = __Pyx_PyObject_GetAttrStr(__pyx_t_14, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
-  __pyx_t_14 = NULL;
-  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_3))) {
-    __pyx_t_14 = PyMethod_GET_SELF(__pyx_t_3);
-    if (likely(__pyx_t_14)) {
-      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_3);
-      __Pyx_INCREF(__pyx_t_14);
+  __pyx_t_1 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_time); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 97, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+  __pyx_t_3 = NULL;
+  if (CYTHON_UNPACK_METHODS && unlikely(PyMethod_Check(__pyx_t_1))) {
+    __pyx_t_3 = PyMethod_GET_SELF(__pyx_t_1);
+    if (likely(__pyx_t_3)) {
+      PyObject* function = PyMethod_GET_FUNCTION(__pyx_t_1);
+      __Pyx_INCREF(__pyx_t_3);
       __Pyx_INCREF(function);
-      __Pyx_DECREF_SET(__pyx_t_3, function);
+      __Pyx_DECREF_SET(__pyx_t_1, function);
     }
   }
-  __pyx_t_4 = (__pyx_t_14) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_14) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
-  __Pyx_XDECREF(__pyx_t_14); __pyx_t_14 = 0;
-  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 102, __pyx_L1_error)
+  __pyx_t_4 = (__pyx_t_3) ? __Pyx_PyObject_CallOneArg(__pyx_t_1, __pyx_t_3) : __Pyx_PyObject_CallNoArg(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_3); __pyx_t_3 = 0;
+  if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 102, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_5 = __pyx_PyFloat_AsDouble(__pyx_t_4); if (unlikely((__pyx_t_5 == (double)-1) && PyErr_Occurred())) __PYX_ERR(0, 97, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
   __pyx_v_totalEndTime = __pyx_t_5;
 
-  /* "MyDelaunay.pyx":103
+  /* "MyDelaunay.pyx":98
  *             secondTime+=firstET-firstT
  *         totalEndTime=time.time()
  *         totTime=totalEndTime-totalStartTime             # <<<<<<<<<<<<<<
@@ -3537,71 +3556,71 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
   __pyx_v_totTime = (__pyx_v_totalEndTime - __pyx_v_totalStartTime);
 
-  /* "MyDelaunay.pyx":104
+  /* "MyDelaunay.pyx":99
  *         totalEndTime=time.time()
  *         totTime=totalEndTime-totalStartTime
  *         print('totaj time',totTime,'first time percentage',firstTime*100/totTime,'%',"second time ",secondTime*100/totTime,'%')             # <<<<<<<<<<<<<<
  * 
  * 
  */
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_totTime); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 104, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_v_totTime); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 99, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_t_5 = (__pyx_v_firstTime * 100.0);
   if (unlikely(__pyx_v_totTime == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 104, __pyx_L1_error)
+    __PYX_ERR(0, 99, __pyx_L1_error)
   }
-  __pyx_t_3 = PyFloat_FromDouble((__pyx_t_5 / __pyx_v_totTime)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_1 = PyFloat_FromDouble((__pyx_t_5 / __pyx_v_totTime)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
   __pyx_t_5 = (__pyx_v_secondTime * 100.0);
   if (unlikely(__pyx_v_totTime == 0)) {
     PyErr_SetString(PyExc_ZeroDivisionError, "float division");
-    __PYX_ERR(0, 104, __pyx_L1_error)
+    __PYX_ERR(0, 99, __pyx_L1_error)
   }
-  __pyx_t_14 = PyFloat_FromDouble((__pyx_t_5 / __pyx_v_totTime)); if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_14);
-  __pyx_t_1 = PyTuple_New(8); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_t_3 = PyFloat_FromDouble((__pyx_t_5 / __pyx_v_totTime)); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_3);
+  __pyx_t_15 = PyTuple_New(8); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_15);
   __Pyx_INCREF(__pyx_kp_s_totaj_time);
   __Pyx_GIVEREF(__pyx_kp_s_totaj_time);
-  PyTuple_SET_ITEM(__pyx_t_1, 0, __pyx_kp_s_totaj_time);
+  PyTuple_SET_ITEM(__pyx_t_15, 0, __pyx_kp_s_totaj_time);
   __Pyx_GIVEREF(__pyx_t_4);
-  PyTuple_SET_ITEM(__pyx_t_1, 1, __pyx_t_4);
+  PyTuple_SET_ITEM(__pyx_t_15, 1, __pyx_t_4);
   __Pyx_INCREF(__pyx_kp_s_first_time_percentage);
   __Pyx_GIVEREF(__pyx_kp_s_first_time_percentage);
-  PyTuple_SET_ITEM(__pyx_t_1, 2, __pyx_kp_s_first_time_percentage);
-  __Pyx_GIVEREF(__pyx_t_3);
-  PyTuple_SET_ITEM(__pyx_t_1, 3, __pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_15, 2, __pyx_kp_s_first_time_percentage);
+  __Pyx_GIVEREF(__pyx_t_1);
+  PyTuple_SET_ITEM(__pyx_t_15, 3, __pyx_t_1);
   __Pyx_INCREF(__pyx_kp_s_);
   __Pyx_GIVEREF(__pyx_kp_s_);
-  PyTuple_SET_ITEM(__pyx_t_1, 4, __pyx_kp_s_);
+  PyTuple_SET_ITEM(__pyx_t_15, 4, __pyx_kp_s_);
   __Pyx_INCREF(__pyx_kp_s_second_time);
   __Pyx_GIVEREF(__pyx_kp_s_second_time);
-  PyTuple_SET_ITEM(__pyx_t_1, 5, __pyx_kp_s_second_time);
-  __Pyx_GIVEREF(__pyx_t_14);
-  PyTuple_SET_ITEM(__pyx_t_1, 6, __pyx_t_14);
+  PyTuple_SET_ITEM(__pyx_t_15, 5, __pyx_kp_s_second_time);
+  __Pyx_GIVEREF(__pyx_t_3);
+  PyTuple_SET_ITEM(__pyx_t_15, 6, __pyx_t_3);
   __Pyx_INCREF(__pyx_kp_s_);
   __Pyx_GIVEREF(__pyx_kp_s_);
-  PyTuple_SET_ITEM(__pyx_t_1, 7, __pyx_kp_s_);
+  PyTuple_SET_ITEM(__pyx_t_15, 7, __pyx_kp_s_);
   __pyx_t_4 = 0;
+  __pyx_t_1 = 0;
   __pyx_t_3 = 0;
-  __pyx_t_14 = 0;
-  if (__Pyx_PrintOne(0, __pyx_t_1) < 0) __PYX_ERR(0, 104, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  if (__Pyx_PrintOne(0, __pyx_t_15) < 0) __PYX_ERR(0, 99, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
 
-  /* "MyDelaunay.pyx":108
+  /* "MyDelaunay.pyx":103
  * 
  * 
  *         filteredTriangulation=[]             # <<<<<<<<<<<<<<
  *         for tetrahe in triangulation:
  *             if not self.liesOnSuper(tetrahe.vertecies):
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 108, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_filteredTriangulation = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
+  __pyx_t_15 = PyList_New(0); if (unlikely(!__pyx_t_15)) __PYX_ERR(0, 103, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_15);
+  __pyx_v_filteredTriangulation = ((PyObject*)__pyx_t_15);
+  __pyx_t_15 = 0;
 
-  /* "MyDelaunay.pyx":109
+  /* "MyDelaunay.pyx":104
  * 
  *         filteredTriangulation=[]
  *         for tetrahe in triangulation:             # <<<<<<<<<<<<<<
@@ -3610,44 +3629,44 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
   if (unlikely(__pyx_v_triangulation == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 109, __pyx_L1_error)
+    __PYX_ERR(0, 104, __pyx_L1_error)
   }
-  __pyx_t_1 = __pyx_v_triangulation; __Pyx_INCREF(__pyx_t_1); __pyx_t_6 = 0;
+  __pyx_t_15 = __pyx_v_triangulation; __Pyx_INCREF(__pyx_t_15); __pyx_t_6 = 0;
   for (;;) {
-    if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_1)) break;
+    if (__pyx_t_6 >= PyList_GET_SIZE(__pyx_t_15)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_14 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_6); __Pyx_INCREF(__pyx_t_14); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 109, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_15, __pyx_t_6); __Pyx_INCREF(__pyx_t_3); __pyx_t_6++; if (unlikely(0 < 0)) __PYX_ERR(0, 104, __pyx_L1_error)
     #else
-    __pyx_t_14 = PySequence_ITEM(__pyx_t_1, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_14)) __PYX_ERR(0, 109, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_14);
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_15, __pyx_t_6); __pyx_t_6++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
     #endif
-    if (!(likely(((__pyx_t_14) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_14, __pyx_ptype_5Tetra_Tetrahedron))))) __PYX_ERR(0, 109, __pyx_L1_error)
-    __Pyx_XDECREF_SET(__pyx_v_tetrahe, ((struct __pyx_obj_5Tetra_Tetrahedron *)__pyx_t_14));
-    __pyx_t_14 = 0;
+    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5Tetra_Tetrahedron))))) __PYX_ERR(0, 104, __pyx_L1_error)
+    __Pyx_XDECREF_SET(__pyx_v_tetrahe, ((struct __pyx_obj_5Tetra_Tetrahedron *)__pyx_t_3));
+    __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":110
+    /* "MyDelaunay.pyx":105
  *         filteredTriangulation=[]
  *         for tetrahe in triangulation:
  *             if not self.liesOnSuper(tetrahe.vertecies):             # <<<<<<<<<<<<<<
  *                 filteredTriangulation.append(tetrahe)
  * 
  */
-    __pyx_t_14 = __pyx_v_tetrahe->vertecies;
-    __Pyx_INCREF(__pyx_t_14);
-    __pyx_t_9 = ((!(((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->liesOnSuper(__pyx_v_self, ((PyObject*)__pyx_t_14)) != 0)) != 0);
-    __Pyx_DECREF(__pyx_t_14); __pyx_t_14 = 0;
+    __pyx_t_3 = __pyx_v_tetrahe->vertecies;
+    __Pyx_INCREF(__pyx_t_3);
+    __pyx_t_9 = ((!(((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->liesOnSuper(__pyx_v_self, ((PyObject*)__pyx_t_3)) != 0)) != 0);
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     if (__pyx_t_9) {
 
-      /* "MyDelaunay.pyx":111
+      /* "MyDelaunay.pyx":106
  *         for tetrahe in triangulation:
  *             if not self.liesOnSuper(tetrahe.vertecies):
  *                 filteredTriangulation.append(tetrahe)             # <<<<<<<<<<<<<<
  * 
  * 
  */
-      __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_filteredTriangulation, ((PyObject *)__pyx_v_tetrahe)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 111, __pyx_L1_error)
+      __pyx_t_2 = __Pyx_PyList_Append(__pyx_v_filteredTriangulation, ((PyObject *)__pyx_v_tetrahe)); if (unlikely(__pyx_t_2 == ((int)-1))) __PYX_ERR(0, 106, __pyx_L1_error)
 
-      /* "MyDelaunay.pyx":110
+      /* "MyDelaunay.pyx":105
  *         filteredTriangulation=[]
  *         for tetrahe in triangulation:
  *             if not self.liesOnSuper(tetrahe.vertecies):             # <<<<<<<<<<<<<<
@@ -3656,7 +3675,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  */
     }
 
-    /* "MyDelaunay.pyx":109
+    /* "MyDelaunay.pyx":104
  * 
  *         filteredTriangulation=[]
  *         for tetrahe in triangulation:             # <<<<<<<<<<<<<<
@@ -3664,21 +3683,21 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
  *                 filteredTriangulation.append(tetrahe)
  */
   }
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_15); __pyx_t_15 = 0;
 
-  /* "MyDelaunay.pyx":114
+  /* "MyDelaunay.pyx":109
  * 
  * 
  *         return filteredTriangulation             # <<<<<<<<<<<<<<
- *     cdef set compareTetraFaces(self,list vertA,list vertB):
- *         cdef set face
+ *     cdef  double calcDistance(self,( double, double, double) A,( double, double, double,long int) B):
+ *         cdef double calculated
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v_filteredTriangulation);
   __pyx_r = __pyx_v_filteredTriangulation;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":67
+  /* "MyDelaunay.pyx":59
  *     cdef bint liesOnSuper(self,list vert):
  *         return len(np.intersect1d(vert, self.superTetra.vertecies))>2
  *     cdef list computeTrianglePoints(self):             # <<<<<<<<<<<<<<
@@ -3691,8 +3710,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_XDECREF(__pyx_t_12);
-  __Pyx_XDECREF(__pyx_t_14);
+  __Pyx_XDECREF(__pyx_t_15);
   __Pyx_AddTraceback("MyDelaunay.Delaunay.computeTrianglePoints", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
@@ -3705,9 +3723,56 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints(struct __p
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":115
+/* "MyDelaunay.pyx":110
  * 
  *         return filteredTriangulation
+ *     cdef  double calcDistance(self,( double, double, double) A,( double, double, double,long int) B):             # <<<<<<<<<<<<<<
+ *         cdef double calculated
+ *         cdef double suma
+ */
+
+static double __pyx_f_10MyDelaunay_8Delaunay_calcDistance(CYTHON_UNUSED struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, __pyx_ctuple_double__and_double__and_double __pyx_v_A, __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_B) {
+  double __pyx_v_suma;
+  double __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("calcDistance", 0);
+
+  /* "MyDelaunay.pyx":113
+ *         cdef double calculated
+ *         cdef double suma
+ *         suma=sqrt( pow(A[0]-B[0],2)+pow(A[1]-B[1],2)+pow(A[2]-B[2],2) )             # <<<<<<<<<<<<<<
+ *         return suma
+ *     cdef set compareTetraFaces(self,list vertA,list vertB):
+ */
+  __pyx_v_suma = sqrt(((pow((__pyx_v_A.f0 - __pyx_v_B.f0), 2.0) + pow((__pyx_v_A.f1 - __pyx_v_B.f1), 2.0)) + pow((__pyx_v_A.f2 - __pyx_v_B.f2), 2.0)));
+
+  /* "MyDelaunay.pyx":114
+ *         cdef double suma
+ *         suma=sqrt( pow(A[0]-B[0],2)+pow(A[1]-B[1],2)+pow(A[2]-B[2],2) )
+ *         return suma             # <<<<<<<<<<<<<<
+ *     cdef set compareTetraFaces(self,list vertA,list vertB):
+ *         cdef set face
+ */
+  __pyx_r = __pyx_v_suma;
+  goto __pyx_L0;
+
+  /* "MyDelaunay.pyx":110
+ * 
+ *         return filteredTriangulation
+ *     cdef  double calcDistance(self,( double, double, double) A,( double, double, double,long int) B):             # <<<<<<<<<<<<<<
+ *         cdef double calculated
+ *         cdef double suma
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "MyDelaunay.pyx":115
+ *         suma=sqrt( pow(A[0]-B[0],2)+pow(A[1]-B[1],2)+pow(A[2]-B[2],2) )
+ *         return suma
  *     cdef set compareTetraFaces(self,list vertA,list vertB):             # <<<<<<<<<<<<<<
  *         cdef set face
  *         face=set(vertB).intersection(set(vertA)) #how many verticies are the same
@@ -3770,8 +3835,8 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_compareTetraFaces(CYTHON_UNUSED 
   goto __pyx_L0;
 
   /* "MyDelaunay.pyx":115
- * 
- *         return filteredTriangulation
+ *         suma=sqrt( pow(A[0]-B[0],2)+pow(A[1]-B[1],2)+pow(A[2]-B[2],2) )
+ *         return suma
  *     cdef set compareTetraFaces(self,list vertA,list vertB):             # <<<<<<<<<<<<<<
  *         cdef set face
  *         face=set(vertB).intersection(set(vertA)) #how many verticies are the same
@@ -3803,12 +3868,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_compareTetraFaces(CYTHON_UNUSED 
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self) {
   PyObject *__pyx_v_verticiesIndex = 0;
   struct __pyx_obj_5Tetra_Tetrahedron *__pyx_v_tetra = 0;
-  PyObject *__pyx_v_tetraTuple = 0;
   PyObject *__pyx_v_newRow = 0;
-  long __pyx_v_idx;
-  long __pyx_v_indx;
-  __pyx_ctuple_double__and_double__and_double __pyx_v_xyz;
-  __pyx_ctuple_double__and_double__and_double __pyx_v_tup;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3818,13 +3878,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_
   PyObject *__pyx_t_5 = NULL;
   PyObject *__pyx_t_6 = NULL;
   PyObject *__pyx_t_7 = NULL;
-  long __pyx_t_8;
-  Py_ssize_t __pyx_t_9;
-  __pyx_ctuple_double__and_double__and_double __pyx_t_10;
-  long __pyx_t_11;
-  Py_ssize_t __pyx_t_12;
-  int __pyx_t_13;
-  int __pyx_t_14;
+  int __pyx_t_8;
   __Pyx_RefNannySetupContext("transformToIndexes", 0);
 
   /* "MyDelaunay.pyx":130
@@ -3832,7 +3886,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_
  *         cdef (double,double,double) tup
  *         verticiesIndex=[]             # <<<<<<<<<<<<<<
  *         for tetra in self.tetraPoints:
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
+ *             newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]
  */
   __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 130, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -3843,8 +3897,8 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_
  *         cdef (double,double,double) tup
  *         verticiesIndex=[]
  *         for tetra in self.tetraPoints:             # <<<<<<<<<<<<<<
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
- *             newRow=[0,0,0,0]
+ *             newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]
+ *             verticiesIndex.append(newRow)
  */
   if (unlikely(__pyx_v_self->tetraPoints == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
@@ -3866,17 +3920,17 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_
     /* "MyDelaunay.pyx":132
  *         verticiesIndex=[]
  *         for tetra in self.tetraPoints:
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]             # <<<<<<<<<<<<<<
- *             newRow=[0,0,0,0]
- *             for idx,xyz in enumerate(self.pointSet):
+ *             newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]             # <<<<<<<<<<<<<<
+ *             verticiesIndex.append(newRow)
+ *         return verticiesIndex
  */
-    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_tetra->A); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_v_tetra->A.f3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_tetra->B); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyInt_From_long(__pyx_v_tetra->B.f3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
-    __pyx_t_5 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_tetra->C); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_5 = __Pyx_PyInt_From_long(__pyx_v_tetra->C.f3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
-    __pyx_t_6 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_tetra->D); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 132, __pyx_L1_error)
+    __pyx_t_6 = __Pyx_PyInt_From_long(__pyx_v_tetra->D.f3); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
     __pyx_t_7 = PyList_New(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 132, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
@@ -3892,159 +3946,30 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_
     __pyx_t_4 = 0;
     __pyx_t_5 = 0;
     __pyx_t_6 = 0;
-    __Pyx_XDECREF_SET(__pyx_v_tetraTuple, ((PyObject*)__pyx_t_7));
+    __Pyx_XDECREF_SET(__pyx_v_newRow, ((PyObject*)__pyx_t_7));
     __pyx_t_7 = 0;
 
     /* "MyDelaunay.pyx":133
  *         for tetra in self.tetraPoints:
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
- *             newRow=[0,0,0,0]             # <<<<<<<<<<<<<<
- *             for idx,xyz in enumerate(self.pointSet):
- *                 for indx,tup in enumerate(tetraTuple):
- */
-    __pyx_t_7 = PyList_New(4); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 133, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_7);
-    __Pyx_INCREF(__pyx_int_0);
-    __Pyx_GIVEREF(__pyx_int_0);
-    PyList_SET_ITEM(__pyx_t_7, 0, __pyx_int_0);
-    __Pyx_INCREF(__pyx_int_0);
-    __Pyx_GIVEREF(__pyx_int_0);
-    PyList_SET_ITEM(__pyx_t_7, 1, __pyx_int_0);
-    __Pyx_INCREF(__pyx_int_0);
-    __Pyx_GIVEREF(__pyx_int_0);
-    PyList_SET_ITEM(__pyx_t_7, 2, __pyx_int_0);
-    __Pyx_INCREF(__pyx_int_0);
-    __Pyx_GIVEREF(__pyx_int_0);
-    PyList_SET_ITEM(__pyx_t_7, 3, __pyx_int_0);
-    __Pyx_XDECREF_SET(__pyx_v_newRow, ((PyObject*)__pyx_t_7));
-    __pyx_t_7 = 0;
-
-    /* "MyDelaunay.pyx":134
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
- *             newRow=[0,0,0,0]
- *             for idx,xyz in enumerate(self.pointSet):             # <<<<<<<<<<<<<<
- *                 for indx,tup in enumerate(tetraTuple):
- *                     if  tup==xyz:
- */
-    __pyx_t_8 = 0;
-    __pyx_t_7 = __pyx_v_self->pointSet; __Pyx_INCREF(__pyx_t_7); __pyx_t_9 = 0;
-    for (;;) {
-      if (__pyx_t_9 >= PyList_GET_SIZE(__pyx_t_7)) break;
-      #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_6 = PyList_GET_ITEM(__pyx_t_7, __pyx_t_9); __Pyx_INCREF(__pyx_t_6); __pyx_t_9++; if (unlikely(0 < 0)) __PYX_ERR(0, 134, __pyx_L1_error)
-      #else
-      __pyx_t_6 = PySequence_ITEM(__pyx_t_7, __pyx_t_9); __pyx_t_9++; if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 134, __pyx_L1_error)
-      __Pyx_GOTREF(__pyx_t_6);
-      #endif
-      __pyx_t_10 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double(__pyx_t_6); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 134, __pyx_L1_error)
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-      __pyx_v_xyz = __pyx_t_10;
-      __pyx_v_idx = __pyx_t_8;
-      __pyx_t_8 = (__pyx_t_8 + 1);
-
-      /* "MyDelaunay.pyx":135
- *             newRow=[0,0,0,0]
- *             for idx,xyz in enumerate(self.pointSet):
- *                 for indx,tup in enumerate(tetraTuple):             # <<<<<<<<<<<<<<
- *                     if  tup==xyz:
- *                         newRow[indx]=idx
- */
-      __pyx_t_11 = 0;
-      __pyx_t_6 = __pyx_v_tetraTuple; __Pyx_INCREF(__pyx_t_6); __pyx_t_12 = 0;
-      for (;;) {
-        if (__pyx_t_12 >= PyList_GET_SIZE(__pyx_t_6)) break;
-        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-        __pyx_t_5 = PyList_GET_ITEM(__pyx_t_6, __pyx_t_12); __Pyx_INCREF(__pyx_t_5); __pyx_t_12++; if (unlikely(0 < 0)) __PYX_ERR(0, 135, __pyx_L1_error)
-        #else
-        __pyx_t_5 = PySequence_ITEM(__pyx_t_6, __pyx_t_12); __pyx_t_12++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 135, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        #endif
-        __pyx_t_10 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double(__pyx_t_5); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 135, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __pyx_v_tup = __pyx_t_10;
-        __pyx_v_indx = __pyx_t_11;
-        __pyx_t_11 = (__pyx_t_11 + 1);
-
-        /* "MyDelaunay.pyx":136
- *             for idx,xyz in enumerate(self.pointSet):
- *                 for indx,tup in enumerate(tetraTuple):
- *                     if  tup==xyz:             # <<<<<<<<<<<<<<
- *                         newRow[indx]=idx
- *             verticiesIndex.append(newRow)
- */
-        __pyx_t_5 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_tup); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 136, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_5);
-        __pyx_t_4 = __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_v_xyz); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 136, __pyx_L1_error)
-        __Pyx_GOTREF(__pyx_t_4);
-        __pyx_t_3 = PyObject_RichCompare(__pyx_t_5, __pyx_t_4, Py_EQ); __Pyx_XGOTREF(__pyx_t_3); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 136, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
-        __Pyx_DECREF(__pyx_t_4); __pyx_t_4 = 0;
-        __pyx_t_13 = __Pyx_PyObject_IsTrue(__pyx_t_3); if (unlikely(__pyx_t_13 < 0)) __PYX_ERR(0, 136, __pyx_L1_error)
-        __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-        if (__pyx_t_13) {
-
-          /* "MyDelaunay.pyx":137
- *                 for indx,tup in enumerate(tetraTuple):
- *                     if  tup==xyz:
- *                         newRow[indx]=idx             # <<<<<<<<<<<<<<
- *             verticiesIndex.append(newRow)
- *         return verticiesIndex
- */
-          __pyx_t_3 = __Pyx_PyInt_From_long(__pyx_v_idx); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 137, __pyx_L1_error)
-          __Pyx_GOTREF(__pyx_t_3);
-          if (unlikely(__Pyx_SetItemInt(__pyx_v_newRow, __pyx_v_indx, __pyx_t_3, long, 1, __Pyx_PyInt_From_long, 1, 1, 1) < 0)) __PYX_ERR(0, 137, __pyx_L1_error)
-          __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-
-          /* "MyDelaunay.pyx":136
- *             for idx,xyz in enumerate(self.pointSet):
- *                 for indx,tup in enumerate(tetraTuple):
- *                     if  tup==xyz:             # <<<<<<<<<<<<<<
- *                         newRow[indx]=idx
- *             verticiesIndex.append(newRow)
- */
-        }
-
-        /* "MyDelaunay.pyx":135
- *             newRow=[0,0,0,0]
- *             for idx,xyz in enumerate(self.pointSet):
- *                 for indx,tup in enumerate(tetraTuple):             # <<<<<<<<<<<<<<
- *                     if  tup==xyz:
- *                         newRow[indx]=idx
- */
-      }
-      __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-
-      /* "MyDelaunay.pyx":134
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
- *             newRow=[0,0,0,0]
- *             for idx,xyz in enumerate(self.pointSet):             # <<<<<<<<<<<<<<
- *                 for indx,tup in enumerate(tetraTuple):
- *                     if  tup==xyz:
- */
-    }
-    __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-
-    /* "MyDelaunay.pyx":138
- *                     if  tup==xyz:
- *                         newRow[indx]=idx
+ *             newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]
  *             verticiesIndex.append(newRow)             # <<<<<<<<<<<<<<
  *         return verticiesIndex
  * 
  */
-    __pyx_t_14 = __Pyx_PyList_Append(__pyx_v_verticiesIndex, __pyx_v_newRow); if (unlikely(__pyx_t_14 == ((int)-1))) __PYX_ERR(0, 138, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyList_Append(__pyx_v_verticiesIndex, __pyx_v_newRow); if (unlikely(__pyx_t_8 == ((int)-1))) __PYX_ERR(0, 133, __pyx_L1_error)
 
     /* "MyDelaunay.pyx":131
  *         cdef (double,double,double) tup
  *         verticiesIndex=[]
  *         for tetra in self.tetraPoints:             # <<<<<<<<<<<<<<
- *             tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
- *             newRow=[0,0,0,0]
+ *             newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]
+ *             verticiesIndex.append(newRow)
  */
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":139
- *                         newRow[indx]=idx
+  /* "MyDelaunay.pyx":134
+ *             newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]
  *             verticiesIndex.append(newRow)
  *         return verticiesIndex             # <<<<<<<<<<<<<<
  * 
@@ -4076,14 +4001,13 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes(struct __pyx_
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_verticiesIndex);
   __Pyx_XDECREF((PyObject *)__pyx_v_tetra);
-  __Pyx_XDECREF(__pyx_v_tetraTuple);
   __Pyx_XDECREF(__pyx_v_newRow);
   __Pyx_XGIVEREF(__pyx_r);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":141
+/* "MyDelaunay.pyx":136
  *         return verticiesIndex
  * 
  *     cdef list computerVertexCoordsFacesColors(self):             # <<<<<<<<<<<<<<
@@ -4099,7 +4023,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   PyObject *__pyx_v_vertexComb = 0;
   long __pyx_v_index;
   __pyx_ctuple_long__and_long__and_long __pyx_v_p;
-  __pyx_ctuple_double__and_double__and_double __pyx_v_myPt;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_v_myPt;
   __pyx_ctuple_int__and_int__and_int __pyx_v_myFaceColor;
   PyObject *__pyx_v_total = NULL;
   PyObject *__pyx_r = NULL;
@@ -4110,7 +4034,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   Py_ssize_t __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
   long __pyx_t_6;
-  __pyx_ctuple_double__and_double__and_double __pyx_t_7;
+  __pyx_ctuple_double__and_double__and_double__and_long __pyx_t_7;
   PyObject *__pyx_t_8 = NULL;
   PyObject *__pyx_t_9 = NULL;
   PyObject *__pyx_t_10 = NULL;
@@ -4124,43 +4048,43 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   __pyx_ctuple_int__and_int__and_int __pyx_t_18;
   __Pyx_RefNannySetupContext("computerVertexCoordsFacesColors", 0);
 
-  /* "MyDelaunay.pyx":153
+  /* "MyDelaunay.pyx":148
  *         cdef (int,int,int) myFaceColor
  * 
  *         xyz=[]             # <<<<<<<<<<<<<<
  *         faces=[]
  *         colors=[]
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 153, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 148, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_xyz = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":154
+  /* "MyDelaunay.pyx":149
  * 
  *         xyz=[]
  *         faces=[]             # <<<<<<<<<<<<<<
  *         colors=[]
  *         for vert in self.transformed:
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 154, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 149, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_faces = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":155
+  /* "MyDelaunay.pyx":150
  *         xyz=[]
  *         faces=[]
  *         colors=[]             # <<<<<<<<<<<<<<
  *         for vert in self.transformed:
  *             for index in vert:
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 155, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 150, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_colors = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":156
+  /* "MyDelaunay.pyx":151
  *         faces=[]
  *         colors=[]
  *         for vert in self.transformed:             # <<<<<<<<<<<<<<
@@ -4169,22 +4093,22 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
  */
   if (unlikely(__pyx_v_self->transformed == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 156, __pyx_L1_error)
+    __PYX_ERR(0, 151, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_self->transformed; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
   for (;;) {
     if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 151, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 156, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 151, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 156, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 151, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_vert, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":157
+    /* "MyDelaunay.pyx":152
  *         colors=[]
  *         for vert in self.transformed:
  *             for index in vert:             # <<<<<<<<<<<<<<
@@ -4193,22 +4117,22 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
  */
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-      __PYX_ERR(0, 157, __pyx_L1_error)
+      __PYX_ERR(0, 152, __pyx_L1_error)
     }
     __pyx_t_3 = __pyx_v_vert; __Pyx_INCREF(__pyx_t_3); __pyx_t_4 = 0;
     for (;;) {
       if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_5); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 157, __pyx_L1_error)
+      __pyx_t_5 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_5); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 152, __pyx_L1_error)
       #else
-      __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 157, __pyx_L1_error)
+      __pyx_t_5 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 152, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
       #endif
-      __pyx_t_6 = __Pyx_PyInt_As_long(__pyx_t_5); if (unlikely((__pyx_t_6 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 157, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyInt_As_long(__pyx_t_5); if (unlikely((__pyx_t_6 == (long)-1) && PyErr_Occurred())) __PYX_ERR(0, 152, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_index = __pyx_t_6;
 
-      /* "MyDelaunay.pyx":158
+      /* "MyDelaunay.pyx":153
  *         for vert in self.transformed:
  *             for index in vert:
  *                 myPt=self.pointSet[index]             # <<<<<<<<<<<<<<
@@ -4217,28 +4141,28 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
  */
       if (unlikely(__pyx_v_self->pointSet == Py_None)) {
         PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-        __PYX_ERR(0, 158, __pyx_L1_error)
+        __PYX_ERR(0, 153, __pyx_L1_error)
       }
-      __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_self->pointSet, __pyx_v_index, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 158, __pyx_L1_error)
+      __pyx_t_5 = __Pyx_GetItemInt_List(__pyx_v_self->pointSet, __pyx_v_index, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 153, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_7 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double(__pyx_t_5); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L1_error)
+      __pyx_t_7 = __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_t_5); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 153, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_5); __pyx_t_5 = 0;
       __pyx_v_myPt = __pyx_t_7;
 
-      /* "MyDelaunay.pyx":159
+      /* "MyDelaunay.pyx":154
  *             for index in vert:
  *                 myPt=self.pointSet[index]
  *                 xyz.append([myPt[0],myPt[1],myPt[2]])             # <<<<<<<<<<<<<<
  *             vertexComb=[(vert[0],vert[1],vert[2]),(vert[0],vert[1],vert[3]),(vert[3],vert[1],vert[2]),(vert[0],vert[3],vert[2])]
  *             for p in vertexComb: #adding faces of tetrahedra
  */
-      __pyx_t_5 = PyFloat_FromDouble(__pyx_v_myPt.f0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_5 = PyFloat_FromDouble(__pyx_v_myPt.f0); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 154, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_5);
-      __pyx_t_8 = PyFloat_FromDouble(__pyx_v_myPt.f1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_8 = PyFloat_FromDouble(__pyx_v_myPt.f1); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 154, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_8);
-      __pyx_t_9 = PyFloat_FromDouble(__pyx_v_myPt.f2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_9 = PyFloat_FromDouble(__pyx_v_myPt.f2); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 154, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
-      __pyx_t_10 = PyList_New(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_10 = PyList_New(3); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 154, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_10);
       __Pyx_GIVEREF(__pyx_t_5);
       PyList_SET_ITEM(__pyx_t_10, 0, __pyx_t_5);
@@ -4249,10 +4173,10 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
       __pyx_t_5 = 0;
       __pyx_t_8 = 0;
       __pyx_t_9 = 0;
-      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_xyz, __pyx_t_10); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 159, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_xyz, __pyx_t_10); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 154, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_10); __pyx_t_10 = 0;
 
-      /* "MyDelaunay.pyx":157
+      /* "MyDelaunay.pyx":152
  *         colors=[]
  *         for vert in self.transformed:
  *             for index in vert:             # <<<<<<<<<<<<<<
@@ -4262,7 +4186,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":160
+    /* "MyDelaunay.pyx":155
  *                 myPt=self.pointSet[index]
  *                 xyz.append([myPt[0],myPt[1],myPt[2]])
  *             vertexComb=[(vert[0],vert[1],vert[2]),(vert[0],vert[1],vert[3]),(vert[3],vert[1],vert[2]),(vert[0],vert[3],vert[2])]             # <<<<<<<<<<<<<<
@@ -4271,23 +4195,23 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
  */
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_8 = PyTuple_New(3); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_8, 0, __pyx_t_3);
@@ -4300,23 +4224,23 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     __pyx_t_9 = 0;
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_5 = PyTuple_New(3); if (unlikely(!__pyx_t_5)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_5);
     __Pyx_GIVEREF(__pyx_t_9);
     PyTuple_SET_ITEM(__pyx_t_5, 0, __pyx_t_9);
@@ -4329,23 +4253,23 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     __pyx_t_3 = 0;
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
-    __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_12 = PyTuple_New(3); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_12);
     __Pyx_GIVEREF(__pyx_t_3);
     PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_3);
@@ -4358,23 +4282,23 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     __pyx_t_9 = 0;
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_GetItemInt_List(__pyx_v_vert, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_10 = __Pyx_GetItemInt_List(__pyx_v_vert, 3, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_10)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_10);
     if (unlikely(__pyx_v_vert == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 160, __pyx_L1_error)
+      __PYX_ERR(0, 155, __pyx_L1_error)
     }
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_vert, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_13 = PyTuple_New(3); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_13 = PyTuple_New(3); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_GIVEREF(__pyx_t_9);
     PyTuple_SET_ITEM(__pyx_t_13, 0, __pyx_t_9);
@@ -4385,7 +4309,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     __pyx_t_9 = 0;
     __pyx_t_10 = 0;
     __pyx_t_3 = 0;
-    __pyx_t_3 = PyList_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
+    __pyx_t_3 = PyList_New(4); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 155, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_GIVEREF(__pyx_t_8);
     PyList_SET_ITEM(__pyx_t_3, 0, __pyx_t_8);
@@ -4402,7 +4326,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     __Pyx_XDECREF_SET(__pyx_v_vertexComb, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":161
+    /* "MyDelaunay.pyx":156
  *                 xyz.append([myPt[0],myPt[1],myPt[2]])
  *             vertexComb=[(vert[0],vert[1],vert[2]),(vert[0],vert[1],vert[3]),(vert[3],vert[1],vert[2]),(vert[0],vert[3],vert[2])]
  *             for p in vertexComb: #adding faces of tetrahedra             # <<<<<<<<<<<<<<
@@ -4413,28 +4337,28 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     for (;;) {
       if (__pyx_t_4 >= PyList_GET_SIZE(__pyx_t_3)) break;
       #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-      __pyx_t_13 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_13); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 161, __pyx_L1_error)
+      __pyx_t_13 = PyList_GET_ITEM(__pyx_t_3, __pyx_t_4); __Pyx_INCREF(__pyx_t_13); __pyx_t_4++; if (unlikely(0 < 0)) __PYX_ERR(0, 156, __pyx_L1_error)
       #else
-      __pyx_t_13 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 161, __pyx_L1_error)
+      __pyx_t_13 = PySequence_ITEM(__pyx_t_3, __pyx_t_4); __pyx_t_4++; if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 156, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
       #endif
-      __pyx_t_14 = __pyx_convert__from_py___pyx_ctuple_long__and_long__and_long(__pyx_t_13); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 161, __pyx_L1_error)
+      __pyx_t_14 = __pyx_convert__from_py___pyx_ctuple_long__and_long__and_long(__pyx_t_13); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 156, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
       __pyx_v_p = __pyx_t_14;
 
-      /* "MyDelaunay.pyx":162
+      /* "MyDelaunay.pyx":157
  *             vertexComb=[(vert[0],vert[1],vert[2]),(vert[0],vert[1],vert[3]),(vert[3],vert[1],vert[2]),(vert[0],vert[3],vert[2])]
  *             for p in vertexComb: #adding faces of tetrahedra
  *                 faces.append(p)             # <<<<<<<<<<<<<<
  *             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))
  *             colors.append(myFaceColor)#same color for each face of tetra
  */
-      __pyx_t_13 = __pyx_convert__to_py___pyx_ctuple_long__and_long__and_long(__pyx_v_p); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 162, __pyx_L1_error)
+      __pyx_t_13 = __pyx_convert__to_py___pyx_ctuple_long__and_long__and_long(__pyx_v_p); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 157, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_13);
-      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_faces, __pyx_t_13); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 162, __pyx_L1_error)
+      __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_faces, __pyx_t_13); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 157, __pyx_L1_error)
       __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
 
-      /* "MyDelaunay.pyx":161
+      /* "MyDelaunay.pyx":156
  *                 xyz.append([myPt[0],myPt[1],myPt[2]])
  *             vertexComb=[(vert[0],vert[1],vert[2]),(vert[0],vert[1],vert[3]),(vert[3],vert[1],vert[2]),(vert[0],vert[3],vert[2])]
  *             for p in vertexComb: #adding faces of tetrahedra             # <<<<<<<<<<<<<<
@@ -4444,97 +4368,97 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
     }
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":163
+    /* "MyDelaunay.pyx":158
  *             for p in vertexComb: #adding faces of tetrahedra
  *                 faces.append(p)
  *             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))             # <<<<<<<<<<<<<<
  *             colors.append(myFaceColor)#same color for each face of tetra
  *             colors.append(myFaceColor)
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_13, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_13, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_15 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_15 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_13, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_13, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_16 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_16 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_16 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_16 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_3, __pyx_n_s_random); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyObject_GetAttrStr(__pyx_t_3, __pyx_n_s_randint); if (unlikely(!__pyx_t_13)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_13);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
-    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_13, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_13, __pyx_tuple__2, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_13); __pyx_t_13 = 0;
-    __pyx_t_17 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_17 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
+    __pyx_t_17 = __Pyx_PyInt_As_int(__pyx_t_3); if (unlikely((__pyx_t_17 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 158, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_t_18.f0 = __pyx_t_15;
     __pyx_t_18.f1 = __pyx_t_16;
     __pyx_t_18.f2 = __pyx_t_17;
     __pyx_v_myFaceColor = __pyx_t_18;
 
-    /* "MyDelaunay.pyx":164
+    /* "MyDelaunay.pyx":159
  *                 faces.append(p)
  *             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))
  *             colors.append(myFaceColor)#same color for each face of tetra             # <<<<<<<<<<<<<<
  *             colors.append(myFaceColor)
  *             colors.append(myFaceColor)
  */
-    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 164, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 164, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 159, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":165
+    /* "MyDelaunay.pyx":160
  *             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))
  *             colors.append(myFaceColor)#same color for each face of tetra
  *             colors.append(myFaceColor)             # <<<<<<<<<<<<<<
  *             colors.append(myFaceColor)
  *             colors.append(myFaceColor)
  */
-    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 165, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 160, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 165, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 160, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":166
+    /* "MyDelaunay.pyx":161
  *             colors.append(myFaceColor)#same color for each face of tetra
  *             colors.append(myFaceColor)
  *             colors.append(myFaceColor)             # <<<<<<<<<<<<<<
  *             colors.append(myFaceColor)
  *         total=[xyz,faces,colors]
  */
-    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 166, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 161, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":167
+    /* "MyDelaunay.pyx":162
  *             colors.append(myFaceColor)
  *             colors.append(myFaceColor)
  *             colors.append(myFaceColor)             # <<<<<<<<<<<<<<
  *         total=[xyz,faces,colors]
  *         return total
  */
-    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert__to_py___pyx_ctuple_int__and_int__and_int(__pyx_v_myFaceColor); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 167, __pyx_L1_error)
+    __pyx_t_11 = __Pyx_PyList_Append(__pyx_v_colors, __pyx_t_3); if (unlikely(__pyx_t_11 == ((int)-1))) __PYX_ERR(0, 162, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":156
+    /* "MyDelaunay.pyx":151
  *         faces=[]
  *         colors=[]
  *         for vert in self.transformed:             # <<<<<<<<<<<<<<
@@ -4544,14 +4468,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":168
+  /* "MyDelaunay.pyx":163
  *             colors.append(myFaceColor)
  *             colors.append(myFaceColor)
  *         total=[xyz,faces,colors]             # <<<<<<<<<<<<<<
  *         return total
  *     cpdef computeVertices(self):
  */
-  __pyx_t_1 = PyList_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 163, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_xyz);
   __Pyx_GIVEREF(__pyx_v_xyz);
@@ -4565,7 +4489,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   __pyx_v_total = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":169
+  /* "MyDelaunay.pyx":164
  *             colors.append(myFaceColor)
  *         total=[xyz,faces,colors]
  *         return total             # <<<<<<<<<<<<<<
@@ -4577,7 +4501,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   __pyx_r = __pyx_v_total;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":141
+  /* "MyDelaunay.pyx":136
  *         return verticiesIndex
  * 
  *     cdef list computerVertexCoordsFacesColors(self):             # <<<<<<<<<<<<<<
@@ -4609,7 +4533,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors(
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":170
+/* "MyDelaunay.pyx":165
  *         total=[xyz,faces,colors]
  *         return total
  *     cpdef computeVertices(self):             # <<<<<<<<<<<<<<
@@ -4635,7 +4559,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_computeVertices); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_computeVertices); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_10MyDelaunay_8Delaunay_3computeVertices)) {
         __Pyx_XDECREF(__pyx_r);
@@ -4652,7 +4576,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 170, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 165, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -4673,14 +4597,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
     #endif
   }
 
-  /* "MyDelaunay.pyx":171
+  /* "MyDelaunay.pyx":166
  *         return total
  *     cpdef computeVertices(self):
  *         self.tetraPoints=self.computeTrianglePoints()             # <<<<<<<<<<<<<<
  *         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
  *         return self.transformed,self.tetraPoints
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->computeTrianglePoints(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 171, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->computeTrianglePoints(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 166, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->tetraPoints);
@@ -4688,14 +4612,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
   __pyx_v_self->tetraPoints = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":172
+  /* "MyDelaunay.pyx":167
  *     cpdef computeVertices(self):
  *         self.tetraPoints=self.computeTrianglePoints()
  *         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set             # <<<<<<<<<<<<<<
  *         return self.transformed,self.tetraPoints
  *     cdef list computeNormals(self,list faces,list points):
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->transformToIndexes(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 172, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->transformToIndexes(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 167, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
   __Pyx_GOTREF(__pyx_v_self->transformed);
@@ -4703,7 +4627,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
   __pyx_v_self->transformed = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":173
+  /* "MyDelaunay.pyx":168
  *         self.tetraPoints=self.computeTrianglePoints()
  *         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
  *         return self.transformed,self.tetraPoints             # <<<<<<<<<<<<<<
@@ -4711,7 +4635,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
  *         cdef list normals
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 173, __pyx_L1_error)
+  __pyx_t_1 = PyTuple_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 168, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_self->transformed);
   __Pyx_GIVEREF(__pyx_v_self->transformed);
@@ -4723,7 +4647,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeVertices(struct __pyx_obj
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":170
+  /* "MyDelaunay.pyx":165
  *         total=[xyz,faces,colors]
  *         return total
  *     cpdef computeVertices(self):             # <<<<<<<<<<<<<<
@@ -4764,7 +4688,7 @@ static PyObject *__pyx_pf_10MyDelaunay_8Delaunay_2computeVertices(struct __pyx_o
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("computeVertices", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_10MyDelaunay_8Delaunay_computeVertices(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 170, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_10MyDelaunay_8Delaunay_computeVertices(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 165, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -4781,7 +4705,7 @@ static PyObject *__pyx_pf_10MyDelaunay_8Delaunay_2computeVertices(struct __pyx_o
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":174
+/* "MyDelaunay.pyx":169
  *         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
  *         return self.transformed,self.tetraPoints
  *     cdef list computeNormals(self,list faces,list points):             # <<<<<<<<<<<<<<
@@ -4813,19 +4737,19 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
   int __pyx_t_13;
   __Pyx_RefNannySetupContext("computeNormals", 0);
 
-  /* "MyDelaunay.pyx":181
+  /* "MyDelaunay.pyx":176
  *         cdef list p3
  *         cdef np.ndarray N
  *         normals=[]             # <<<<<<<<<<<<<<
  *         for face in faces:
  *             p1=points[face[0]]
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 181, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 176, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_normals = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":182
+  /* "MyDelaunay.pyx":177
  *         cdef np.ndarray N
  *         normals=[]
  *         for face in faces:             # <<<<<<<<<<<<<<
@@ -4834,22 +4758,22 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
  */
   if (unlikely(__pyx_v_faces == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 182, __pyx_L1_error)
+    __PYX_ERR(0, 177, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_v_faces; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
   for (;;) {
     if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
     #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_3 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_3); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(0, 177, __pyx_L1_error)
     #else
-    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_3 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 177, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     #endif
-    __pyx_t_4 = __pyx_convert__from_py___pyx_ctuple_long__and_long__and_long(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 182, __pyx_L1_error)
+    __pyx_t_4 = __pyx_convert__from_py___pyx_ctuple_long__and_long__and_long(__pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 177, __pyx_L1_error)
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __pyx_v_face = __pyx_t_4;
 
-    /* "MyDelaunay.pyx":183
+    /* "MyDelaunay.pyx":178
  *         normals=[]
  *         for face in faces:
  *             p1=points[face[0]]             # <<<<<<<<<<<<<<
@@ -4858,16 +4782,16 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
  */
     if (unlikely(__pyx_v_points == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 183, __pyx_L1_error)
+      __PYX_ERR(0, 178, __pyx_L1_error)
     }
     __pyx_t_5 = __pyx_v_face.f0;
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_points, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 183, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_points, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 178, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 183, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 178, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_p1, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":184
+    /* "MyDelaunay.pyx":179
  *         for face in faces:
  *             p1=points[face[0]]
  *             p2=points[face[1]]             # <<<<<<<<<<<<<<
@@ -4876,16 +4800,16 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
  */
     if (unlikely(__pyx_v_points == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 184, __pyx_L1_error)
+      __PYX_ERR(0, 179, __pyx_L1_error)
     }
     __pyx_t_5 = __pyx_v_face.f1;
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_points, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 184, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_points, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 184, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 179, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_p2, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":185
+    /* "MyDelaunay.pyx":180
  *             p1=points[face[0]]
  *             p2=points[face[1]]
  *             p3=points[face[2]]             # <<<<<<<<<<<<<<
@@ -4894,30 +4818,30 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
  */
     if (unlikely(__pyx_v_points == Py_None)) {
       PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-      __PYX_ERR(0, 185, __pyx_L1_error)
+      __PYX_ERR(0, 180, __pyx_L1_error)
     }
     __pyx_t_5 = __pyx_v_face.f2;
-    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_points, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 185, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_GetItemInt_List(__pyx_v_points, __pyx_t_5, long, 1, __Pyx_PyInt_From_long, 1, 1, 1); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 185, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||((__pyx_t_3) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 180, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_p3, ((PyObject*)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":186
+    /* "MyDelaunay.pyx":181
  *             p2=points[face[1]]
  *             p3=points[face[2]]
  *             N = np.cross(np.subtract(p2,p1),np.subtract(p3,p1))             # <<<<<<<<<<<<<<
  *             normals.append(N)
  *         return normals
  */
-    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_6, __pyx_n_s_np); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_6);
-    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cross); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_7 = __Pyx_PyObject_GetAttrStr(__pyx_t_6, __pyx_n_s_cross); if (unlikely(!__pyx_t_7)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_7);
     __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_8, __pyx_n_s_np); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
-    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_subtract); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_9 = __Pyx_PyObject_GetAttrStr(__pyx_t_8, __pyx_n_s_subtract); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_9);
     __Pyx_DECREF(__pyx_t_8); __pyx_t_8 = 0;
     __pyx_t_8 = NULL;
@@ -4935,7 +4859,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_v_p2, __pyx_v_p1};
-      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_6);
     } else
@@ -4943,13 +4867,13 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_9)) {
       PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_v_p2, __pyx_v_p1};
-      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyCFunction_FastCall(__pyx_t_9, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_6);
     } else
     #endif
     {
-      __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_11 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_11);
       if (__pyx_t_8) {
         __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_11, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -4960,14 +4884,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
       __Pyx_INCREF(__pyx_v_p1);
       __Pyx_GIVEREF(__pyx_v_p1);
       PyTuple_SET_ITEM(__pyx_t_11, 1+__pyx_t_10, __pyx_v_p1);
-      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_11, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_6 = __Pyx_PyObject_Call(__pyx_t_9, __pyx_t_11, NULL); if (unlikely(!__pyx_t_6)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_6);
       __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     }
     __Pyx_DECREF(__pyx_t_9); __pyx_t_9 = 0;
-    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_np); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __Pyx_GetModuleGlobalName(__pyx_t_11, __pyx_n_s_np); if (unlikely(!__pyx_t_11)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_11);
-    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_subtract); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 186, __pyx_L1_error)
+    __pyx_t_8 = __Pyx_PyObject_GetAttrStr(__pyx_t_11, __pyx_n_s_subtract); if (unlikely(!__pyx_t_8)) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_8);
     __Pyx_DECREF(__pyx_t_11); __pyx_t_11 = 0;
     __pyx_t_11 = NULL;
@@ -4985,7 +4909,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_8)) {
       PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_v_p3, __pyx_v_p1};
-      __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_GOTREF(__pyx_t_9);
     } else
@@ -4993,13 +4917,13 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_8)) {
       PyObject *__pyx_temp[3] = {__pyx_t_11, __pyx_v_p3, __pyx_v_p1};
-      __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyCFunction_FastCall(__pyx_t_8, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_11); __pyx_t_11 = 0;
       __Pyx_GOTREF(__pyx_t_9);
     } else
     #endif
     {
-      __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       if (__pyx_t_11) {
         __Pyx_GIVEREF(__pyx_t_11); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_11); __pyx_t_11 = NULL;
@@ -5010,7 +4934,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
       __Pyx_INCREF(__pyx_v_p1);
       __Pyx_GIVEREF(__pyx_v_p1);
       PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_10, __pyx_v_p1);
-      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_12, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_9 = __Pyx_PyObject_Call(__pyx_t_8, __pyx_t_12, NULL); if (unlikely(!__pyx_t_9)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_9);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     }
@@ -5030,7 +4954,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     #if CYTHON_FAST_PYCALL
     if (PyFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_6, __pyx_t_9};
-      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5040,7 +4964,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     #if CYTHON_FAST_PYCCALL
     if (__Pyx_PyFastCFunction_Check(__pyx_t_7)) {
       PyObject *__pyx_temp[3] = {__pyx_t_8, __pyx_t_6, __pyx_t_9};
-      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyCFunction_FastCall(__pyx_t_7, __pyx_temp+1-__pyx_t_10, 2+__pyx_t_10); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_XDECREF(__pyx_t_8); __pyx_t_8 = 0;
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_6); __pyx_t_6 = 0;
@@ -5048,7 +4972,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
     } else
     #endif
     {
-      __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_12 = PyTuple_New(2+__pyx_t_10); if (unlikely(!__pyx_t_12)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_12);
       if (__pyx_t_8) {
         __Pyx_GIVEREF(__pyx_t_8); PyTuple_SET_ITEM(__pyx_t_12, 0, __pyx_t_8); __pyx_t_8 = NULL;
@@ -5059,25 +4983,25 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
       PyTuple_SET_ITEM(__pyx_t_12, 1+__pyx_t_10, __pyx_t_9);
       __pyx_t_6 = 0;
       __pyx_t_9 = 0;
-      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 186, __pyx_L1_error)
+      __pyx_t_3 = __Pyx_PyObject_Call(__pyx_t_7, __pyx_t_12, NULL); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 181, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_3);
       __Pyx_DECREF(__pyx_t_12); __pyx_t_12 = 0;
     }
     __Pyx_DECREF(__pyx_t_7); __pyx_t_7 = 0;
-    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 186, __pyx_L1_error)
+    if (!(likely(((__pyx_t_3) == Py_None) || likely(__Pyx_TypeTest(__pyx_t_3, __pyx_ptype_5numpy_ndarray))))) __PYX_ERR(0, 181, __pyx_L1_error)
     __Pyx_XDECREF_SET(__pyx_v_N, ((PyArrayObject *)__pyx_t_3));
     __pyx_t_3 = 0;
 
-    /* "MyDelaunay.pyx":187
+    /* "MyDelaunay.pyx":182
  *             p3=points[face[2]]
  *             N = np.cross(np.subtract(p2,p1),np.subtract(p3,p1))
  *             normals.append(N)             # <<<<<<<<<<<<<<
  *         return normals
  *     cpdef plotSelf(self):
  */
-    __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_normals, ((PyObject *)__pyx_v_N)); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 187, __pyx_L1_error)
+    __pyx_t_13 = __Pyx_PyList_Append(__pyx_v_normals, ((PyObject *)__pyx_v_N)); if (unlikely(__pyx_t_13 == ((int)-1))) __PYX_ERR(0, 182, __pyx_L1_error)
 
-    /* "MyDelaunay.pyx":182
+    /* "MyDelaunay.pyx":177
  *         cdef np.ndarray N
  *         normals=[]
  *         for face in faces:             # <<<<<<<<<<<<<<
@@ -5087,7 +5011,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
   }
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":188
+  /* "MyDelaunay.pyx":183
  *             N = np.cross(np.subtract(p2,p1),np.subtract(p3,p1))
  *             normals.append(N)
  *         return normals             # <<<<<<<<<<<<<<
@@ -5099,7 +5023,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
   __pyx_r = __pyx_v_normals;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":174
+  /* "MyDelaunay.pyx":169
  *         self.transformed=self.transformToIndexes()  #transform values of points ,to indexes of them in main point set
  *         return self.transformed,self.tetraPoints
  *     cdef list computeNormals(self,list faces,list points):             # <<<<<<<<<<<<<<
@@ -5130,7 +5054,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_computeNormals(CYTHON_UNUSED str
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":189
+/* "MyDelaunay.pyx":184
  *             normals.append(N)
  *         return normals
  *     cpdef plotSelf(self):             # <<<<<<<<<<<<<<
@@ -5142,7 +5066,6 @@ static PyObject *__pyx_pw_10MyDelaunay_8Delaunay_5plotSelf(PyObject *__pyx_v_sel
 static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDelaunay_Delaunay *__pyx_v_self, int __pyx_skip_dispatch) {
   CYTHON_UNUSED PyObject *__pyx_v_fullPoints = 0;
   PyObject *__pyx_v_total = 0;
-  PyObject *__pyx_v_normals = 0;
   PyObject *__pyx_v_xyz = NULL;
   PyObject *__pyx_v_faces = NULL;
   PyObject *__pyx_v_colors = NULL;
@@ -5162,7 +5085,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDe
     if (unlikely(!__Pyx_object_dict_version_matches(((PyObject *)__pyx_v_self), __pyx_tp_dict_version, __pyx_obj_dict_version))) {
       PY_UINT64_T __pyx_type_dict_guard = __Pyx_get_tp_dict_version(((PyObject *)__pyx_v_self));
       #endif
-      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_plotSelf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+      __pyx_t_1 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_v_self), __pyx_n_s_plotSelf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
       __Pyx_GOTREF(__pyx_t_1);
       if (!PyCFunction_Check(__pyx_t_1) || (PyCFunction_GET_FUNCTION(__pyx_t_1) != (PyCFunction)(void*)__pyx_pw_10MyDelaunay_8Delaunay_5plotSelf)) {
         __Pyx_XDECREF(__pyx_r);
@@ -5179,7 +5102,7 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDe
         }
         __pyx_t_2 = (__pyx_t_4) ? __Pyx_PyObject_CallOneArg(__pyx_t_3, __pyx_t_4) : __Pyx_PyObject_CallNoArg(__pyx_t_3);
         __Pyx_XDECREF(__pyx_t_4); __pyx_t_4 = 0;
-        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 189, __pyx_L1_error)
+        if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 184, __pyx_L1_error)
         __Pyx_GOTREF(__pyx_t_2);
         __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
         __pyx_r = __pyx_t_2;
@@ -5200,31 +5123,31 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDe
     #endif
   }
 
-  /* "MyDelaunay.pyx":194
+  /* "MyDelaunay.pyx":189
  *         cdef list normals
  * 
  *         fullPoints=[]             # <<<<<<<<<<<<<<
  *         total=self.computerVertexCoordsFacesColors()
  *         xyz=total[0]
  */
-  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 194, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_fullPoints = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":195
+  /* "MyDelaunay.pyx":190
  * 
  *         fullPoints=[]
  *         total=self.computerVertexCoordsFacesColors()             # <<<<<<<<<<<<<<
  *         xyz=total[0]
  *         faces=total[1]
  */
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->computerVertexCoordsFacesColors(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
+  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->computerVertexCoordsFacesColors(__pyx_v_self); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 190, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_total = ((PyObject*)__pyx_t_1);
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":196
+  /* "MyDelaunay.pyx":191
  *         fullPoints=[]
  *         total=self.computerVertexCoordsFacesColors()
  *         xyz=total[0]             # <<<<<<<<<<<<<<
@@ -5233,68 +5156,54 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDe
  */
   if (unlikely(__pyx_v_total == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 196, __pyx_L1_error)
+    __PYX_ERR(0, 191, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_total, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 196, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_total, 0, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 191, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_xyz = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":197
+  /* "MyDelaunay.pyx":192
  *         total=self.computerVertexCoordsFacesColors()
  *         xyz=total[0]
  *         faces=total[1]             # <<<<<<<<<<<<<<
  *         colors=total[2]
- *         normals=self.computeNormals(faces,xyz)
+ *         #normals=self.computeNormals(faces,xyz)
  */
   if (unlikely(__pyx_v_total == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 197, __pyx_L1_error)
+    __PYX_ERR(0, 192, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_total, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 197, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_total, 1, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 192, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_faces = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":198
+  /* "MyDelaunay.pyx":193
  *         xyz=total[0]
  *         faces=total[1]
  *         colors=total[2]             # <<<<<<<<<<<<<<
- *         normals=self.computeNormals(faces,xyz)
- *         return [xyz,faces,normals,colors]
+ *         #normals=self.computeNormals(faces,xyz)
+ *         return [xyz,faces,colors]
  */
   if (unlikely(__pyx_v_total == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
-    __PYX_ERR(0, 198, __pyx_L1_error)
+    __PYX_ERR(0, 193, __pyx_L1_error)
   }
-  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_total, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 198, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_GetItemInt_List(__pyx_v_total, 2, long, 1, __Pyx_PyInt_From_long, 1, 0, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 193, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_v_colors = __pyx_t_1;
   __pyx_t_1 = 0;
 
-  /* "MyDelaunay.pyx":199
- *         faces=total[1]
+  /* "MyDelaunay.pyx":195
  *         colors=total[2]
- *         normals=self.computeNormals(faces,xyz)             # <<<<<<<<<<<<<<
- *         return [xyz,faces,normals,colors]
- * 
- */
-  if (!(likely(PyList_CheckExact(__pyx_v_faces))||((__pyx_v_faces) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_faces)->tp_name), 0))) __PYX_ERR(0, 199, __pyx_L1_error)
-  if (!(likely(PyList_CheckExact(__pyx_v_xyz))||((__pyx_v_xyz) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_xyz)->tp_name), 0))) __PYX_ERR(0, 199, __pyx_L1_error)
-  __pyx_t_1 = ((struct __pyx_vtabstruct_10MyDelaunay_Delaunay *)__pyx_v_self->__pyx_vtab)->computeNormals(__pyx_v_self, ((PyObject*)__pyx_v_faces), ((PyObject*)__pyx_v_xyz)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 199, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __pyx_v_normals = ((PyObject*)__pyx_t_1);
-  __pyx_t_1 = 0;
-
-  /* "MyDelaunay.pyx":200
- *         colors=total[2]
- *         normals=self.computeNormals(faces,xyz)
- *         return [xyz,faces,normals,colors]             # <<<<<<<<<<<<<<
+ *         #normals=self.computeNormals(faces,xyz)
+ *         return [xyz,faces,colors]             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = PyList_New(4); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 200, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(3); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 195, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_v_xyz);
   __Pyx_GIVEREF(__pyx_v_xyz);
@@ -5302,17 +5211,14 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDe
   __Pyx_INCREF(__pyx_v_faces);
   __Pyx_GIVEREF(__pyx_v_faces);
   PyList_SET_ITEM(__pyx_t_1, 1, __pyx_v_faces);
-  __Pyx_INCREF(__pyx_v_normals);
-  __Pyx_GIVEREF(__pyx_v_normals);
-  PyList_SET_ITEM(__pyx_t_1, 2, __pyx_v_normals);
   __Pyx_INCREF(__pyx_v_colors);
   __Pyx_GIVEREF(__pyx_v_colors);
-  PyList_SET_ITEM(__pyx_t_1, 3, __pyx_v_colors);
+  PyList_SET_ITEM(__pyx_t_1, 2, __pyx_v_colors);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "MyDelaunay.pyx":189
+  /* "MyDelaunay.pyx":184
  *             normals.append(N)
  *         return normals
  *     cpdef plotSelf(self):             # <<<<<<<<<<<<<<
@@ -5331,7 +5237,6 @@ static PyObject *__pyx_f_10MyDelaunay_8Delaunay_plotSelf(struct __pyx_obj_10MyDe
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_fullPoints);
   __Pyx_XDECREF(__pyx_v_total);
-  __Pyx_XDECREF(__pyx_v_normals);
   __Pyx_XDECREF(__pyx_v_xyz);
   __Pyx_XDECREF(__pyx_v_faces);
   __Pyx_XDECREF(__pyx_v_colors);
@@ -5359,7 +5264,7 @@ static PyObject *__pyx_pf_10MyDelaunay_8Delaunay_4plotSelf(struct __pyx_obj_10My
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("plotSelf", 0);
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_f_10MyDelaunay_8Delaunay_plotSelf(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 189, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_10MyDelaunay_8Delaunay_plotSelf(__pyx_v_self, 1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 184, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
@@ -5376,7 +5281,7 @@ static PyObject *__pyx_pf_10MyDelaunay_8Delaunay_4plotSelf(struct __pyx_obj_10My
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":20
+/* "MyDelaunay.pyx":12
  *     #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
  *     cdef public:
  *         cdef list pointSet             # <<<<<<<<<<<<<<
@@ -5431,7 +5336,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_8pointSet_2__set__(struct __pyx_obj_1
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 20, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 12, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -5481,7 +5386,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_8pointSet_4__del__(struct __pyx_obj_1
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":21
+/* "MyDelaunay.pyx":13
  *     cdef public:
  *         cdef list pointSet
  *         cdef list vertices             # <<<<<<<<<<<<<<
@@ -5536,7 +5441,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_8vertices_2__set__(struct __pyx_obj_1
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 13, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -5586,7 +5491,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_8vertices_4__del__(struct __pyx_obj_1
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":22
+/* "MyDelaunay.pyx":14
  *         cdef list pointSet
  *         cdef list vertices
  *         cdef list trianglePoints             # <<<<<<<<<<<<<<
@@ -5641,7 +5546,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_14trianglePoints_2__set__(struct __py
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 22, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 14, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -5691,7 +5596,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_14trianglePoints_4__del__(struct __py
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":23
+/* "MyDelaunay.pyx":15
  *         cdef list vertices
  *         cdef list trianglePoints
  *         cdef list tetraPoints             # <<<<<<<<<<<<<<
@@ -5746,7 +5651,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_11tetraPoints_2__set__(struct __pyx_o
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 23, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 15, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -5796,7 +5701,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_11tetraPoints_4__del__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":24
+/* "MyDelaunay.pyx":16
  *         cdef list trianglePoints
  *         cdef list tetraPoints
  *         cdef list transformed             # <<<<<<<<<<<<<<
@@ -5851,7 +5756,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_11transformed_2__set__(struct __pyx_o
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 24, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_v_value))||((__pyx_v_value) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_v_value)->tp_name), 0))) __PYX_ERR(0, 16, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -5901,7 +5806,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_11transformed_4__del__(struct __pyx_o
   return __pyx_r;
 }
 
-/* "MyDelaunay.pyx":25
+/* "MyDelaunay.pyx":17
  *         cdef list tetraPoints
  *         cdef list transformed
  *         cdef Tetra.Tetrahedron superTetra             # <<<<<<<<<<<<<<
@@ -5956,7 +5861,7 @@ static int __pyx_pf_10MyDelaunay_8Delaunay_10superTetra_2__set__(struct __pyx_ob
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__set__", 0);
-  if (!(likely(((__pyx_v_value) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_value, __pyx_ptype_5Tetra_Tetrahedron))))) __PYX_ERR(0, 25, __pyx_L1_error)
+  if (!(likely(((__pyx_v_value) == Py_None) || likely(__Pyx_TypeTest(__pyx_v_value, __pyx_ptype_5Tetra_Tetrahedron))))) __PYX_ERR(0, 17, __pyx_L1_error)
   __pyx_t_1 = __pyx_v_value;
   __Pyx_INCREF(__pyx_t_1);
   __Pyx_GIVEREF(__pyx_t_1);
@@ -9512,8 +9417,6 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_, __pyx_k_, sizeof(__pyx_k_), 0, 0, 1, 0},
-  {&__pyx_n_s_Axes3D, __pyx_k_Axes3D, sizeof(__pyx_k_Axes3D), 0, 0, 1, 1},
-  {&__pyx_n_s_CreateNewTetra, __pyx_k_CreateNewTetra, sizeof(__pyx_k_CreateNewTetra), 0, 0, 1, 1},
   {&__pyx_n_s_Delaunay, __pyx_k_Delaunay, sizeof(__pyx_k_Delaunay), 0, 0, 1, 1},
   {&__pyx_kp_u_Format_string_allocated_too_shor, __pyx_k_Format_string_allocated_too_shor, sizeof(__pyx_k_Format_string_allocated_too_shor), 0, 1, 0, 0},
   {&__pyx_kp_u_Format_string_allocated_too_shor_2, __pyx_k_Format_string_allocated_too_shor_2, sizeof(__pyx_k_Format_string_allocated_too_shor_2), 0, 1, 0, 0},
@@ -9521,24 +9424,19 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_Incompatible_checksums_s_vs_0xc9, __pyx_k_Incompatible_checksums_s_vs_0xc9, sizeof(__pyx_k_Incompatible_checksums_s_vs_0xc9), 0, 0, 1, 0},
   {&__pyx_n_s_MyDelaunay, __pyx_k_MyDelaunay, sizeof(__pyx_k_MyDelaunay), 0, 0, 1, 1},
   {&__pyx_kp_u_Non_native_byte_order_not_suppor, __pyx_k_Non_native_byte_order_not_suppor, sizeof(__pyx_k_Non_native_byte_order_not_suppor), 0, 1, 0, 0},
+  {&__pyx_n_s_O, __pyx_k_O, sizeof(__pyx_k_O), 0, 0, 1, 1},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_Point, __pyx_k_Point, sizeof(__pyx_k_Point), 0, 0, 1, 1},
   {&__pyx_n_s_Point3D, __pyx_k_Point3D, sizeof(__pyx_k_Point3D), 0, 0, 1, 1},
-  {&__pyx_n_s_PointInAllTetra, __pyx_k_PointInAllTetra, sizeof(__pyx_k_PointInAllTetra), 0, 0, 1, 1},
-  {&__pyx_n_s_Poly3DCollection, __pyx_k_Poly3DCollection, sizeof(__pyx_k_Poly3DCollection), 0, 0, 1, 1},
   {&__pyx_kp_s_Procent_ukonczenia, __pyx_k_Procent_ukonczenia, sizeof(__pyx_k_Procent_ukonczenia), 0, 0, 1, 0},
+  {&__pyx_n_s_R, __pyx_k_R, sizeof(__pyx_k_R), 0, 0, 1, 1},
   {&__pyx_n_s_RuntimeError, __pyx_k_RuntimeError, sizeof(__pyx_k_RuntimeError), 0, 0, 1, 1},
   {&__pyx_n_s_ValueError, __pyx_k_ValueError, sizeof(__pyx_k_ValueError), 0, 0, 1, 1},
-  {&__pyx_n_s__10, __pyx_k__10, sizeof(__pyx_k__10), 0, 0, 1, 1},
-  {&__pyx_n_s_axes3d, __pyx_k_axes3d, sizeof(__pyx_k_axes3d), 0, 0, 1, 1},
-  {&__pyx_n_s_checkPoint, __pyx_k_checkPoint, sizeof(__pyx_k_checkPoint), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
-  {&__pyx_n_s_collections, __pyx_k_collections, sizeof(__pyx_k_collections), 0, 0, 1, 1},
   {&__pyx_n_s_computeVertices, __pyx_k_computeVertices, sizeof(__pyx_k_computeVertices), 0, 0, 1, 1},
   {&__pyx_n_s_cross, __pyx_k_cross, sizeof(__pyx_k_cross), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
   {&__pyx_n_s_end, __pyx_k_end, sizeof(__pyx_k_end), 0, 0, 1, 1},
-  {&__pyx_n_s_enumerate, __pyx_k_enumerate, sizeof(__pyx_k_enumerate), 0, 0, 1, 1},
   {&__pyx_n_s_file, __pyx_k_file, sizeof(__pyx_k_file), 0, 0, 1, 1},
   {&__pyx_kp_s_first_time_percentage, __pyx_k_first_time_percentage, sizeof(__pyx_k_first_time_percentage), 0, 0, 1, 0},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
@@ -9546,9 +9444,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_intersect1d, __pyx_k_intersect1d, sizeof(__pyx_k_intersect1d), 0, 0, 1, 1},
   {&__pyx_n_s_intersection, __pyx_k_intersection, sizeof(__pyx_k_intersection), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
-  {&__pyx_n_s_matplotlib_pyplot, __pyx_k_matplotlib_pyplot, sizeof(__pyx_k_matplotlib_pyplot), 0, 0, 1, 1},
-  {&__pyx_n_s_mpl_toolkits_mplot3d, __pyx_k_mpl_toolkits_mplot3d, sizeof(__pyx_k_mpl_toolkits_mplot3d), 0, 0, 1, 1},
-  {&__pyx_n_s_mpl_toolkits_mplot3d_art3d, __pyx_k_mpl_toolkits_mplot3d_art3d, sizeof(__pyx_k_mpl_toolkits_mplot3d_art3d), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_kp_u_ndarray_is_not_C_contiguous, __pyx_k_ndarray_is_not_C_contiguous, sizeof(__pyx_k_ndarray_is_not_C_contiguous), 0, 1, 0, 0},
   {&__pyx_kp_u_ndarray_is_not_Fortran_contiguou, __pyx_k_ndarray_is_not_Fortran_contiguou, sizeof(__pyx_k_ndarray_is_not_Fortran_contiguou), 0, 1, 0, 0},
@@ -9559,7 +9454,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_numpy_core_umath_failed_to_impor, __pyx_k_numpy_core_umath_failed_to_impor, sizeof(__pyx_k_numpy_core_umath_failed_to_impor), 0, 0, 1, 0},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
   {&__pyx_n_s_plotSelf, __pyx_k_plotSelf, sizeof(__pyx_k_plotSelf), 0, 0, 1, 1},
-  {&__pyx_n_s_plt, __pyx_k_plt, sizeof(__pyx_k_plt), 0, 0, 1, 1},
   {&__pyx_n_s_pointSet, __pyx_k_pointSet, sizeof(__pyx_k_pointSet), 0, 0, 1, 1},
   {&__pyx_n_s_print, __pyx_k_print, sizeof(__pyx_k_print), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
@@ -9582,7 +9476,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_kp_s_stringsource, __pyx_k_stringsource, sizeof(__pyx_k_stringsource), 0, 0, 1, 0},
   {&__pyx_n_s_subtract, __pyx_k_subtract, sizeof(__pyx_k_subtract), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
-  {&__pyx_n_s_tetraLoop, __pyx_k_tetraLoop, sizeof(__pyx_k_tetraLoop), 0, 0, 1, 1},
   {&__pyx_n_s_time, __pyx_k_time, sizeof(__pyx_k_time), 0, 0, 1, 1},
   {&__pyx_kp_s_totaj_time, __pyx_k_totaj_time, sizeof(__pyx_k_totaj_time), 0, 0, 1, 0},
   {&__pyx_kp_u_unknown_dtype_code_in_numpy_pxd, __pyx_k_unknown_dtype_code_in_numpy_pxd, sizeof(__pyx_k_unknown_dtype_code_in_numpy_pxd), 0, 1, 0, 0},
@@ -9591,8 +9484,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 47, __pyx_L1_error)
-  __pyx_builtin_enumerate = __Pyx_GetBuiltinName(__pyx_n_s_enumerate); if (!__pyx_builtin_enumerate) __PYX_ERR(0, 134, __pyx_L1_error)
+  __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(0, 39, __pyx_L1_error)
   __pyx_builtin_ValueError = __Pyx_GetBuiltinName(__pyx_n_s_ValueError); if (!__pyx_builtin_ValueError) __PYX_ERR(2, 272, __pyx_L1_error)
   __pyx_builtin_RuntimeError = __Pyx_GetBuiltinName(__pyx_n_s_RuntimeError); if (!__pyx_builtin_RuntimeError) __PYX_ERR(2, 856, __pyx_L1_error)
   __pyx_builtin_ImportError = __Pyx_GetBuiltinName(__pyx_n_s_ImportError); if (!__pyx_builtin_ImportError) __PYX_ERR(2, 1038, __pyx_L1_error)
@@ -9605,14 +9497,14 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "MyDelaunay.pyx":163
+  /* "MyDelaunay.pyx":158
  *             for p in vertexComb: #adding faces of tetrahedra
  *                 faces.append(p)
  *             myFaceColor=(random.randint(0,255),random.randint(0,255),random.randint(0,255))             # <<<<<<<<<<<<<<
  *             colors.append(myFaceColor)#same color for each face of tetra
  *             colors.append(myFaceColor)
  */
-  __pyx_tuple__2 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_255); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 163, __pyx_L1_error)
+  __pyx_tuple__2 = PyTuple_Pack(2, __pyx_int_0, __pyx_int_255); if (unlikely(!__pyx_tuple__2)) __PYX_ERR(0, 158, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__2);
   __Pyx_GIVEREF(__pyx_tuple__2);
 
@@ -9698,10 +9590,10 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_tuple__11 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__11)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_tuple__11);
-  __Pyx_GIVEREF(__pyx_tuple__11);
-  __pyx_codeobj__12 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__11, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Delaunay, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__12)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_tuple__10 = PyTuple_Pack(5, __pyx_n_s_pyx_type, __pyx_n_s_pyx_checksum, __pyx_n_s_pyx_state, __pyx_n_s_pyx_PickleError, __pyx_n_s_pyx_result); if (unlikely(!__pyx_tuple__10)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__10);
+  __Pyx_GIVEREF(__pyx_tuple__10);
+  __pyx_codeobj__11 = (PyObject*)__Pyx_PyCode_New(3, 0, 5, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__10, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_stringsource, __pyx_n_s_pyx_unpickle_Delaunay, 1, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__11)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -9758,26 +9650,27 @@ static int __Pyx_modinit_type_init_code(void) {
   /*--- Type init code ---*/
   __pyx_vtabptr_10MyDelaunay_Delaunay = &__pyx_vtable_10MyDelaunay_Delaunay;
   __pyx_vtable_10MyDelaunay_Delaunay.removeSharedFace = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *, PyObject *, PyObject *))__pyx_f_10MyDelaunay_8Delaunay_removeSharedFace;
-  __pyx_vtable_10MyDelaunay_Delaunay.removeTouchingTetra = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, PyObject *, __pyx_ctuple_double__and_double__and_double))__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra;
+  __pyx_vtable_10MyDelaunay_Delaunay.removeTouchingTetra = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, PyObject *, __pyx_ctuple_double__and_double__and_double__and_long))__pyx_f_10MyDelaunay_8Delaunay_removeTouchingTetra;
   __pyx_vtable_10MyDelaunay_Delaunay.createSuperTetra = (struct __pyx_obj_5Tetra_Tetrahedron *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, double))__pyx_f_10MyDelaunay_8Delaunay_createSuperTetra;
   __pyx_vtable_10MyDelaunay_Delaunay.liesOnSuper = (int (*)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *))__pyx_f_10MyDelaunay_8Delaunay_liesOnSuper;
   __pyx_vtable_10MyDelaunay_Delaunay.computeTrianglePoints = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *))__pyx_f_10MyDelaunay_8Delaunay_computeTrianglePoints;
+  __pyx_vtable_10MyDelaunay_Delaunay.calcDistance = (double (*)(struct __pyx_obj_10MyDelaunay_Delaunay *, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double__and_long))__pyx_f_10MyDelaunay_8Delaunay_calcDistance;
   __pyx_vtable_10MyDelaunay_Delaunay.compareTetraFaces = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *, PyObject *))__pyx_f_10MyDelaunay_8Delaunay_compareTetraFaces;
   __pyx_vtable_10MyDelaunay_Delaunay.transformToIndexes = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *))__pyx_f_10MyDelaunay_8Delaunay_transformToIndexes;
   __pyx_vtable_10MyDelaunay_Delaunay.computerVertexCoordsFacesColors = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *))__pyx_f_10MyDelaunay_8Delaunay_computerVertexCoordsFacesColors;
   __pyx_vtable_10MyDelaunay_Delaunay.computeVertices = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, int __pyx_skip_dispatch))__pyx_f_10MyDelaunay_8Delaunay_computeVertices;
   __pyx_vtable_10MyDelaunay_Delaunay.computeNormals = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, PyObject *, PyObject *))__pyx_f_10MyDelaunay_8Delaunay_computeNormals;
   __pyx_vtable_10MyDelaunay_Delaunay.plotSelf = (PyObject *(*)(struct __pyx_obj_10MyDelaunay_Delaunay *, int __pyx_skip_dispatch))__pyx_f_10MyDelaunay_8Delaunay_plotSelf;
-  if (PyType_Ready(&__pyx_type_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   #if PY_VERSION_HEX < 0x030800B1
   __pyx_type_10MyDelaunay_Delaunay.tp_print = 0;
   #endif
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_10MyDelaunay_Delaunay.tp_dictoffset && __pyx_type_10MyDelaunay_Delaunay.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_10MyDelaunay_Delaunay.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_10MyDelaunay_Delaunay.tp_dict, __pyx_vtabptr_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Delaunay, (PyObject *)&__pyx_type_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 17, __pyx_L1_error)
+  if (__Pyx_SetVtable(__pyx_type_10MyDelaunay_Delaunay.tp_dict, __pyx_vtabptr_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_Delaunay, (PyObject *)&__pyx_type_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_10MyDelaunay_Delaunay) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
   __pyx_ptype_10MyDelaunay_Delaunay = &__pyx_type_10MyDelaunay_Delaunay;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -10046,8 +9939,8 @@ if (!__Pyx_RefNanny) {
   /* "MyDelaunay.pyx":2
  * cimport numpy as np
  * import numpy as np             # <<<<<<<<<<<<<<
- * 
- * import matplotlib.pyplot as plt
+ * from libc.math cimport sqrt,pow
+ * from Point3D import Point
  */
   __pyx_t_1 = __Pyx_Import(__pyx_n_s_numpy, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 2, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
@@ -10056,189 +9949,68 @@ if (!__Pyx_RefNanny) {
 
   /* "MyDelaunay.pyx":4
  * import numpy as np
- * 
- * import matplotlib.pyplot as plt             # <<<<<<<<<<<<<<
- * from libc.math cimport sqrt
- * 
+ * from libc.math cimport sqrt,pow
+ * from Point3D import Point             # <<<<<<<<<<<<<<
+ * cimport Tetra
+ * import random
  */
   __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s__10);
-  __Pyx_GIVEREF(__pyx_n_s__10);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s__10);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_matplotlib_pyplot, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_INCREF(__pyx_n_s_Point);
+  __Pyx_GIVEREF(__pyx_n_s_Point);
+  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Point);
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_Point3D, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 4, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_plt, __pyx_t_2) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Point); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Point, __pyx_t_1) < 0) __PYX_ERR(0, 4, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "MyDelaunay.pyx":6
+ * from Point3D import Point
+ * cimport Tetra
+ * import random             # <<<<<<<<<<<<<<
+ * import time
+ * 
+ */
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_random, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 6, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_random, __pyx_t_2) < 0) __PYX_ERR(0, 6, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "MyDelaunay.pyx":7
- * from libc.math cimport sqrt
- * 
- * from Point3D import Point             # <<<<<<<<<<<<<<
  * cimport Tetra
- * from mpl_toolkits.mplot3d.art3d import Poly3DCollection
- */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_Point);
-  __Pyx_GIVEREF(__pyx_n_s_Point);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_Point);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_Point3D, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Point); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Point, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "MyDelaunay.pyx":9
- * from Point3D import Point
- * cimport Tetra
- * from mpl_toolkits.mplot3d.art3d import Poly3DCollection             # <<<<<<<<<<<<<<
- * from mpl_toolkits.mplot3d import axes3d, Axes3D
  * import random
- */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_Poly3DCollection);
-  __Pyx_GIVEREF(__pyx_n_s_Poly3DCollection);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_Poly3DCollection);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_mpl_toolkits_mplot3d_art3d, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Poly3DCollection); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Poly3DCollection, __pyx_t_1) < 0) __PYX_ERR(0, 9, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "MyDelaunay.pyx":10
- * cimport Tetra
- * from mpl_toolkits.mplot3d.art3d import Poly3DCollection
- * from mpl_toolkits.mplot3d import axes3d, Axes3D             # <<<<<<<<<<<<<<
- * import random
- * import collections
- */
-  __pyx_t_2 = PyList_New(2); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_axes3d);
-  __Pyx_GIVEREF(__pyx_n_s_axes3d);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_axes3d);
-  __Pyx_INCREF(__pyx_n_s_Axes3D);
-  __Pyx_GIVEREF(__pyx_n_s_Axes3D);
-  PyList_SET_ITEM(__pyx_t_2, 1, __pyx_n_s_Axes3D);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_mpl_toolkits_mplot3d, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_axes3d); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_axes3d, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_Axes3D); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Axes3D, __pyx_t_2) < 0) __PYX_ERR(0, 10, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "MyDelaunay.pyx":11
- * from mpl_toolkits.mplot3d.art3d import Poly3DCollection
- * from mpl_toolkits.mplot3d import axes3d, Axes3D
- * import random             # <<<<<<<<<<<<<<
- * import collections
- * import time
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_random, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_random, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "MyDelaunay.pyx":12
- * from mpl_toolkits.mplot3d import axes3d, Axes3D
- * import random
- * import collections             # <<<<<<<<<<<<<<
- * import time
- * from PointInAllTetra import checkPoint
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_collections, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_collections, __pyx_t_1) < 0) __PYX_ERR(0, 12, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "MyDelaunay.pyx":13
- * import random
- * import collections
  * import time             # <<<<<<<<<<<<<<
- * from PointInAllTetra import checkPoint
- * from CreateNewTetra import tetraLoop
- */
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_time, 0, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_1) < 0) __PYX_ERR(0, 13, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-
-  /* "MyDelaunay.pyx":14
- * import collections
- * import time
- * from PointInAllTetra import checkPoint             # <<<<<<<<<<<<<<
- * from CreateNewTetra import tetraLoop
- * 
- */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  __Pyx_INCREF(__pyx_n_s_checkPoint);
-  __Pyx_GIVEREF(__pyx_n_s_checkPoint);
-  PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_checkPoint);
-  __pyx_t_2 = __Pyx_Import(__pyx_n_s_PointInAllTetra, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_checkPoint); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_checkPoint, __pyx_t_1) < 0) __PYX_ERR(0, 14, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "MyDelaunay.pyx":15
- * import time
- * from PointInAllTetra import checkPoint
- * from CreateNewTetra import tetraLoop             # <<<<<<<<<<<<<<
  * 
  * cdef class Delaunay():
  */
-  __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_Import(__pyx_n_s_time, 0, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  __Pyx_INCREF(__pyx_n_s_tetraLoop);
-  __Pyx_GIVEREF(__pyx_n_s_tetraLoop);
-  PyList_SET_ITEM(__pyx_t_2, 0, __pyx_n_s_tetraLoop);
-  __pyx_t_1 = __Pyx_Import(__pyx_n_s_CreateNewTetra, __pyx_t_2, -1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_time, __pyx_t_2) < 0) __PYX_ERR(0, 7, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_2 = __Pyx_ImportFrom(__pyx_t_1, __pyx_n_s_tetraLoop); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_tetraLoop, __pyx_t_2) < 0) __PYX_ERR(0, 15, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "(tree fragment)":1
  * def __pyx_unpickle_Delaunay(__pyx_type, long __pyx_checksum, __pyx_state):             # <<<<<<<<<<<<<<
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_10MyDelaunay_1__pyx_unpickle_Delaunay, NULL, __pyx_n_s_MyDelaunay); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Delaunay, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_10MyDelaunay_1__pyx_unpickle_Delaunay, NULL, __pyx_n_s_MyDelaunay); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_Delaunay, __pyx_t_2) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "MyDelaunay.pyx":1
  * cimport numpy as np             # <<<<<<<<<<<<<<
  * import numpy as np
- * 
+ * from libc.math cimport sqrt,pow
  */
-  __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_1) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_2 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_test, __pyx_t_2) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
   /* "../../../../../AppData/Local/Programs/Python/Python37/lib/site-packages/Cython/Includes/numpy/__init__.pxd":1046
  *         raise ImportError("numpy.core.umath failed to import")
@@ -11127,55 +10899,6 @@ static CYTHON_UNUSED PyObject* __Pyx_PyObject_Call2Args(PyObject* function, PyOb
     Py_DECREF(function);
 done:
     return result;
-}
-
-/* SetItemInt */
-static int __Pyx_SetItemInt_Generic(PyObject *o, PyObject *j, PyObject *v) {
-    int r;
-    if (!j) return -1;
-    r = PyObject_SetItem(o, j, v);
-    Py_DECREF(j);
-    return r;
-}
-static CYTHON_INLINE int __Pyx_SetItemInt_Fast(PyObject *o, Py_ssize_t i, PyObject *v, int is_list,
-                                               CYTHON_NCP_UNUSED int wraparound, CYTHON_NCP_UNUSED int boundscheck) {
-#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS && CYTHON_USE_TYPE_SLOTS
-    if (is_list || PyList_CheckExact(o)) {
-        Py_ssize_t n = (!wraparound) ? i : ((likely(i >= 0)) ? i : i + PyList_GET_SIZE(o));
-        if ((!boundscheck) || likely(__Pyx_is_valid_index(n, PyList_GET_SIZE(o)))) {
-            PyObject* old = PyList_GET_ITEM(o, n);
-            Py_INCREF(v);
-            PyList_SET_ITEM(o, n, v);
-            Py_DECREF(old);
-            return 1;
-        }
-    } else {
-        PySequenceMethods *m = Py_TYPE(o)->tp_as_sequence;
-        if (likely(m && m->sq_ass_item)) {
-            if (wraparound && unlikely(i < 0) && likely(m->sq_length)) {
-                Py_ssize_t l = m->sq_length(o);
-                if (likely(l >= 0)) {
-                    i += l;
-                } else {
-                    if (!PyErr_ExceptionMatches(PyExc_OverflowError))
-                        return -1;
-                    PyErr_Clear();
-                }
-            }
-            return m->sq_ass_item(o, i, v);
-        }
-    }
-#else
-#if CYTHON_COMPILING_IN_PYPY
-    if (is_list || (PySequence_Check(o) && !PyDict_Check(o)))
-#else
-    if (is_list || PySequence_Check(o))
-#endif
-    {
-        return PySequence_SetItem(o, i, v);
-    }
-#endif
-    return __Pyx_SetItemInt_Generic(o, PyInt_FromSsize_t(i), v);
 }
 
 /* PyErrExceptionMatches */
@@ -12163,9 +11886,9 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_int(int value) {
 }
 
 /* ToPyCTupleUtility */
-static PyObject* __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double(__pyx_ctuple_double__and_double__and_double value) {
+static PyObject* __pyx_convert__to_py___pyx_ctuple_double__and_double__and_double__and_long(__pyx_ctuple_double__and_double__and_double__and_long value) {
     PyObject* item = NULL;
-    PyObject* result = PyTuple_New(3);
+    PyObject* result = PyTuple_New(4);
     if (!result) goto bad;
         item = PyFloat_FromDouble(value.f0);
         if (!item) goto bad;
@@ -12176,6 +11899,9 @@ static PyObject* __pyx_convert__to_py___pyx_ctuple_double__and_double__and_doubl
         item = PyFloat_FromDouble(value.f2);
         if (!item) goto bad;
         PyTuple_SET_ITEM(result, 2, item);
+        item = __Pyx_PyInt_From_long(value.f3);
+        if (!item) goto bad;
+        PyTuple_SET_ITEM(result, 3, item);
     return result;
 bad:
     Py_XDECREF(item);
@@ -12318,6 +12044,48 @@ static __pyx_ctuple_double__and_double__and_double __pyx_convert__from_py___pyx_
         result.f2 = __pyx_PyFloat_AsDouble(item);
         Py_DECREF(item);
         if ((result.f2 == (double)-1) && PyErr_Occurred()) goto bad;
+    }
+#endif
+    return result;
+bad:
+    return result;
+}
+
+/* FromPyCTupleUtility */
+static __pyx_ctuple_double__and_double__and_double__and_long __pyx_convert__from_py___pyx_ctuple_double__and_double__and_double__and_long(PyObject * o) {
+    __pyx_ctuple_double__and_double__and_double__and_long result;
+    if (!PyTuple_Check(o) || PyTuple_GET_SIZE(o) != 4) {
+        PyErr_Format(PyExc_TypeError, "Expected %.16s of size %d, got %.200s", "a tuple", 4, Py_TYPE(o)->tp_name);
+        goto bad;
+    }
+#if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        result.f0 = __pyx_PyFloat_AsDouble(PyTuple_GET_ITEM(o, 0));
+        if ((result.f0 == (double)-1) && PyErr_Occurred()) goto bad;
+        result.f1 = __pyx_PyFloat_AsDouble(PyTuple_GET_ITEM(o, 1));
+        if ((result.f1 == (double)-1) && PyErr_Occurred()) goto bad;
+        result.f2 = __pyx_PyFloat_AsDouble(PyTuple_GET_ITEM(o, 2));
+        if ((result.f2 == (double)-1) && PyErr_Occurred()) goto bad;
+        result.f3 = __Pyx_PyInt_As_long(PyTuple_GET_ITEM(o, 3));
+        if ((result.f3 == (long)-1) && PyErr_Occurred()) goto bad;
+#else
+    {
+        PyObject *item;
+        item = PySequence_ITEM(o, 0);  if (unlikely(!item)) goto bad;
+        result.f0 = __pyx_PyFloat_AsDouble(item);
+        Py_DECREF(item);
+        if ((result.f0 == (double)-1) && PyErr_Occurred()) goto bad;
+        item = PySequence_ITEM(o, 1);  if (unlikely(!item)) goto bad;
+        result.f1 = __pyx_PyFloat_AsDouble(item);
+        Py_DECREF(item);
+        if ((result.f1 == (double)-1) && PyErr_Occurred()) goto bad;
+        item = PySequence_ITEM(o, 2);  if (unlikely(!item)) goto bad;
+        result.f2 = __pyx_PyFloat_AsDouble(item);
+        Py_DECREF(item);
+        if ((result.f2 == (double)-1) && PyErr_Occurred()) goto bad;
+        item = PySequence_ITEM(o, 3);  if (unlikely(!item)) goto bad;
+        result.f3 = __Pyx_PyInt_As_long(item);
+        Py_DECREF(item);
+        if ((result.f3 == (long)-1) && PyErr_Occurred()) goto bad;
     }
 #endif
     return result;

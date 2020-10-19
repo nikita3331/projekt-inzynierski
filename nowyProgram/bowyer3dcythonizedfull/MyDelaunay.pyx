@@ -1,18 +1,10 @@
 cimport numpy as np
 import numpy as np
-
-import matplotlib.pyplot as plt
-from libc.math cimport sqrt
-
+from libc.math cimport sqrt,pow
 from Point3D import Point
 cimport Tetra
-from mpl_toolkits.mplot3d.art3d import Poly3DCollection
-from mpl_toolkits.mplot3d import axes3d, Axes3D
 import random
-import collections
 import time
-from PointInAllTetra import checkPoint
-from CreateNewTetra import tetraLoop
 
 cdef class Delaunay():
     #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
@@ -35,7 +27,7 @@ cdef class Delaunay():
             if len(sharedFace)==3:
                 allFaces.remove(sharedFace)
         return allFaces
-    cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double )point):
+    cdef list removeTouchingTetra(self,Tetra.Tetrahedron tetrahe,list badTetra,list triangulation,(double,double,double,long int )point):
         cdef list myVert
         cdef list allfaces
         cdef list sharedWithOtherFaces
@@ -53,14 +45,14 @@ cdef class Delaunay():
         triangulation.remove(tetrahe)
         return triangulation
     cdef Tetra.Tetrahedron createSuperTetra(self,double length):
-        cdef (double,double,double) A
-        cdef (double,double,double) B
-        cdef (double,double,double) C
-        cdef (double,double,double) D
-        A=(-3*length,0,-100*2*length)
-        B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length)
-        C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length)
-        D=(0,0,100*2*length)
+        cdef (double,double,double,long int) A
+        cdef (double,double,double,long int) B
+        cdef (double,double,double,long int) C
+        cdef (double,double,double,long int) D
+        A=(-3*length,0,-100*2*length,0)
+        B=(3*length/sqrt(2),3*length/sqrt(2),-100*2*length,1)
+        C=(3*length/sqrt(2),-3*length/sqrt(2),-100*2*length,2)
+        D=(0,0,100*2*length,3)
         return Tetra.Tetrahedron(A,B,C,D)
     cdef bint liesOnSuper(self,list vert):
         return len(np.intersect1d(vert, self.superTetra.vertecies))>2
@@ -76,11 +68,10 @@ cdef class Delaunay():
         cdef double totTime
         
         cdef long int idx 
-        cdef (double,double,double) point
         cdef list badTetra
         cdef Tetra.Tetrahedron tetrahe
         cdef long int tetraheIdx
-
+        cdef long int iterator
         triangulation=[] #all triangles go here
         triangulation.append(self.superTetra)
         totalStartTime=time.time()
@@ -90,7 +81,11 @@ cdef class Delaunay():
             if idx%100==0:
                 print('Procent ukonczenia ',idx*100/len(self.pointSet),'%')
             firstT=time.time()
-            badTetra=checkPoint(self.pointSet[idx],triangulation)
+            badTetra=[]
+            
+            for iterator in range(0,len(triangulation)):
+                if self.calcDistance(triangulation[iterator].O,self.pointSet[idx])<triangulation[iterator].R:
+                    badTetra.append(triangulation[iterator])
             firstET=time.time()
             firstTime+=(firstET-firstT)
             firstT=time.time()
@@ -112,6 +107,11 @@ cdef class Delaunay():
 
         
         return filteredTriangulation
+    cdef  double calcDistance(self,( double, double, double) A,( double, double, double,long int) B):
+        cdef double calculated
+        cdef double suma
+        suma=sqrt( pow(A[0]-B[0],2)+pow(A[1]-B[1],2)+pow(A[2]-B[2],2) ) 
+        return suma
     cdef set compareTetraFaces(self,list vertA,list vertB):
         cdef set face
         face=set(vertB).intersection(set(vertA)) #how many verticies are the same
@@ -129,12 +129,7 @@ cdef class Delaunay():
         cdef (double,double,double) tup
         verticiesIndex=[]
         for tetra in self.tetraPoints:
-            tetraTuple=[ tetra.A,tetra.B,tetra.C,tetra.D]
-            newRow=[0,0,0,0]
-            for idx,xyz in enumerate(self.pointSet):
-                for indx,tup in enumerate(tetraTuple):
-                    if  tup==xyz:
-                        newRow[indx]=idx
+            newRow=[ tetra.A[3],tetra.B[3],tetra.C[3],tetra.D[3]]
             verticiesIndex.append(newRow)
         return verticiesIndex
 
@@ -147,7 +142,7 @@ cdef class Delaunay():
         
         cdef long int index
         cdef (long int,long int,long int) p
-        cdef (double,double,double) myPt
+        cdef (double,double,double,long int) myPt
         cdef (int,int,int) myFaceColor
 
         xyz=[]
@@ -196,8 +191,8 @@ cdef class Delaunay():
         xyz=total[0]
         faces=total[1]
         colors=total[2]
-        normals=self.computeNormals(faces,xyz)  
-        return [xyz,faces,normals,colors]
+        #normals=self.computeNormals(faces,xyz)  
+        return [xyz,faces,colors]
         
 
 

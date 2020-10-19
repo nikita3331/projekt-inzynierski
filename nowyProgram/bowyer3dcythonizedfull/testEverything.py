@@ -16,7 +16,7 @@ import open3d as o3d
 def generatePoints(leng):
     xsyszs=[]
     for itera in range(0,leng):
-        point=(random()*1000,random()*1000,random()*1000)
+        point=(random()*1000,random()*1000,random()*1000,itera) #x,y,z+index
         xsyszs.append(point)
     return xsyszs
 def count(pts):
@@ -25,13 +25,13 @@ def count(pts):
     comp=Delaunay(pts)
     transformed,normalPoints=comp.computeVertices()
     output=comp.plotSelf() #for showing tetra
-    # tri_mesh = trimesh.Trimesh(vertices=output[0],faces=output[1],vertex_normals=output[2],vertex_colors=output[3]) 
+    # tri_mesh = trimesh.Trimesh(vertices=output[0],faces=output[1],vertex_colors=output[2]) 
     # tri_mesh.export('test.ply')
     # pcd_load = o3d.io.read_triangle_mesh("test.ply")
     # o3d.visualization.draw_geometries([pcd_load],window_name='delaunay')
 
 
 if __name__ == '__main__':
-    pts=generatePoints(1000)
+    pts=generatePoints(18000)
     print('sredni czas nowego',timeit.timeit("count(pts)", setup="from __main__ import count,pts",number=1)*1000/1,'ms')
     # count(100)
