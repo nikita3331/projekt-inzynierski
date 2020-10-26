@@ -24,6 +24,6 @@ def count(pts):
     #comp.plotSelf() #for showing tetra
 
 if __name__ == '__main__':
-    pts=generatePoints(2000)
+    pts=generatePoints(10000)
     print('sredni czas nowego',timeit.timeit("count(pts)", setup="from __main__ import count,pts",number=1)*1000/1,'ms')
     # count(100)

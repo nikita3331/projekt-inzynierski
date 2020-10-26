@@ -56,6 +56,42 @@ cdef class Tetrahedron():
         z0=determinants[2]/(2*a)
         output=[x0,y0,z0]
         return output
+    cdef list calcCenterOld(self):
+        cdef numpy.ndarray u1 
+        cdef numpy.ndarray u2
+        cdef numpy.ndarray u3
+        cdef numpy.ndarray first
+        cdef numpy.ndarray second
+        cdef numpy.ndarray third
+        cdef numpy.ndarray top
+        cdef double bottom 
+        cdef numpy.ndarray divided
+        cdef numpy.ndarray sumed
+
+        
+        
+        cdef  double e
+        cdef  double f
+        cdef  double g
+
+        e=self.dist((self.D[0],self.D[1],self.D[2]),self.A)
+        f=self.dist((self.D[0],self.D[1],self.D[2]),self.B)
+        g=self.dist((self.D[0],self.D[1],self.D[2]),self.C)
+
+        u2=numpy.array(self.A)-numpy.array(self.D)
+        u3=numpy.array(self.C)-numpy.array(self.D)
+        u1=numpy.array(self.B)-numpy.array(self.D)
+        first= (f**2)*numpy.cross(u2[0:3],u3[0:3])
+        second= (e**2)*numpy.cross(u3[0:3],u1[0:3])
+        third= (g**2)*numpy.cross(u1[0:3],u2[0:3])
+
+        top=first+second+third
+        bottom=  numpy.dot(2*u1[0:3],numpy.cross(u2[0:3],u3[0:3]))
+        divided=top/bottom
+        sumed=numpy.array([self.D[0],self.D[1],self.D[2]])+divided
+
+        output=[sumed[0],sumed[1],sumed[2]]
+        return output
     cdef  double calcDet(self,list indexes, double firstSquare, double  secondSquare, double  thirdSquare, double  forthSquare):
         cdef numpy.ndarray mat
         mat= numpy.array([

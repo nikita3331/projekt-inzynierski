@@ -1162,7 +1162,9 @@ struct __pyx_ctuple_int__and_int__and_int {
   int f2;
 };
 
-/* "Tetra.pxd":1
+/* "Tetra.pxd":3
+ * cimport numpy
+ * 
  * cdef class Tetrahedron:             # <<<<<<<<<<<<<<
  *     cdef public:
  *         cdef (double,double,double,long int) A #vert
@@ -1200,7 +1202,9 @@ struct __pyx_obj_10MyDelaunay_Delaunay {
 
 
 
-/* "Tetra.pxd":1
+/* "Tetra.pxd":3
+ * cimport numpy
+ * 
  * cdef class Tetrahedron:             # <<<<<<<<<<<<<<
  *     cdef public:
  *         cdef (double,double,double,long int) A #vert
@@ -1209,6 +1213,7 @@ struct __pyx_obj_10MyDelaunay_Delaunay {
 struct __pyx_vtabstruct_5Tetra_Tetrahedron {
   PyObject *(*calculateSphereCenter)(struct __pyx_obj_5Tetra_Tetrahedron *);
   PyObject *(*calcCenter)(struct __pyx_obj_5Tetra_Tetrahedron *);
+  PyObject *(*calcCenterOld)(struct __pyx_obj_5Tetra_Tetrahedron *);
   double (*calcDet)(struct __pyx_obj_5Tetra_Tetrahedron *, PyObject *, double, double, double, double);
   int (*pointInSphere)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double__and_long);
   double (*dist)(struct __pyx_obj_5Tetra_Tetrahedron *, __pyx_ctuple_double__and_double__and_double, __pyx_ctuple_double__and_double__and_double__and_long);
@@ -9708,11 +9713,11 @@ static int __Pyx_modinit_type_import_code(void) {
   __pyx_ptype_5numpy_ufunc = __Pyx_ImportType(__pyx_t_1, "numpy", "ufunc", sizeof(PyUFuncObject), __Pyx_ImportType_CheckSize_Warn);
    if (!__pyx_ptype_5numpy_ufunc) __PYX_ERR(2, 918, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("Tetra"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("Tetra"); if (unlikely(!__pyx_t_1)) __PYX_ERR(4, 3, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_5Tetra_Tetrahedron = __Pyx_ImportType(__pyx_t_1, "Tetra", "Tetrahedron", sizeof(struct __pyx_obj_5Tetra_Tetrahedron), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_5Tetra_Tetrahedron) __PYX_ERR(4, 1, __pyx_L1_error)
-  __pyx_vtabptr_5Tetra_Tetrahedron = (struct __pyx_vtabstruct_5Tetra_Tetrahedron*)__Pyx_GetVtable(__pyx_ptype_5Tetra_Tetrahedron->tp_dict); if (unlikely(!__pyx_vtabptr_5Tetra_Tetrahedron)) __PYX_ERR(4, 1, __pyx_L1_error)
+   if (!__pyx_ptype_5Tetra_Tetrahedron) __PYX_ERR(4, 3, __pyx_L1_error)
+  __pyx_vtabptr_5Tetra_Tetrahedron = (struct __pyx_vtabstruct_5Tetra_Tetrahedron*)__Pyx_GetVtable(__pyx_ptype_5Tetra_Tetrahedron->tp_dict); if (unlikely(!__pyx_vtabptr_5Tetra_Tetrahedron)) __PYX_ERR(4, 3, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;

@@ -1,3 +1,5 @@
+cimport numpy
+
 cdef class Tetrahedron:
     cdef public:
         cdef (double,double,double,long int) A #vert
@@ -9,6 +11,7 @@ cdef class Tetrahedron:
         cdef list vertecies
         cdef list calculateSphereCenter(Tetrahedron)
         cdef list calcCenter(Tetrahedron)
+        cdef list calcCenterOld(Tetrahedron)
         cdef  double calcDet(Tetrahedron,list, double, double, double, double)
         cdef bint pointInSphere(Tetrahedron,(double,double,double,long int))
         cdef double dist(Tetrahedron,( double, double, double),( double, double, double,long int))
