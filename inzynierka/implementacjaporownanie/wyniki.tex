@@ -97,7 +97,7 @@ Wykorzystując program do obróbki modeli Blender, można dodatkowo wygładzić 
 \begin{figure}[H]
 \centering
     \begin{minipage}[b]{0.45\linewidth}
-        \includegraphics[scale=0.2]{delaBlendBoxgladkie.PNG}
+        \includegraphics[scale=0.12]{delaBlendBoxgladkie.PNG}
     \end{minipage}
 \quad
     \begin{minipage}[b]{0.45\linewidth}
@@ -106,14 +106,16 @@ Wykorzystując program do obróbki modeli Blender, można dodatkowo wygładzić 
 \caption{Mesh Delaunay dla pudełka przed i po wygładzaniu w programie Blender.}
 \label{fig:blenderDela}
 \end{figure}
-Na powyższym rysunku przedstawiono modele przekształcone za pomocą programu Blender. Zastosowano funckje ... do .... 
+Na powyższym rysunku przedstawiono modele przekształcone za pomocą programu Blender. Zastosowano funkcję flat do wyrównania poziomu cieni wokół wystających krawędzi, dzięki czemu stają się one mniej widoczne. Po lewej stronie wprowadzono funkcję, zakrywającą tylne krawędzie. Wykorzystując te metodę można uzyskać gładkie boki sześcianu, co wpływa pozytywnie na wygląd modelu. Część krawędzi przekształcono za pomocą edycji wierzchołków. Jest to funkcja pozwalająca na wygładzanie wystających wierzchołków trójkątów triangulacyjnych. Możliwe jest też podnoszenie tych, które leżą zbyt nisko, dzięki czemu ściany mają naturalny kształt. 
 \begin{figure}[H]
   \centering
   \includegraphics[scale=0.2]{delaBlendBoxXray.png}
   \caption{Ukryte ściany pudełka widoczne w programie Blender.}   
   \label{fig:pytcytpic}
 \end{figure}
-Zastosowano xray. ...
+Na rysunku powyżej zastosowano funkcję Xray. Pozwala ona na wyświetlenie dolnych warstw obiektu. Wykorzystując to przekształcenie, można zauważyć, że triangulacja Delaunay'a działa poprawnie. Ściany które dotychczas były ukryte, ukazują faktyczną teksturę obiektu która pokrywa się z tą wygenerowaną przez chmurę punktów.
+
+Ostatecznie wybrano triangulację Delaunay'a do przeprowadzania generacji meshu. Pomimo wad takich jak przykrywanie wierzchnich warstw powierzchni przez trójkąty daje ona dobre rezultaty. Ściany modelu nie zawierają dziur. Poprzez wykorzystanie tego algorytmu generowane zostają też ściany, które w przypadku BPA nie mogły zostać utworzone. Taka sytuacja jest dla dolnej oraz górnej ściany prostopadłościanu oraz jabłka. Delaunay generując trójkąty łączy również przeciwległe ściany zakrywając tym samym obszary nieobjęte przez chmurę punktów. Poprzez zastosowanie danej metody uzyskuje się zawsze taki sam rezultat. Wygląd modelu nie zależy od nastaw parametru, tak jak miało to miejsce w przypadku BPA. Usprawnia to proces konwersji fizycznych obiektów do postaci 3D,a dzięki programowi Blender można dodatkowo usunąć niepotrzebne trójkąty zakrywające pozostałe ściany.
 
 
 
