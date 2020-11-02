@@ -1,5 +1,5 @@
 \section{Model i konstrukcja skanera 3D}
-W celu wykonania dokładnych modeli trójwymiarowych został utworzony skaner 3D na podstawie autorskiego projektu. W skład zestawu wchodzi kamera Intel RealSense D435i oraz platforma ruchoma. Wybór sensora od firmy Intel nie był przypadkowy. Posiada on szereg wbudowanych funkcji, takich jak łatwa możliwość kalibracji oraz nastaw odpowiednich parametrów wykrywania głębi. Podczas budowy skanera dokonano porównania możliwości dwóch kamer trójwymiarowych: Intel RealSense D435i oraz Orbbec Astra Mini MX6000. Porównanie charakterystyk tych produktów znajduje się w tabeli ~\ref{tab:intelvsorbbec}.
+W celu wykonania dokładnych modeli trójwymiarowych został utworzony skaner 3D na podstawie autorskiego projektu. W skład zestawu wchodzi kamera Intel RealSense D435i oraz platforma obrotowa. Wybór sensora od firmy Intel nie był przypadkowy. Posiada on szereg wbudowanych funkcji, takich jak łatwa możliwość kalibracji oraz nastaw odpowiednich parametrów wykrywania głębi. Jego rozdzielczość oraz dostępna ilość klatek na sekundę sprawia, że akwizycja danych jest o wiele dokładniejsza. Podczas budowy skanera dokonano porównania możliwości dwóch kamer trójwymiarowych: Intel RealSense D435i oraz Orbbec Astra Mini MX6000. W tabeli ~\ref{tab:intelvsorbbec} dokonano przeglądu najważniejszych charakterystyk obu tych skanerów, zestawiono między innymi rozdzielczości głębi oraz kąt przechwytywania obrazu.
 
 \begin{table}[H]
 \begin{center}
@@ -29,7 +29,7 @@ W celu wykonania dokładnych modeli trójwymiarowych został utworzony skaner 3D
 
 \end{center}
 \end{table}
-Z powyższych charakterystyk wynika, że kamera firmy Intel jest dokładniejsza oraz lepiej spełni zadanie wiernego odwzorowania modelu 3D. Ponadto oprogramowanie dostarczane przez firmę Intel o nazwie RealSense Viewer pozwala na łatwą obsługę tego urządzenia. Jest tam możliwość podglądu obrazu z kamery zarówno w 2D jak i w 3D. Można ustawić poszególne parametry niezbedne do poprawnej rejestracji obrazu takie jak moc lasera, wartość graniczną wykrywanej głębi oraz ekspozycję. Wszystkie te aspekty znacząco usprawniają proces kalibracji,produktywność oraz wpływają na poprawę dokładności generowanych obrazów.
+Z powyższych charakterystyk wynika, że kamera firmy Intel jest dokładniejsza oraz lepiej spełni zadanie wiernego odwzorowania modelu 3D. Ponadto oprogramowanie dostarczane przez firmę Intel o nazwie RealSense Viewer pozwala na łatwą obsługę tego urządzenia. Umożliwia ono podgląd obrazu z kamery zarówno w 2D jak i w 3D. W programie dostępne są ustawienia, umożliwiające poprawną regulację parametrów rejestracji obrazu, takie jak moc lasera, wartość graniczną wykrywanej głębi oraz ekspozycję. Wszystkie te aspekty znacząco usprawniają proces kalibracji,produktywność oraz wpływają na poprawę dokładności generowanych obrazów.
 Konstrukcja zbudowanego skanera została zaprezentowana na rysunku ~\ref{fig:konstrukcjaModelu}. 
 \begin{figure}[H]
   \centering
@@ -38,7 +38,7 @@ Konstrukcja zbudowanego skanera została zaprezentowana na rysunku ~\ref{fig:kon
   \caption{Schemat budowy autorskiego skanera 3D.}   
   \label{fig:konstrukcjaModelu}
 \end{figure}
-Na powyższym rysunku dostrzec można dostrzec dwa kluczowe elementy wchodzące w skład skanera. Platforma ruchoma napędzana silnikiem elektrycznym zapewnia stałą prędkość kątową obrotu tacki. Dzięki temu wyznaczanie położenia obiektu w przestrzeni jest dokładne. Wykonane zostały testy platformy napędzanej silnikiem elektrycznym oraz tej poruszanej ręcznie. Z wytworzonych w ten sposób modeli wynika jasno, iż stała prędkość kątowa obiektu jest kluczowa do poprawnego przekształcenia modelu. Kolejnym elementem wykorzystanym przy budowie skanera jest kamera RGBD. Wykonuje ona zdjęcia RGB oraz głębi z określoną częstotliwością oraz zapisuje je do pliku, w celu późniejszej ich obróbki. Dokonane zostało porównanie wpływu FPS na wygląd ostatecznego modelu. Bezpośrednio wpływa to na rozdzielczość kątową wykonanych zdjęć, a co za tym idzie, zmniejszenie gęstości chmury punktów.\\
+Na powyższym rysunku można dostrzec dwa kluczowe elementy wchodzące w skład skanera. Platforma ruchoma napędzana silnikiem elektrycznym zapewnia stałą prędkość kątową obrotu tacki. Dzięki temu wyznaczanie położenia obiektu w przestrzeni jest dokładne. Wykonane zostały testy platformy napędzanej silnikiem elektrycznym oraz tej poruszanej ręcznie. Z wytworzonych w ten sposób modeli wynika jasno, iż stała prędkość kątowa obiektu jest kluczowa do poprawnego przekształcenia modelu. Kolejnym elementem wykorzystanym przy budowie skanera jest kamera RGBD. Wykonuje ona zdjęcia kolorowe oraz głębi z określoną częstotliwością oraz zapisuje je do pliku, w celu późniejszej ich obróbki. Dokonane zostało porównanie wpływu FPS na wygląd ostatecznego modelu. Bezpośrednio wpływa to na rozdzielczość kątową wykonanych zdjęć, a co za tym idzie, zmniejszenie gęstości chmury punktów.\\
 Skaner funkcjonuje w następujący sposób:
 \begin{enumerate}
     \item Mierzona jest dokładna odległość obiektywu kamery od środka tacki.
@@ -57,7 +57,7 @@ Wysokość obiektu jest mierzona na podstawie danych z kamery RGBD. Znając odle
     \end{aligned}
 \end{equation}
 
-Powyższy wzór został wyznaczony metodą empiryczną. W tym celu zmierzono wysokość obiektu na obrazie kamery oraz odległość od tego obiektu od obiektywu. Badanie powtórzono dwanaście razy w celu uzyskania dokładnej liniowej aproksymacji. Następnie wyznaczona została linia najlepszego dopasowania, wykorzystując również informację o tym, że powinna to być zależność odwrotnie proporcjonalna. Wykres przedstawiający zmierzone punkty oraz linię będącą wynikiem metody najmniejszych kwadratów ukazany na rysunku ~\ref{fig:wysokoscOdleglosc}.
+Powyższy wzór został wyznaczony metodą empiryczną. W tym celu zmierzono wysokość obiektu na obrazie kamery oraz odległość obiektu od obiektywu. Badanie powtórzono dwanaście razy w celu uzyskania dokładnej aproksymacji. Następnie wyznaczona została linia najlepszego dopasowania, wykorzystując również informację o tym, że powinna to być zależność odwrotnie proporcjonalna. Wykres przedstawiający zmierzone punkty oraz linię będącą wynikiem metody najmniejszych kwadratów ukazany na rysunku ~\ref{fig:wysokoscOdleglosc}.
 \begin{figure}[H]
   \centering
     \includesvg[scale=0.75]{wysokosc_odleglosc}

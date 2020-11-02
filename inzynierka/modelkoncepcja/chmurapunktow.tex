@@ -1,9 +1,7 @@
 \section{Przejście do chmury punktów}
-Przypomnieć zasade działania skanera i jak to wykorzystujemy. Tutaj pokazujemy na jakiej zasadzie następuje przejście z płaszczyzny 2D do 3D.Dać obrazek zastosowanej metody oraz równania.
-
-Metoda przejścia w chmurę punktów na podstawie danych z kamery RGBD składa się z kilku kroków. Poniżej zostały opisane procedury, które należy wykonać w celu otrzymania wyżej wymienionego rezultatu.
+Po rejestracji pełnego obrotu obiektu na platformie, uzyskany plik należy odpowiednio przetworzyć. Na podstawie danych w nim zapisanych należy przejść z płaszczyzny dwuwymiarowej do chmury punktów. Poniżej opisany został szereg czynności, które należy wykonać w celu otrzymania docelowego rezultatu. Przedstawiono procedury, prowadzące do poprawnej reprezentacji punktów w przestrzeni trójwymiarowej.
 \subsection{Wstępna obróbka danych.}
-Pierwszym krokiem użytej metody jest wstępna obróbka danych. Odczytywane są dane zapisane w pliku .bag z kamery RGBD. Następnie, wybierana jest kolumna obrazu która posłuży do ekstrakcji danych z kamery głębi. Filtracja w ten sposób danych ma na celu zwiększenie wydajności kodu. Dzieje się tak, ponieważ do późniejszych algorytmów będzie wykorzystywana tylko jedna kolumna z klatki obrazu,a nie cały obraz.
+Pierwszym krokiem użytej metody jest wstępna obróbka danych. Odczytywane są dane zapisane w pliku .bag z kamery RGBD. Następnie, wybierana jest kolumna obrazu która posłuży do ekstrakcji danych z kamery głębi. Filtracja w ten sposób danych ma na celu zwiększenie wydajności kodu. Dzieje się tak, ponieważ do późniejszych algorytmów będzie wykorzystywana tylko jedna kolumna z klatki obrazu, na podstawie której dokonana zostanie ekstrakcja informacji o głębi.
 
 \subsection{Przekształcenie danych z kamery RGBD do współrzędnych 3D.}
 Następnym etapem schematu jest przejście z dwuwymiarowego układu współrzędnych kamery do trójwymiarowego układu obiektu. W tym celu zostanie użyte poniższe przekształcenie, wynikiem którego będzie macierz czterowymiarowych punktów. W skład punktu wchodzą trzy współrzędne odpowiadające pozycji w przestrzeni oraz wartość RGB danego punktu symbolizująca jego kolor.
@@ -23,24 +21,26 @@ Następnym etapem schematu jest przejście z dwuwymiarowego układu współrzęd
 $\beta$ jest kątem obrotu tacki. R jest odległością obiektywu kamery od środka osi obrotu tacki. $D_{\beta}$ to macierz zmierzonych odległości punktów na płaszczyźnie obiektu od kamery dla danego kąta obrotu $\beta$. $X_{\beta}$,$Y_{\beta}$ są macierzami współrzędnych punktów na osi X,Y dla nago kąta $\beta$. $H_{max}$ to wysokość obiektu. Z to macierz współrzędnych punktów na osi Z. Wypełniona jest ona punktami z zakresu od 0 do $H_{max}$. $w_{\beta}^n$ to współrzędne n-tego punktu w płaszczyźnie XYZ dla danego kąta obrotu $\beta$.
 
 \subsection{Normalizacja otrzymanych punktów.}
-Kamera RGBD jest zaawansowanym technicznie urządzeniem. Pomimo kalibracji kamery, w przechwyconych obrazach mogą występować niedoskonałości. Przejawiają się one w złych pozycjach punktów względem pozostałych wartości. Jest to spowodowane błędnymi odczytami głębi poprzez sensor kamery i jest nieuniknione. Można jedynie sprawić, by ten błąd był jak najmniejszy. Normalizacja takich punktów sprowadza się do zbadania, czy owy punkt leży w odległości od środka podobnej do jego sąsiadów. W tym celu została wyznaczona średnia odległość punktów od osi przechodzącej przez środek obrotu tacki, która ma współrzędne (0,0,H). Warto zauważyć, że wartość współrzędnej Z nie pływa na wyznaczanie odległości, ponieważ utworzona ona została na podstawie równomiernego rozkładu wartości wysokości danego obiektu. Następnie, znając wartość średniej odległości punktów od środka układu współrzędnych, można empirycznie dobrać wartość graniczną odległości powyżej której punkty będą poddane interpolacji.
+Kamera RGBD jest zaawansowanym technicznie urządzeniem. Pomimo kalibracji kamery, w przechwyconych obrazach mogą występować niedoskonałości. Przejawiają się one w złych pozycjach punktów względem pozostałych sąsiadów. Jest to spowodowane przekłamanymi odczytami głębi przez sensor kamery i jest to nieuniknione. Wynika to z konstrukcji skanera oraz odbić światła lasera od powierzchni obiektu. W celu zmniejszenia wpływu błędnych pomiarów na ostateczny wygląd obiektu należy dokonać normalizacji punktów. Normalizacja sprowadza się do zbadania, czy owy punkt leży w odległości od środka podobnej do jego sąsiadów. W tym celu została wyznaczona średnia odległość punktów od osi przechodzącej przez środek obrotu tacki, która ma współrzędne (0,0,H). Warto zauważyć, że wartość współrzędnej Z nie pływa na wyznaczanie odległości, ponieważ utworzona ona została na podstawie równomiernego rozkładu wartości wysokości danego obiektu. Następnie, znając wartość średniej odległości punktów od środka układu współrzędnych, można empirycznie dobrać wartość graniczną odległości powyżej której punkty będą poddane interpolacji.
 
 \subsection{Interpolacja punktów}
 Interpolacja jest procesem aproksymacji współrzędnych punktów w miejscach, w których wystąpiły przekłamania. Jest wiele różnych metod interpolacji, które mają za zadanie jak najwierniej oddać wartość punktu w nieznanym miejscu. Głównymi metodami są metoda najbliższych sąsiadów oraz interpolacja wielomianowa.
 
-\paragraph{Metoda najbliższych sąsiadów.\newline}\\
+\subsubsection{Metoda najbliższych sąsiadów}
 Interpolacja korzystająca z metody najbliższych sąsiadów jest często stosowanym algorytmem do rekonstrukcji danych w nieznanym miejscu. Wykorzystywana jest na przykład przy powiększaniu zdjęć do uzyskania lepszej rozdzielczości \cite{han2013comparison}. Zasada działania tej metody została przedstawiona poniżej.
 \begin{enumerate}
-    \item Wybierany jest punkt P, którego wartość ma zostać uzyskana.
-    \item Mierzona jest odległość tego punktu od 4 punktów z nim sąsiadujących. Jeśli współrzędne punktu są dwuwymiarowe to odległość od sąsiada $D_{n}$ może zostać wyliczona za pomocą wzoru 
+    \item Wybierany jest punkt P, którego wartość ma zostać wyznaczona.
+    \item Punkty w chmurze nie są rozłożone równomiernie, dlatego też wyznaczenie sąsiadów sprowadza się do wyznaczenia odległości wszystkich pozostałych punktów od wybranego.
+    \item Dla każdego punktu w chmurze mierzona jest jego odległość od wybranego punktu. Współrzędne punktu są trójwymiarowe, więc odległość od sąsiada $D_{n}$ może zostać obliczona za pomocą wzoru:
     \begin{equation}
-             D_{n}=\sqrt{(x_{p}-x_{n})^2+(y_{p}-y_{n})^2}    \\
-\end{equation}
-$x_{p},y_{p}$ są współrzędnymi punktu, a $x_{n},y_{n}$ są współrzędnymi n-tego sąsiada.
-    \item Punktowi przypisywana jest wartość sąsiada, którego odległość od niego jest najmniejsza.
+             D_{n}=\sqrt{(x_{p}-x_{n})^2+(y_{p}-y_{n})^2+(z_{p}-z_{n})^2}    \\
+    \end{equation}
+    
+$x_{p},y_{p},z_{p}$ są współrzędnymi punktu, a $x_{n},y_{n},z_{n}$ są współrzędnymi n-tego sąsiada.
+    \item Ze zbioru wyznaczonych w ten sposób odległości wyznaczana jest najmniejsza. Punktowi zostaje przypisana wartość najbliższego do niego punktu.
 \end{enumerate}
-\paragraph{Interpolacja wielomianowa.\newline}\\
-Interpolacja wielomianowa jest szeroko stosowanym zagadnieniem w matematyce oraz fizyce. Jej szczególnymi odmianami są interpolacja liniowa oraz kwadratowa. Polega ona na dopasowaniu funkcji na przykład liniowej,kwadratowej lub dowolnego innego wielomianu do zbioru punktów. Znając funkcję przechodzącą przez wszystkie punkty ze zbioru, można określić jaka będzie jej wartość w punkcie którego wartość była dotychczas nieznana. Równania przedstawiające tę metodę zostały przedstawione poniżej.
+\subsubsection{Interpolacja wielomianowa}
+Interpolacja wielomianowa jest szeroko stosowanym zagadnieniem w matematyce oraz fizyce. Jej szczególnymi odmianami są interpolacja liniowa oraz kwadratowa. Polega ona na dopasowaniu funkcji na przykład liniowej,kwadratowej lub dowolnego innego stopnia wielomianu do zbioru punktów. Znając funkcję przechodzącą przez wszystkie punkty ze zbioru, można określić jaka będzie jej wartość w punkcie którego wartość była dotychczas nieznana. Równania przedstawiające tę metodę zostały przedstawione poniżej.
 \begin{equation}
     \begin{aligned}
             &X=\begin{bmatrix}

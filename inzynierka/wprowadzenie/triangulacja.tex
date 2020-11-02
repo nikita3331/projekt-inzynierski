@@ -37,7 +37,7 @@ W przeciwieństwie do skanera pierwszego typu, w tym układzie kamera oraz laser
   \label{fig:triangPic2}
 \end{figure}
 \newline
-Współrzędne zmierzonego obiektu w układzie kamery można opisać poniższymi równaniami.
+Współrzędne zmierzonego obiektu w układzie kamery można opisać poniższymi równaniami. Przedstawiają one sposób na przejście ze współrzędnych obiektu do współrzędnych kamery.
 
 \begin{equation}
     \begin{aligned}
@@ -71,10 +71,9 @@ X,Y są współrzędnymi obrazu kamery w pikselach. $X_{las},Z_{las}$ są wspó�
 
 }
 $\theta$ to kąt obrotu tacki. $X_{kam},Y_{kam},Z_{kam}$ są współrzędnymi układu kamery. $X_{pkt},Y_{pkt},Z_{pkt}$ to współrzędne w układzie chmury punktów.\\
-\indent Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę triangulacji laserowej. Poniżej zostaną omówione charakterystyki jednego z nich. Charakterystyki jakości pomiaru skanera Faro Focus zostały przedstawione w tabeli ~\ref{tab:faroCharTab}
+\indent Na rynku istnieje wiele skanerów trójwymiarowych wykorzystujących metodę triangulacji laserowej. Poniżej zostaną omówione charakterystyki jednego z nich. Charakterystyki jakości pomiaru skanera Faro Focus zostały przedstawione w tabeli ~\ref{tab:faroCharTab}.
 \begin{table}[H]
 \begin{center}
-
 \caption{\label{tab:faroCharTab}Charakterystyki skanera Faro Focus S350 \cite{farofocusDatasheet}.}
 \centerline{
 \begin{tabular}{ |c| c| }
@@ -87,14 +86,13 @@ $\theta$ to kąt obrotu tacki. $X_{kam},Y_{kam},Z_{kam}$ są współrzędnymi uk
   \hline
  {\small Dokładność kątowa} & {\small Do 19 sekund kątowych}  \\  
   \hline
-   {\small Dokładność pozycji 3D} & {\small 3.5 mm}  \\  
+  {\small Dokładność pozycji 3D} & {\small 3.5 mm}  \\  
   \hline
      {\small Długość fali lasera } & {\small 1550 nm}  \\  
   \hline
 
 \end{tabular}
 }
-
 \end{center}
 \end{table}
 Metoda triangulacji laserowej umożliwia mierzenie dużych obiektów z dalekiej odległości. Dlatego też znajduje ona zastosowanie na przykład w budownictwie. Dzięki niej inżynierzy pracujący przy konstrukcjach są w stanie skanować pełnowymiarowe budynki, a następnie dokonywać ich oględzin w postaci cyfrowej. Niestety jednak pomiar o wysokiej rozdzielczości zajmuje znacznie więcej czasu niż przy wykorzystaniu innych metod pomiarowych.Jest to spowodowane zależnością, iż czas pomiaru obiektu jest proporcjonalny do rozdzielczości kątowej skanera. To znaczy, że wraz ze wzrostem rozdzielczości kątowej rośnie również czas pomiaru. Zostało to zobrazowane na rysunku ~\ref{fig:lasertriangchart}.

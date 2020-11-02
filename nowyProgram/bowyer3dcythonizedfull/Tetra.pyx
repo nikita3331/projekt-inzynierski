@@ -40,6 +40,8 @@ cdef class Tetrahedron():
             [self.C[0],self.C[1],self.C[2],1],
             [self.D[0],self.D[1],self.D[2],1]])
         a=scipy.linalg.det(first)
+
+        
         firstSquare=self.A[0]**2+self.A[1]**2+self.A[2]**2
         secondSquare=self.B[0]**2+self.B[1]**2+self.B[2]**2
         thirdSquare=self.C[0]**2+self.C[1]**2+self.C[2]**2
@@ -99,7 +101,7 @@ cdef class Tetrahedron():
                 [secondSquare,self.B[indexes[0]],self.B[indexes[1]],1],
                 [thirdSquare,self.C[indexes[0]],self.C[indexes[1]],1],
                 [forthSquare,self.D[indexes[0]],self.D[indexes[1]],1]])
-        return scipy.linalg.det(mat)
+        return scipy.linalg.det(mat) 
     cdef bint pointInSphere(self,(double,double,double,long int) point):
         cdef double distance 
         distance=self.dist(self.O,point)
