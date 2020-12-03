@@ -3,19 +3,19 @@ Skanery oparte o metodę emitowania światła strukturalnego wyświetlają siatk
 
 \begin{figure}[H]
   \centering
-  \includegraphics[scale=0.75]{swiatlostrukturalne.PNG}
+  \includesvg[scale=0.45]{swiatlostrukturalne.svg} 
   \caption{Metoda wyznaczania współrzędnych w technice światła strukturalnego \cite{Wrona_Piotrowska_2015}.}   
   \label{fig:structureLightPic1}
 \end{figure}
 \newline
 Korzystając z podstawowych zależności trygonometrycznych możliwe jest wyprowadzenie równań pozwalających na wyznaczenie odległości poszczególnych punktów mierzonego obiektu od kamery.
-\begin{equation}
+\begin{equation} 
     \begin{aligned}
         & \frac{R}{sin(\alpha)}=\frac{B}{sin(180-\alpha-\theta)} \\
           & R=B\frac{sin(\theta)}{sin(\alpha+\theta)} \\
     \end{aligned}
 \end{equation}
-$\alpha$ to kąt pomiędzy wiązką światła emitowanego przez projektor, a odcinkiem łączącym projektor oraz kamerę. $\theta$ jest kątem pomiędzy wiązką światła docierającą do kamery, a odcinkiem łączącym projektor oraz kamerę. B to odległość pomiędzy kamerą, a projektorem. R jest odległością kamery od mierzonego przedmiotu.
+gdzie: $\alpha$ to kąt pomiędzy wiązką światła emitowanego przez projektor, a odcinkiem łączącym projektor oraz kamerę. Odcinek łączący projektor oraz kamerę tworzy z wiązką światła docierającą do kamery kąt $\theta$. Odległość pomiędzy kamerą, a projektorem jest równa B, zaś R jest odległością kamery od mierzonego przedmiotu.
 
 W tabeli ~\ref{tab:faroscanboxTab} zostały przedstawione charakterystyki urządzenia Faro Scan in a box.
 \begin{table}[H]
@@ -41,4 +41,4 @@ W tabeli ~\ref{tab:faroscanboxTab} zostały przedstawione charakterystyki urząd
 
 \end{center}
 \end{table}
-Ze względu na krótki zasięg pomiaru skanery korzystające z metody emitowania światła strukturalnego nadają się jedynie do pomiarów krótkodystansowych. Ten sposób pomiarowy jest wykorzystywany w urządzeniach takich jak Xbox Kinnect oraz kamerach RGBD firmy Intel. Gęstość siatki generowanej na obiekcie mierzonym jest bardzo duża, przez co dokładność odwzorowania takich modeli znacznie przewyższa inne metody pomiarów 3D. Ponadto przy wykonywaniu pomiaru, dokonywany jest skan całej powierzchni obiektu na którą trafiło emitowane światło. Wpływa to znacznie na prędkość pomiaru, ponieważ przy jednej obserwacji jest możliwe uchwycenie nawet połowy obiektu, o ile cały został umieszczony w kadrze kamery.
+Ze względu na krótki zasięg pomiaru skanery korzystające z metody emitowania światła strukturalnego nadają się jedynie do pomiarów przy bliskiej odległości. Ten sposób pomiarowy jest wykorzystywany w urządzeniach takich jak Xbox Kinnect oraz kamerach RGBD firmy Intel. Gęstość siatki generowanej na obiekcie mierzonym jest bardzo duża, przez co dokładność odwzorowania takich modeli znacznie przewyższa inne metody pomiarów 3D. Ponadto przy wykonywaniu pomiaru, dokonywany jest skan całej powierzchni obiektu na którą trafiło emitowane światło. Wpływa to znacznie na prędkość pomiaru, ponieważ przy jednej obserwacji jest możliwe uchwycenie nawet połowy obiektu, o ile cały został umieszczony w kadrze kamery.

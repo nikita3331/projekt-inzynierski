@@ -9,8 +9,9 @@
 \RequirePackage{indentfirst}
 
 \RequirePackage[utf8]{inputenc}
-\RequirePackage{polski}
 \RequirePackage[polish]{babel}
+
+\RequirePackage{polski}
 \RequirePackage{pdfpages}
 
 \RequirePackage[titletoc,title]{appendix}

@@ -1,10 +1,8 @@
-from Point3D import Point
 from MyDelaunay import Delaunay
 import numpy as np
 import matplotlib.pyplot as plt
 import math
 from random import random
-from Point3D import Point
 from timeit import default_timer as timer
 import multiprocess 
 import timeit
@@ -32,6 +30,6 @@ def count(pts):
 
 
 if __name__ == '__main__':
-    pts=generatePoints(15000)
+    pts=generatePoints(1000)
     print('sredni czas nowego',timeit.timeit("count(pts)", setup="from __main__ import count,pts",number=1)*1000/1,'ms')
     # count(100)
