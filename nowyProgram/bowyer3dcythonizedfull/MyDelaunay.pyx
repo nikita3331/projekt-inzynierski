@@ -5,6 +5,7 @@ from Point3D import Point
 cimport Tetra
 import random
 import time
+from contextlib import suppress
 
 cdef class Delaunay():
     #https://math.stackexchange.com/questions/2414640/circumsphere-of-a-tetrahedron
@@ -14,12 +15,18 @@ cdef class Delaunay():
         cdef list trianglePoints
         cdef list tetraPoints
         cdef list transformed
+        cdef set lastRemoved
+        cdef set lastLastRemoved
+        cdef set lastLastLastRemoved
+        cdef set lastLastLastLastRemoved
+        
         cdef Tetra.Tetrahedron superTetra
     def __init__(self,list pointSet):
         self.pointSet=pointSet
         self.vertices=[]
         self.trianglePoints=[]
-        self.superTetra=self.createSuperTetra(10000) #first create super tetra where are all points
+        self.superTetra=self.createSuperTetra(100) #first create super tetra where are all points
+
     cdef list removeSharedFace(self,list myVert,list otherVert,list allFaces):
         cdef set sharedFace
         if len(allFaces)>0:
@@ -33,15 +40,20 @@ cdef class Delaunay():
         cdef list sharedWithOtherFaces
         cdef int firstIterator
         cdef int notSharedIterator
+        cdef list allFacesHashes
         myVert=tetrahe.vertecies
+        # print('vertecies',myVert)
         allfaces= [{myVert[0],myVert[1],myVert[2]},{myVert[0],myVert[1],myVert[3]},{myVert[3],myVert[1],myVert[2]},{myVert[0],myVert[3],myVert[2]}]
         sharedWithOtherFaces=[]
         for firstIterator in range(0,len(badTetra)):
-            if len(allfaces)>0: 
-                allfaces=self.removeSharedFace(myVert,badTetra[firstIterator].vertecies,allfaces)               
+            if len(allfaces)>0 and badTetra[firstIterator]!=tetrahe: 
+                # print('tetra',badTetra[firstIterator].vertecies)
+                allfaces=self.removeSharedFace(myVert,badTetra[firstIterator].vertecies,allfaces)          
         for notSharedIterator in range(0,len(allfaces)):
             first, second,third = allfaces[notSharedIterator]
-            triangulation.append(Tetra.Tetrahedron(first,second,third,point))
+            testTetra=Tetra.Tetrahedron(first,second,third,point)
+
+            triangulation.append(testTetra)
         triangulation.remove(tetrahe)
         return triangulation
     cdef Tetra.Tetrahedron createSuperTetra(self,double length):
@@ -89,7 +101,7 @@ cdef class Delaunay():
             firstET=time.time()
             firstTime+=(firstET-firstT)
             firstT=time.time()
-            # badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
+            badTetra=sorted(badTetra,key=lambda x: sum(x.vertecies[0])+sum(x.vertecies[1])+sum(x.vertecies[2])+sum(x.vertecies[3]))
             for tetrahe in badTetra: #here we check if our tetrahedra touches with other ones
                 triangulation=self.removeTouchingTetra(tetrahe,badTetra,triangulation,self.pointSet[idx]) #prepared for multiprocess
             firstET=time.time()

@@ -1,7 +1,8 @@
 import numpy as numpy
 cimport numpy
 import scipy
-from libc.math cimport sqrt,pow
+print(scipy.__file__)
+from libc.math cimport sqrt,pow,abs
 cdef class Tetrahedron():
 
     def __cinit__(self,(double,double,double,long int) Agiven,(double,double,double,long int) Bgiven,(double,double,double,long int) Cgiven,(double,double,double,long int) Dgiven): 
@@ -41,7 +42,6 @@ cdef class Tetrahedron():
             [self.D[0],self.D[1],self.D[2],1]])
         a=scipy.linalg.det(first)
 
-        
         firstSquare=self.A[0]**2+self.A[1]**2+self.A[2]**2
         secondSquare=self.B[0]**2+self.B[1]**2+self.B[2]**2
         thirdSquare=self.C[0]**2+self.C[1]**2+self.C[2]**2

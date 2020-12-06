@@ -38,7 +38,7 @@
   <path id="svg_40" d="m551.45,425.2c26,-10.5 14,-44 13.55,-44.2c0.45,0.2 2.45,4.2 2,4" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="none"/>
   <path stroke="#000" id="svg_43" d="m320.7,177.16604c-20.79416,-22.20351 -60.53412,0.55509 -60.95,0.33305c0.41588,0.22204 8.27146,-3.66358 7.85557,-3.88561c0.41588,0.22204 12.89238,-3.66358 12.89238,-3.66358" opacity="0.5" fill-opacity="null" stroke-opacity="null" stroke-width="1.5" fill="none"/>
   <path stroke="#000" transform="rotate(-123 267.41619873046875,173.5789794921875) " id="svg_45" d="m264.54276,177.349l2.87343,-7.54001l2.87344,7.54001l-5.74688,0z" stroke-opacity="null" stroke-width="1.5" fill="#000000"/>
-  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_46" y="160.35398" x="286.07284" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">ß</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_46" y="160.35398" x="286.07284" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">\beta</text>
   <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_47" y="488.2" x="70.45" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">Y</text>
   <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_48" y="45.5" x="616.95" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">X</text>
   <ellipse ry="2.75" rx="3.5" id="svg_49" cy="497.55" cx="279.95" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#000000"/>
@@ -50,6 +50,6 @@
   <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" id="svg_55" y="259.44999" x="355.49999" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">doc</text>
   <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" id="svg_57" y="454.45003" x="475.50002" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">las</text>
   <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="13" id="svg_58" y="272.44998" x="227.49997" fill-opacity="null" stroke-opacity="null" stroke-width="0" stroke="#000" fill="#000000">las</text>
-  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_66" y="414.01277" x="573.18475" stroke-width="0" stroke="#000000" fill="#000">a</text>
+  <text xml:space="preserve" text-anchor="start" font-family="Helvetica, Arial, sans-serif" font-size="24" id="svg_66" y="414.01277" x="573.18475" stroke-width="0" stroke="#000000" fill="#000">\alpha</text>
  </g>
 </svg>
