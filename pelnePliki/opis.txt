@@ -1,0 +1,3 @@
+nagrania dostępne są pod następującymi adresami na aws s3:
+Jabłko : 
+Pudełko : 
