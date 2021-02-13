@@ -1,2 +1,5 @@
-# projekt-inzynierski
- praca dyplomowa
+# Projekt inżynierski
+Celem niniejszej pracy dyplomowej było stworzenie skanera 3D oraz systemu wizualizacji utworzonych modeli rzeczywistych obiektów. Do budowy urządzenia wykorzystano kamerę głębi firmy Intel o nazwie RealSense D435i. W pracy został przedstawiony sposób budowy skanera 3D, jego kalibracji oraz algorytmy służące do przetwarzania otrzymanych danych pomiarowych w celu uzyskania wirtualnych modeli. W celu łatwiejszej obsługi programu został utworzony interfejs graficzny zawierający najważniejsze parametry wizualizacji i obróbki danych. Na koniec dane są eksportowane do modeli w formacie obsługiwanym przez program Blender.
+# Engineer diploma
+The purpose of this thesis was to create a 3D scanner and visualization system for the created models of real objects. An Intel depth camera called RealSense D435i was used to build the device. The thesis presents how to build a 3D scanner, its calibration and algorithms used to process the obtained measurement data to obtain virtual models. In order to make the program easier to use, a graphical interface has been created containing the most important parameters for visualization and data processing. Finally, the data are exported to models in a format supported by the Blender program.
+
