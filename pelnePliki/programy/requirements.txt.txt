@@ -1,6 +1,6 @@
 PyQt5==5.14.1
 opencv-python==4.4.0.46
-numpy==1.19.2
+numpy==1.22.0
 scipy==1.5.3
 open3d==0.9.0.0
 trimesh==3.7.3
